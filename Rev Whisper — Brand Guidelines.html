@@ -334,6 +334,65 @@
     .bg-card { padding: 60px 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 260px; border-radius: var(--radius-md); border: 1px solid var(--light); }
     .bg-card-label { font-family: var(--body); font-size: 12px; font-weight: 300; margin-top: 24px; text-align: center; }
 
+    /* Voice & Tone */
+    .voice-spectrum { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .voice-card { padding: 48px 36px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .voice-card-label { font-family: var(--body); font-size: 12px; font-weight: 400; color: var(--dark); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+    .voice-card-value { font-family: var(--heading); font-size: 28px; font-weight: 400; color: var(--dark); margin-bottom: 12px; }
+    .voice-card-desc { font-family: var(--body); font-size: 14px; font-weight: 300; color: var(--dark); line-height: 1.7; }
+    .voice-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
+    .voice-example { padding: 48px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .voice-example-label { font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--dark); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .voice-example-text { font-family: var(--body); font-size: 16px; font-weight: 300; color: var(--dark); line-height: 1.8; }
+    .avoid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .avoid-card { padding: 36px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .avoid-card-title { font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--light); }
+    .avoid-word { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 2; text-decoration: line-through; opacity: 0.5; }
+
+    /* Photography */
+    .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
+    .photo-card { min-height: 320px; border-radius: var(--radius-md); overflow: hidden; position: relative; display: flex; align-items: flex-end; padding: 36px; }
+    .photo-card-label { font-family: var(--body); font-size: 13px; font-weight: 400; }
+    .photo-treatment { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 60px; }
+    .photo-treat-card { padding: 36px 24px; min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); text-align: center; }
+    .photo-treat-swatch { width: 80px; height: 80px; border-radius: var(--radius-md); margin-bottom: 16px; }
+    .photo-treat-label { font-family: var(--body); font-size: 13px; font-weight: 400; color: var(--dark); margin-bottom: 4px; }
+    .photo-treat-desc { font-family: var(--body); font-size: 12px; font-weight: 300; color: var(--dark); }
+
+    /* Iconography */
+    .icon-system-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; margin-top: 60px; }
+    .icon-system-card { padding: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .icon-system-card svg { width: 32px; height: 32px; }
+    .icon-system-label { font-family: var(--body); font-size: 11px; font-weight: 300; color: var(--dark); margin-top: 12px; text-align: center; }
+    .icon-spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+    .icon-spec-card { padding: 48px 36px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .icon-spec-value { font-family: var(--heading); font-size: 36px; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
+    .icon-spec-label { font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
+    .icon-spec-desc { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; }
+
+    /* Motion */
+    .motion-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px; }
+    .motion-card { padding: 48px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .motion-card-title { font-family: var(--heading); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 12px; }
+    .motion-card-desc { font-family: var(--body); font-size: 14px; font-weight: 300; color: var(--dark); line-height: 1.7; }
+    .motion-spec { font-family: var(--body); font-size: 13px; font-weight: 400; color: var(--green); margin-top: 16px; }
+    .motion-demo { margin-top: 60px; padding: 60px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); display: flex; gap: 40px; align-items: center; justify-content: center; }
+    .motion-dot { width: 48px; height: 48px; border-radius: 50%; background: var(--dark); }
+    .motion-bar { height: 8px; border-radius: 4px; background: var(--green); }
+    .motion-principle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .motion-principle { padding: 36px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .motion-principle-num { font-family: var(--heading); font-size: 36px; font-weight: 400; color: var(--green); margin-bottom: 12px; }
+    .motion-principle-title { font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark); margin-bottom: 8px; }
+    .motion-principle-desc { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; }
+
+    /* Assets */
+    .asset-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
+    .asset-card { padding: 48px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); display: flex; flex-direction: column; }
+    .asset-card-icon { width: 48px; height: 48px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .asset-card-title { font-family: var(--heading); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
+    .asset-card-desc { font-family: var(--body); font-size: 14px; font-weight: 300; color: var(--dark); line-height: 1.7; margin-bottom: 16px; }
+    .asset-card-formats { font-family: var(--body); font-size: 12px; font-weight: 400; color: var(--green); margin-top: auto; }
+
     /* Footer */
     .footer { padding: 40px 120px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--light); }
     .footer span { font-family: var(--body); font-size: 13px; color: var(--dark); }
@@ -361,6 +420,16 @@
       .logo-variants-grid { grid-template-columns: 1fr; }
       .components-grid { grid-template-columns: 1fr; }
       .bg-grid { grid-template-columns: 1fr; }
+      .voice-spectrum { grid-template-columns: 1fr; }
+      .voice-examples { grid-template-columns: 1fr; }
+      .avoid-grid { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .photo-treatment { grid-template-columns: 1fr 1fr; }
+      .icon-system-grid { grid-template-columns: repeat(3, 1fr); }
+      .icon-spec-grid { grid-template-columns: 1fr; }
+      .motion-grid { grid-template-columns: 1fr; }
+      .motion-principle-grid { grid-template-columns: 1fr; }
+      .asset-grid { grid-template-columns: 1fr; }
       .card-showcase, .social-grid, .app-showcase { grid-template-columns: 1fr; }
       .web-mock-features { grid-template-columns: 1fr; }
       .web-mock-feature { border-right: none; border-bottom: 1px solid var(--light); }
@@ -379,7 +448,12 @@
     <button type="button" class="site-nav-btn" data-tab="color">Color</button>
     <button type="button" class="site-nav-btn" data-tab="icon">Icon</button>
     <button type="button" class="site-nav-btn" data-tab="logo">Logo</button>
+    <button type="button" class="site-nav-btn" data-tab="voice">Voice</button>
+    <button type="button" class="site-nav-btn" data-tab="photography">Photography</button>
+    <button type="button" class="site-nav-btn" data-tab="iconography">Iconography</button>
+    <button type="button" class="site-nav-btn" data-tab="motion">Motion</button>
     <button type="button" class="site-nav-btn" data-tab="applications">Applications</button>
+    <button type="button" class="site-nav-btn" data-tab="assets">Assets</button>
   </nav>
 </header>
 
@@ -480,24 +554,22 @@
         </div>
       </div>
     </section>
-    <section class="section-full" style="border-top: 1px solid var(--light); border-bottom: 1px solid var(--light); padding: 100px 120px;">
-      <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
-        <div class="section-label">Secondary Typeface / Body</div>
-        <div class="specimen">
+    <section class="section" style="padding-top: 0;">
+      <div class="section-label">Secondary Typeface / Body</div>
+      <div class="specimen">
+        <div>
+          <div class="specimen-display" style="font-family: var(--body); font-weight: 400;">Aa</div>
+        </div>
+        <div class="specimen-meta">
+          <div class="specimen-name">DM Sans</div>
+          <div class="specimen-designer">A clean, geometric sans-serif used for all body copy, UI elements, labels, and navigation. Its neutral warmth complements Lora without competing.</div>
           <div>
-            <div class="specimen-display" style="font-family: var(--body); font-weight: 400;">Aa</div>
+            <span class="specimen-tag">Sans-Serif</span>
+            <span class="specimen-tag">Geometric</span>
+            <span class="specimen-tag">Weights 200–700</span>
           </div>
-          <div class="specimen-meta">
-            <div class="specimen-name">DM Sans</div>
-            <div class="specimen-designer">A clean, geometric sans-serif used for all body copy, UI elements, labels, and navigation. Its neutral warmth complements Lora without competing. Fallback: system-ui, Helvetica Neue.</div>
-            <div>
-              <span class="specimen-tag">Sans-Serif</span>
-              <span class="specimen-tag">Geometric</span>
-              <span class="specimen-tag">Weights 200–700</span>
-            </div>
-            <div class="specimen-chars" style="font-family: var(--body);">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</div>
-            <div class="specimen-chars" style="font-family: var(--body); font-size: 16px;">0123456789 &amp; $ % @ ! ? ( ) { } [ ]</div>
-          </div>
+          <div class="specimen-chars" style="font-family: var(--body);">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</div>
+          <div class="specimen-chars" style="font-family: var(--body); font-size: 16px;">0123456789 &amp; $ % @ ! ? ( ) { } [ ]</div>
         </div>
       </div>
     </section>
@@ -1050,7 +1122,7 @@
     <!-- Logo Do / Don't -->
     <section class="section" style="padding-top: 0;">
       <div class="section-label">Logo Guidelines</div>
-      <h2 class="section-heading">Rules for protecting the mark.</h2>
+      <h2 class="section-heading">Rules for <span style="color: var(--green);">protecting</span> the mark.</h2>
       <div class="dodont">
         <div>
           <div class="dodont-title">Do</div>
@@ -1072,16 +1144,464 @@
     </section>
   </div>
 
+  <!-- PANEL: Voice & Tone -->
+  <div id="panel-voice" class="tab-panel">
+    <section class="cover">
+      <div class="cover-tag">06 / Voice & Tone</div>
+      <h1 class="cover-title">Say less.<br>Mean <span style="color: var(--green);">more.</span></h1>
+      <p class="cover-subtitle">Rev Whisper speaks with quiet authority. Confident, precise, and never louder than it needs to be. Every word earns its place.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Brand Voice</div>
+      <h2 class="section-heading">Three traits that define how we <span style="color: var(--green);">communicate.</span></h2>
+      <p class="section-body">The Rev Whisper voice is consistent across every touchpoint. Whether it's a headline, an email subject line, or a tooltip in the product, these traits always apply.</p>
+      <div class="voice-spectrum">
+        <div class="voice-card">
+          <div class="voice-card-label">Trait 01</div>
+          <div class="voice-card-value">Confident & Direct</div>
+          <div class="voice-card-desc">We state things plainly. No hedging, no qualifiers. We've done the analysis and we stand behind the recommendation. Our users trust us because we don't waver.</div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-card-label">Trait 02</div>
+          <div class="voice-card-value">Technical & Precise</div>
+          <div class="voice-card-desc">We use specific numbers, not vague claims. "12% revenue increase" over "significant growth." We speak the language of data because that's what our product delivers.</div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-card-label">Trait 03</div>
+          <div class="voice-card-value">Calm & Understated</div>
+          <div class="voice-card-desc">We never oversell. Quiet confidence is our signature. The results speak for themselves, so the copy doesn't need to shout. Restraint in language mirrors restraint in design.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-full" style="border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+        <div class="section-label">In Practice</div>
+        <h2 class="section-heading">How it sounds in <span style="color: var(--green);">context.</span></h2>
+        <div class="voice-examples">
+          <div class="voice-example" style="border-left: 3px solid var(--green);">
+            <div class="voice-example-label" style="color: var(--green);">This</div>
+            <div class="voice-example-text">Your listings earned $12,830 this month. Occupancy is 8% above market average. Here's what's driving performance.</div>
+          </div>
+          <div class="voice-example" style="border-left: 3px solid var(--light);">
+            <div class="voice-example-label" style="opacity: 0.4;">Not this</div>
+            <div class="voice-example-text" style="opacity: 0.4;">Amazing news!! Your listings are absolutely CRUSHING it this month! You're doing SO much better than everyone else! Keep it up!</div>
+          </div>
+          <div class="voice-example" style="border-left: 3px solid var(--green);">
+            <div class="voice-example-label" style="color: var(--green);">This</div>
+            <div class="voice-example-text">We recommend a 3-night minimum for the upcoming festival weekend. Based on historical data, this could increase your revenue by 15%.</div>
+          </div>
+          <div class="voice-example" style="border-left: 3px solid var(--light);">
+            <div class="voice-example-label" style="opacity: 0.4;">Not this</div>
+            <div class="voice-example-text" style="opacity: 0.4;">Hey there! We think you might want to maybe try increasing your minimum stay? It could potentially help a little bit with your revenue!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Words to Avoid</div>
+      <h2 class="section-heading">Language that doesn't belong <span style="color: var(--green);">here.</span></h2>
+      <p class="section-body">These words and phrases contradict the brand voice. If you find yourself reaching for them, step back and rewrite with confidence and clarity.</p>
+      <div class="avoid-grid">
+        <div class="avoid-card">
+          <div class="avoid-card-title">Hype Language</div>
+          <div class="avoid-word">Revolutionary</div>
+          <div class="avoid-word">Game-changing</div>
+          <div class="avoid-word">Disruptive</div>
+          <div class="avoid-word">Crushing it</div>
+          <div class="avoid-word">10x your revenue</div>
+          <div class="avoid-word">Unlock your potential</div>
+        </div>
+        <div class="avoid-card">
+          <div class="avoid-card-title">Weak / Passive</div>
+          <div class="avoid-word">We try to</div>
+          <div class="avoid-word">We hope</div>
+          <div class="avoid-word">Might help</div>
+          <div class="avoid-word">A little bit better</div>
+          <div class="avoid-word">We think maybe</div>
+          <div class="avoid-word">Potentially</div>
+        </div>
+        <div class="avoid-card">
+          <div class="avoid-card-title">Overly Casual</div>
+          <div class="avoid-word">Hey!</div>
+          <div class="avoid-word">Awesome</div>
+          <div class="avoid-word">Super cool</div>
+          <div class="avoid-word">No brainer</div>
+          <div class="avoid-word">Let's gooo</div>
+          <div class="avoid-word">!!!</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="section-label">Tone Guidelines</div>
+      <div class="dodont">
+        <div>
+          <div class="dodont-title">Do</div>
+          <div class="dodont-item">Lead with data and specifics, not adjectives</div>
+          <div class="dodont-item">Use active voice and short, declarative sentences</div>
+          <div class="dodont-item">Let the reader draw their own conclusions from the numbers</div>
+          <div class="dodont-item">Be helpful and clear without being patronizing</div>
+          <div class="dodont-item">Write at the level of a smart, busy professional</div>
+        </div>
+        <div>
+          <div class="dodont-title dont">Don't</div>
+          <div class="dodont-item">Don't use exclamation marks in product copy</div>
+          <div class="dodont-item">Don't make promises the data can't support</div>
+          <div class="dodont-item">Don't use slang, jargon, or trendy startup speak</div>
+          <div class="dodont-item">Don't apologize unnecessarily or hedge recommendations</div>
+          <div class="dodont-item">Don't use all caps for emphasis. Let the content breathe</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL: Photography -->
+  <div id="panel-photography" class="tab-panel">
+    <section class="cover">
+      <div class="cover-tag">07 / Photography & Imagery</div>
+      <h1 class="cover-title">Warm.<br><span style="color: var(--green);">Intentional.</span></h1>
+      <p class="cover-subtitle">Photography and imagery reinforce the brand's tone of quiet sophistication. Muted warmth, editorial restraint, and a focus on the spaces our users care about.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Before & After</div>
+      <h2 class="section-heading">AI-optimized <span style="color: var(--green);">photography.</span></h2>
+      <p class="section-body">Every listing photo is enhanced through AI optimization. The result is warmer lighting, better composition balance, and a polished editorial quality that drives higher engagement and bookings.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px;">
+        <div>
+          <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--light); aspect-ratio: 4/3;">
+            <img src="livingroom-before.jpg" alt="Before AI optimization" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div style="position: absolute; top: 16px; left: 16px; background: var(--dark); color: var(--white); font-family: var(--body); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 4px;">Before</div>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark);">Original Photo</div>
+            <div style="font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; margin-top: 4px;">Standard listing photo. Flat lighting, cool white balance, minimal post-processing.</div>
+          </div>
+        </div>
+        <div>
+          <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--light); aspect-ratio: 4/3;">
+            <img src="livingrooom-after.jpeg" alt="After AI optimization" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div style="position: absolute; top: 16px; left: 16px; background: var(--green); color: var(--white); font-family: var(--body); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 4px;">After</div>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark);">AI Optimized</div>
+            <div style="font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; margin-top: 4px;">Enhanced warmth, balanced exposure, natural light emphasized. Editorial quality that converts.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px;">
+        <div>
+          <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--light); aspect-ratio: 4/3;">
+            <img src="backyardbbq-before.jpg" alt="Backyard before AI optimization" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div style="position: absolute; top: 16px; left: 16px; background: var(--dark); color: var(--white); font-family: var(--body); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 4px;">Before</div>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark);">Original Photo</div>
+            <div style="font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; margin-top: 4px;">Harsh midday light, oversaturated sky, flat shadows across the outdoor space.</div>
+          </div>
+        </div>
+        <div>
+          <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--light); aspect-ratio: 4/3;">
+            <img src="backyardbbq-after.png" alt="Backyard after AI optimization" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div style="position: absolute; top: 16px; left: 16px; background: var(--green); color: var(--white); font-family: var(--body); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 4px;">After</div>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark);">AI Optimized</div>
+            <div style="font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; margin-top: 4px;">Golden hour warmth, lifted shadows, natural tones that showcase the outdoor amenities.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="section-label">Optimized Examples</div>
+      <h2 class="section-heading">The <span style="color: var(--green);">standard</span> for every listing.</h2>
+      <p class="section-body">AI-optimized photography across every room and space. Warm tones, balanced exposure, and editorial composition that makes guests book.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px;">
+        <div>
+          <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--light); aspect-ratio: 4/3;">
+            <img src="kitchen-after.png" alt="Optimized kitchen photo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark); margin-top: 16px;">Kitchen</div>
+          <div style="font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; margin-top: 4px;">Warm ambient lighting, soft shadows, and natural tones that highlight cabinetry and countertop details.</div>
+        </div>
+        <div>
+          <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--light); aspect-ratio: 4/3;">
+            <img src="gameroom-after.png" alt="Optimized game room photo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark); margin-top: 16px;">Game Room</div>
+          <div style="font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; margin-top: 4px;">Inviting atmosphere with balanced exposure that showcases amenities and lifestyle details guests care about.</div>
+        </div>
+        <div>
+          <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--light); aspect-ratio: 4/3;">
+            <img src="bunkroom-after.png" alt="Optimized bunk room photo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark); margin-top: 16px;">Bunk Room</div>
+          <div style="font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; margin-top: 4px;">Wide-angle composition with even lighting that captures the full space, making rooms feel open and welcoming.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Photography Guidelines</div>
+      <h2 class="section-heading">Rules for visual <span style="color: var(--green);">consistency.</span></h2>
+      <div class="dodont">
+        <div>
+          <div class="dodont-title">Do</div>
+          <div class="dodont-item">Use natural light whenever possible</div>
+          <div class="dodont-item">Favor wide, composed shots that show the full space</div>
+          <div class="dodont-item">Apply the muted warm color treatment consistently</div>
+          <div class="dodont-item">Include architectural details and textures</div>
+          <div class="dodont-item">Keep data visualizations clean, minimal, and on-brand</div>
+        </div>
+        <div>
+          <div class="dodont-title dont">Don't</div>
+          <div class="dodont-item">Don't use oversaturated or HDR-style photography</div>
+          <div class="dodont-item">Don't include people's faces in property imagery</div>
+          <div class="dodont-item">Don't use stock photos that feel generic or staged</div>
+          <div class="dodont-item">Don't apply filters that introduce colors outside the brand palette</div>
+          <div class="dodont-item">Don't use busy, cluttered compositions. Let the space breathe</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL: Iconography -->
+  <div id="panel-iconography" class="tab-panel">
+    <section class="cover">
+      <div class="cover-tag">08 / Iconography</div>
+      <h1 class="cover-title">Precision at<br><span style="color: var(--green);">every scale.</span></h1>
+      <p class="cover-subtitle">A system of outline icons built to match the brand mark's stroke weight and personality. Minimal, functional, and always legible.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Icon System</div>
+      <h2 class="section-heading">Outline icons that match the <span style="color: var(--green);">mark.</span></h2>
+      <p class="section-body">UI icons follow the same design language as the brand symbol. 2px stroke weight, rounded caps and joins, drawn on a 24px grid. They are functional first, decorative never.</p>
+      <div class="icon-system-grid">
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div class="icon-system-label">Home</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          <div class="icon-system-label">Revenue</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <div class="icon-system-label">Analytics</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <div class="icon-system-label">Calendar</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <div class="icon-system-label">Settings</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <div class="icon-system-label">Alerts</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <div class="icon-system-label">Rating</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="icon-system-label">Location</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          <div class="icon-system-label">Dashboard</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <div class="icon-system-label">Guests</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+          <div class="icon-system-label">Key</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <div class="icon-system-label">Chart</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <div class="icon-system-label">Views</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="icon-system-label">Verified</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="icon-system-label">Security</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div class="icon-system-label">Time</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+          <div class="icon-system-label">Edit</div>
+        </div>
+        <div class="icon-system-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <div class="icon-system-label">Display</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-full" style="border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+        <div class="section-label">Specifications</div>
+        <h2 class="section-heading">Built on a <span style="color: var(--green);">consistent</span> grid.</h2>
+        <div class="icon-spec-grid">
+          <div class="icon-spec-card">
+            <div class="icon-spec-value">24px</div>
+            <div class="icon-spec-label">Grid Size</div>
+            <div class="icon-spec-desc">All icons are designed on a 24x24 pixel grid with 2px padding on each side. The live area is 20x20.</div>
+          </div>
+          <div class="icon-spec-card">
+            <div class="icon-spec-value">2px</div>
+            <div class="icon-spec-label">Stroke Weight</div>
+            <div class="icon-spec-desc">Matches the brand mark's stroke weight. Consistent across all icon sizes. Never adjust.</div>
+          </div>
+          <div class="icon-spec-card">
+            <div class="icon-spec-value" style="font-size: 28px; letter-spacing: -0.5px;">Round</div>
+            <div class="icon-spec-label">Caps & Joins</div>
+            <div class="icon-spec-desc">Round line caps and round line joins throughout. This matches the speech-wave icon's visual softness.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Icon Guidelines</div>
+      <h2 class="section-heading">Rules for the <span style="color: var(--green);">system.</span></h2>
+      <div class="dodont">
+        <div>
+          <div class="dodont-title">Do</div>
+          <div class="dodont-item">Use 2px stroke weight consistently across all icons</div>
+          <div class="dodont-item">Keep icons in Dune (#32302F) or White on dark backgrounds</div>
+          <div class="dodont-item">Use Fern (#4A6741) sparingly for active/selected states only</div>
+          <div class="dodont-item">Maintain the 24px grid for all new icon additions</div>
+          <div class="dodont-item">Use rounded caps and joins to match the brand mark</div>
+        </div>
+        <div>
+          <div class="dodont-title dont">Don't</div>
+          <div class="dodont-item">Don't mix outline and filled icon styles</div>
+          <div class="dodont-item">Don't use icons smaller than 16px. They lose legibility</div>
+          <div class="dodont-item">Don't add decorative detail. Icons are functional</div>
+          <div class="dodont-item">Don't use icons from mismatched icon sets</div>
+          <div class="dodont-item">Don't change the stroke weight to create visual hierarchy</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL: Motion -->
+  <div id="panel-motion" class="tab-panel">
+    <section class="cover">
+      <div class="cover-tag">09 / Motion & Animation</div>
+      <h1 class="cover-title">Subtle.<br><span style="color: var(--green);">Refined.</span></h1>
+      <p class="cover-subtitle">Motion in the Rev Whisper system is never decorative. It serves a purpose: guiding attention, confirming actions, and making interfaces feel responsive without being distracting.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Principles</div>
+      <h2 class="section-heading">Three rules for <span style="color: var(--green);">movement.</span></h2>
+      <p class="section-body">Every animation in the system follows these principles. If a motion doesn't serve one of these purposes, remove it.</p>
+      <div class="motion-principle-grid">
+        <div class="motion-principle">
+          <div class="motion-principle-num">01</div>
+          <div class="motion-principle-title">Purposeful</div>
+          <div class="motion-principle-desc">Every animation guides the user's attention or confirms an action. Nothing moves for decoration. If it doesn't help the user, it doesn't move.</div>
+        </div>
+        <div class="motion-principle">
+          <div class="motion-principle-num">02</div>
+          <div class="motion-principle-title">Subtle</div>
+          <div class="motion-principle-desc">Animations are felt more than seen. Gentle fades, soft position shifts, quiet scaling. The user should never be waiting for an animation to finish.</div>
+        </div>
+        <div class="motion-principle">
+          <div class="motion-principle-num">03</div>
+          <div class="motion-principle-title">Consistent</div>
+          <div class="motion-principle-desc">The same easing curve and duration range across the entire product. Consistency in motion builds subconscious trust. No surprises.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-full" style="border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+        <div class="section-label">Specifications</div>
+        <h2 class="section-heading">Timing and <span style="color: var(--green);">easing.</span></h2>
+        <div class="motion-grid">
+          <div class="motion-card">
+            <div class="motion-card-title">Duration</div>
+            <div class="motion-card-desc">Micro-interactions (button states, toggles) use 150ms. Element transitions (cards, panels, modals) use 250ms. Page-level transitions use 400ms. Never exceed 500ms.</div>
+            <div class="motion-spec">150ms / 250ms / 400ms</div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-title">Easing</div>
+            <div class="motion-card-desc">Use ease-out for elements entering the viewport. Use ease-in for elements leaving. Use ease-in-out for elements that transform in place. Never use linear easing.</div>
+            <div class="motion-spec">cubic-bezier(0.25, 0.1, 0.25, 1.0)</div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-title">Opacity</div>
+            <div class="motion-card-desc">Fade-in is the default entrance animation. Elements fade from 0 to 1 with a subtle 8px upward translate. Clean, predictable, and unobtrusive.</div>
+            <div class="motion-spec">opacity: 0 &rarr; 1 + translateY(8px &rarr; 0)</div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-title">Hover States</div>
+            <div class="motion-card-desc">Interactive elements respond with a 150ms background color transition. Buttons slightly darken. Cards get a subtle border color shift. No scaling, no bouncing.</div>
+            <div class="motion-spec">transition: all 150ms ease</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Motion Guidelines</div>
+      <h2 class="section-heading">What moves and what <span style="color: var(--green);">doesn't.</span></h2>
+      <div class="dodont">
+        <div>
+          <div class="dodont-title">Do</div>
+          <div class="dodont-item">Use fade + translate for content entering the viewport</div>
+          <div class="dodont-item">Animate background-color on hover for interactive elements</div>
+          <div class="dodont-item">Use consistent durations across the entire product</div>
+          <div class="dodont-item">Respect prefers-reduced-motion for accessibility</div>
+          <div class="dodont-item">Test animations at 2x speed to ensure they feel right at 1x</div>
+        </div>
+        <div>
+          <div class="dodont-title dont">Don't</div>
+          <div class="dodont-item">Don't use bounce, elastic, or spring easing curves</div>
+          <div class="dodont-item">Don't animate layout properties (width, height, top, left)</div>
+          <div class="dodont-item">Don't create animations that loop or repeat indefinitely</div>
+          <div class="dodont-item">Don't use motion to draw attention to promotional content</div>
+          <div class="dodont-item">Don't exceed 500ms for any single animation</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- PANEL: Applications -->
   <div id="panel-applications" class="tab-panel">
     <section class="cover">
       <div class="cover-tag">06 / Brand Applications</div>
-      <h1 class="cover-title">In practice.</h1>
+      <h1 class="cover-title">In <span style="color: var(--green);">practice.</span></h1>
       <p class="cover-subtitle">How Rev Whisper looks, feels, and communicates across every touchpoint, from business cards to mobile screens.</p>
     </section>
     <section class="section">
       <div class="section-label">Stationery</div>
-      <h2 class="section-heading">Business Card</h2>
+      <h2 class="section-heading">Business <span style="color: var(--green);">Card</span></h2>
       <p class="section-body">Simple, refined, two-sided. The front carries contact information; the back carries the brand.</p>
       <div class="card-showcase">
         <div class="biz-card biz-card-front">
@@ -1097,7 +1617,7 @@
     </section>
     <section class="section" style="padding-top: 0;">
       <div class="section-label">Stationery</div>
-      <h2 class="section-heading">Letterhead</h2>
+      <h2 class="section-heading"><span style="color: var(--green);">Letterhead</span></h2>
       <p class="section-body">Clean header with logo and address. Ample margins. The content is the focus. The brand stays quietly present.</p>
       <div class="letterhead-mock">
         <div class="letterhead">
@@ -1120,7 +1640,7 @@
     </section>
     <section class="section" style="padding-top: 0;">
       <div class="section-label">Digital</div>
-      <h2 class="section-heading">Website</h2>
+      <h2 class="section-heading"><span style="color: var(--green);">Website</span></h2>
       <p class="section-body">The website leads with type and white space. No hero images competing for attention. The message comes first.</p>
       <div class="web-mock">
         <div class="web-mock-bar">
@@ -1147,7 +1667,7 @@
     </section>
     <section class="section" style="padding-top: 0;">
       <div class="section-label">Digital</div>
-      <h2 class="section-heading">Email</h2>
+      <h2 class="section-heading"><span style="color: var(--green);">Email</span></h2>
       <p class="section-body">Transactional and marketing emails share the same restrained aesthetic. Clean, scannable, warm.</p>
       <div class="email-mock">
         <div class="email">
@@ -1163,7 +1683,7 @@
     </section>
     <section class="section" style="padding-top: 0;">
       <div class="section-label">Digital</div>
-      <h2 class="section-heading">Social Media</h2>
+      <h2 class="section-heading">Social <span style="color: var(--green);">Media</span></h2>
       <p class="section-body">Social posts use the same palette and type system. Content is quote-driven and educational, never salesy.</p>
       <div class="social-grid">
         <div class="social-post"><div class="social-post-text">"Pricing isn't about guessing the market. It's about data-driven algorithms."</div><div class="social-post-tag">Rev Whisper</div></div>
@@ -1173,7 +1693,7 @@
     </section>
     <section class="section" style="padding-top: 0;">
       <div class="section-label">Digital</div>
-      <h2 class="section-heading">Mobile App</h2>
+      <h2 class="section-heading">Mobile <span style="color: var(--green);">App</span></h2>
       <p class="section-body">The app experience carries the brand's warmth into daily interactions. Three core screens demonstrate the visual system in product.</p>
       <div class="app-showcase">
         <div class="phone-frame">
@@ -1211,6 +1731,189 @@
         </div>
       </div>
     </section>
+  </div>
+
+  <!-- PANEL: Brand Assets -->
+  <div id="panel-assets" class="tab-panel">
+
+    <!-- COVER -->
+    <section class="cover">
+      <div class="cover-tag">10 / Brand Assets</div>
+      <h1 class="cover-title">Brand <span style="color: var(--green);">Assets.</span></h1>
+      <p class="cover-subtitle">A reference guide to all Rev Whisper brand files, formats, and usage contexts. Everything you need to represent the brand consistently.</p>
+      <div class="cover-page-no">Page 10 of 10</div>
+    </section>
+
+    <!-- PRIMARY ASSETS -->
+    <section class="section">
+      <div class="section-label">Primary Assets</div>
+      <h2 class="section-heading">Logo & <span style="color: var(--green);">Icon</span> Files</h2>
+      <p class="section-body">Core identity files for digital and print applications. Always use the provided files rather than recreating or tracing the logo.</p>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <svg width="160" height="40" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16C4 9.5 9 5 17 5H20C28 5 33 9.5 33 16C33 22.5 28 27 20 27H15L9 32V27C6.2 25.5 4 21.5 4 16Z" stroke="#32302F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 17C11 17 12.5 11.5 14.5 11.5C16.5 11.5 16.5 22.5 18.5 22.5C20.5 22.5 20.5 13 22 13C23.5 13 24.5 18 25.5 18" stroke="#32302F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="40" y="24" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#32302F">RevWhisper</text>
+            </svg>
+          </div>
+          <div class="asset-card-title">Primary Logo Lockup</div>
+          <div class="asset-card-desc">Full logo with icon and wordmark. Use this as the default logo in all brand communications.</div>
+          <div class="asset-card-formats">SVG / PNG / EPS</div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--dark);">
+            <svg width="160" height="40" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16C4 9.5 9 5 17 5H20C28 5 33 9.5 33 16C33 22.5 28 27 20 27H15L9 32V27C6.2 25.5 4 21.5 4 16Z" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 17C11 17 12.5 11.5 14.5 11.5C16.5 11.5 16.5 22.5 18.5 22.5C20.5 22.5 20.5 13 22 13C23.5 13 24.5 18 25.5 18" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="40" y="24" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#FFFFFF">RevWhisper</text>
+            </svg>
+          </div>
+          <div class="asset-card-title">Reversed Logo Lockup</div>
+          <div class="asset-card-desc">White logo for use on dark backgrounds. Maintain full contrast at all times.</div>
+          <div class="asset-card-formats">SVG / PNG / EPS</div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="asset-card-title">Icon / Symbol</div>
+          <div class="asset-card-desc">Standalone speech-wave icon for favicons, app icons, social avatars, and compact placements.</div>
+          <div class="asset-card-formats">SVG / PNG / ICO</div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="18" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#32302F">RevWhisper</text>
+            </svg>
+          </div>
+          <div class="asset-card-title">Wordmark Only</div>
+          <div class="asset-card-desc">Standalone wordmark for use when the icon is displayed separately or space is limited horizontally.</div>
+          <div class="asset-card-formats">SVG / PNG / EPS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY ASSETS -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-label">Typography</div>
+      <h2 class="section-heading">Font <span style="color: var(--green);">Files</span></h2>
+      <p class="section-body">Both brand typefaces are available through Google Fonts. No license purchase required for web or print use.</p>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <span style="font-family: var(--heading); font-size: 28px; color: var(--dark);">Lora</span>
+          </div>
+          <div class="asset-card-title">Lora</div>
+          <div class="asset-card-desc">Primary heading typeface. Serif with humanist roots. Use for all headlines, display text, and brand statements.</div>
+          <div class="asset-card-formats">Google Fonts / OTF / TTF</div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <span style="font-family: var(--body); font-size: 28px; font-weight: 300; color: var(--dark);">DM Sans</span>
+          </div>
+          <div class="asset-card-title">DM Sans</div>
+          <div class="asset-card-desc">Primary body typeface. Clean geometric sans-serif. Use for body copy, labels, UI elements, and supporting text.</div>
+          <div class="asset-card-formats">Google Fonts / OTF / TTF</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLOR & TEMPLATES -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-label">Color & Templates</div>
+      <h2 class="section-heading">Brand <span style="color: var(--green);">Toolkit</span></h2>
+      <p class="section-body">Pre-built templates and color references to maintain consistency across all brand touchpoints.</p>
+
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <div style="display: flex; gap: 8px;">
+              <div style="width: 36px; height: 36px; border-radius: 4px; background: #32302F;"></div>
+              <div style="width: 36px; height: 36px; border-radius: 4px; background: #E0DCDA;"></div>
+              <div style="width: 36px; height: 36px; border-radius: 4px; background: #FFFFFF; border: 1px solid #E0DCDA;"></div>
+              <div style="width: 36px; height: 36px; border-radius: 4px; background: #4A6741;"></div>
+            </div>
+          </div>
+          <div class="asset-card-title">Color Palette</div>
+          <div class="asset-card-desc">Complete color system with HEX, RGB, and CMYK values. Includes primary, secondary, and accent colors.</div>
+          <div class="asset-card-formats">ASE / CLR / PDF</div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <div style="width: 48px; height: 36px; border-radius: 4px; background: var(--light); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: var(--body); font-size: 9px; color: var(--dark);">Aa</span>
+              </div>
+              <div style="width: 48px; height: 36px; border-radius: 4px; background: var(--light); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: var(--body); font-size: 9px; color: var(--dark);">Bb</span>
+              </div>
+            </div>
+          </div>
+          <div class="asset-card-title">Presentation Template</div>
+          <div class="asset-card-desc">Branded slide deck template with pre-set typography, colors, and layout grids for internal and external presentations.</div>
+          <div class="asset-card-formats">PPTX / Keynote / Google Slides</div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <div style="display: flex; gap: 6px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+          </div>
+          <div class="asset-card-title">Icon Library</div>
+          <div class="asset-card-desc">Full set of outline icons at 24px grid. Includes property, revenue, analytics, and UI category sets.</div>
+          <div class="asset-card-formats">SVG / Icon Font</div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <div style="width: 80px; height: 36px; border-radius: 4px; background: var(--dark); display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: var(--body); font-size: 9px; color: var(--white); font-weight: 400;">Email</span>
+            </div>
+          </div>
+          <div class="asset-card-title">Email Signature</div>
+          <div class="asset-card-desc">Standardized email signature with logo, contact details, and social links. Pre-formatted for major email clients.</div>
+          <div class="asset-card-formats">HTML / PNG</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USAGE NOTES -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-label">Usage Notes</div>
+      <h2 class="section-heading">File <span style="color: var(--green);">Guidelines</span></h2>
+
+      <div class="dos-donts" style="margin-top: 60px;">
+        <div class="do-col">
+          <div class="do-label">Do</div>
+          <ul class="do-list">
+            <li>Use SVG files for all digital applications when possible</li>
+            <li>Use EPS files for print production and large-format output</li>
+            <li>Use PNG files only when vector formats are not supported</li>
+            <li>Export PNG assets at 2x resolution minimum for retina screens</li>
+            <li>Reference this guide before creating any new brand materials</li>
+          </ul>
+        </div>
+        <div class="dont-col">
+          <div class="dont-label">Don't</div>
+          <ul class="dont-list">
+            <li>Recreate, retrace, or manually redraw any brand assets</li>
+            <li>Convert between file formats without using the source files</li>
+            <li>Use low-resolution assets in print or large-format applications</li>
+            <li>Distribute brand files without proper access permissions</li>
+            <li>Modify asset colors, proportions, or elements from source files</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
   </div>
 </main>
 
