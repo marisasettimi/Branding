@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rev Whisper — Brand Applications</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+  :root {
+    --dark: #32302F;
+    --white: #FFFFFF;
+    --light: #E0DCDA;
+    --heading: 'Lora', 'Georgia', serif;
+    --body: 'DM Sans', 'system-ui', 'Helvetica Neue', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--body); color: var(--dark); background: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+  /* ─── COVER ─── */
+  .cover {
+    min-height: 100vh;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 120px;
+    position: relative;
+  }
+  .cover-tag {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 40px;
+  }
+  .cover-title {
+    font-family: var(--heading);
+    font-size: clamp(56px, 8vw, 120px);
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    max-width: 900px;
+  }
+  .cover-subtitle {
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-top: 40px;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+  .cover-page-no {
+    position: absolute;
+    right: 80px;
+    bottom: 60px;
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--dark);
+  }
+
+  /* ─── SHARED ─── */
+  .section { padding: 100px 120px; max-width: 1400px; margin: 0 auto; }
+  .section-full { padding: 100px 120px; }
+  .section-label {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 40px;
+  }
+  .section-heading {
+    font-family: var(--heading);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    max-width: 800px;
+  }
+  .section-body {
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.8;
+    max-width: 600px;
+    margin-top: 30px;
+  }
+
+  /* ─── BUTTONS ─── */
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: var(--white);
+    color: var(--dark);
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid var(--dark);
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* ─── BUSINESS CARD MOCKUP ─── */
+  .card-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .biz-card {
+    aspect-ratio: 1.75/1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+  }
+  .biz-card-front {
+    background: var(--white);
+    border: 1px solid var(--light);
+  }
+  .biz-card-back {
+    background: var(--white);
+    border: 1px solid var(--light);
+  }
+  .biz-card-logo {
+    font-family: var(--heading);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+  }
+  .biz-card-front .biz-card-logo { color: var(--dark); }
+  .biz-card-back .biz-card-logo { color: var(--dark); text-align: center; margin: auto; }
+  .biz-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .biz-card-name {
+    font-family: var(--heading);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+  .biz-card-role {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--dark);
+  }
+  .biz-card-contact {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+
+  /* ─── LETTERHEAD ─── */
+  .letterhead-mock {
+    margin-top: 60px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  .letterhead {
+    width: 100%;
+    max-width: 600px;
+    background: var(--white);
+    padding: 60px 50px;
+    border: 1px solid var(--light);
+    box-shadow: 0 2px 20px rgba(50, 48, 47, 0.03);
+  }
+  .letterhead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light);
+  }
+  .letterhead-logo {
+    font-family: var(--heading);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+  .letterhead-address {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--dark);
+    text-align: right;
+    line-height: 1.6;
+  }
+  .letterhead-line {
+    height: 6px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+  .letterhead-line-1 { width: 35%; background: var(--dark); opacity: 0.15; }
+  .letterhead-line-2 { width: 20%; background: var(--dark); opacity: 0.1; margin-bottom: 30px; }
+  .letterhead-line-3 { width: 100%; background: var(--dark); opacity: 0.05; }
+  .letterhead-line-4 { width: 100%; background: var(--dark); opacity: 0.05; }
+  .letterhead-line-5 { width: 100%; background: var(--dark); opacity: 0.05; }
+  .letterhead-line-6 { width: 80%; background: var(--dark); opacity: 0.05; margin-bottom: 30px; }
+  .letterhead-line-7 { width: 100%; background: var(--dark); opacity: 0.05; }
+  .letterhead-line-8 { width: 100%; background: var(--dark); opacity: 0.05; }
+  .letterhead-line-9 { width: 60%; background: var(--dark); opacity: 0.05; }
+  .letterhead-footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--light);
+    font-family: var(--body);
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--dark);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ─── WEBSITE MOCK ─── */
+  .web-mock {
+    margin-top: 60px;
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .web-mock-bar {
+    background: var(--white);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--light);
+  }
+  .web-mock-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--light);
+  }
+  .web-mock-url {
+    font-family: var(--body);
+    font-size: 12px;
+    color: var(--dark);
+    background: var(--white);
+    border: 1px solid var(--light);
+    padding: 4px 16px;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+  .web-mock-content {
+    background: var(--white);
+    padding: 0;
+  }
+  .web-mock-nav {
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--light);
+  }
+  .web-mock-nav-logo {
+    font-family: var(--heading);
+    font-size: 18px;
+    color: var(--dark);
+  }
+  .web-mock-nav-links {
+    display: flex;
+    gap: 30px;
+  }
+  .web-mock-nav-links span {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+  .web-mock-hero {
+    padding: 100px 60px;
+    text-align: center;
+  }
+  .web-mock-hero h2 {
+    font-family: var(--heading);
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: -1px;
+    line-height: 1.15;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .web-mock-hero p {
+    font-family: var(--body);
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-top: 20px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+  .web-mock-cta {
+    margin-top: 30px;
+  }
+  .web-mock-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--light);
+  }
+  .web-mock-feature {
+    padding: 40px;
+    border-right: 1px solid var(--light);
+    text-align: center;
+  }
+  .web-mock-feature:last-child { border-right: none; }
+  .web-mock-feature-title {
+    font-family: var(--heading);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .web-mock-feature-text {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* ─── EMAIL ─── */
+  .email-mock {
+    margin-top: 60px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  .email {
+    width: 100%;
+    max-width: 500px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    overflow: hidden;
+  }
+  .email-header {
+    padding: 40px 40px 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--light);
+  }
+  .email-logo {
+    font-family: var(--heading);
+    font-size: 20px;
+    color: var(--dark);
+  }
+  .email-body {
+    padding: 40px;
+  }
+  .email-greeting {
+    font-family: var(--heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  .email-text {
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .email-footer {
+    padding: 30px 40px;
+    background: var(--white);
+    border-top: 1px solid var(--light);
+    text-align: center;
+  }
+  .email-footer span {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--dark);
+  }
+
+  /* ─── SOCIAL MEDIA ─── */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .social-post {
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: 8px;
+  }
+  .social-post-text {
+    font-family: var(--heading);
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--dark);
+  }
+  .social-post-tag {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 20px;
+    color: var(--dark);
+  }
+
+  /* ─── MOBILE APP ─── */
+  .app-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+    align-items: start;
+  }
+  .phone-frame {
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: 28px;
+    padding: 12px;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .phone-screen {
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 480px;
+  }
+  .phone-status-bar {
+    padding: 12px 20px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .phone-time {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dark);
+  }
+  .phone-icons {
+    display: flex;
+    gap: 4px;
+  }
+  .phone-icon-bar {
+    width: 3px;
+    border-radius: 1px;
+    background: var(--dark);
+  }
+  .phone-content-1 {
+    padding: 20px;
+  }
+  .phone-greeting {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .phone-name {
+    font-family: var(--heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 24px;
+  }
+  .phone-balance-card {
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .phone-balance-label {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .phone-balance-amount {
+    font-family: var(--heading);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: -1px;
+  }
+  .phone-balance-change {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-top: 8px;
+  }
+  .phone-section-title {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .phone-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--light);
+  }
+  .phone-list-name {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+  .phone-list-value {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark);
+  }
+
+  /* Screen 2 */
+  .phone-content-2 {
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .phone-content-2 .phone-status-bar { padding: 12px 0 20px; }
+  .phone-dark-title {
+    font-family: var(--heading);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-top: 60px;
+    line-height: 1.3;
+  }
+  .phone-dark-sub {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+  .phone-dark-btn {
+    margin-top: 30px;
+  }
+
+  /* Screen 3 */
+  .phone-content-3 {
+    padding: 20px;
+  }
+  .phone-tab-bar {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+  }
+  .phone-tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    opacity: 0.6;
+  }
+  .phone-tab-active {
+    opacity: 1;
+    border-bottom: 2px solid var(--dark);
+  }
+  .phone-insight-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    border: 1px solid var(--light);
+  }
+  .phone-insight-label {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .phone-insight-title {
+    font-family: var(--heading);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .phone-insight-desc {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 40px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--light);
+  }
+  .footer span {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--dark);
+  }
+
+  @media (max-width: 768px) {
+    .cover, .section, .section-full { padding: 60px 30px; }
+    .card-showcase, .social-grid, .app-showcase { grid-template-columns: 1fr; }
+    .web-mock-features { grid-template-columns: 1fr; }
+    .web-mock-feature { border-right: none; border-bottom: 1px solid var(--light); }
+    .letterhead-mock, .email-mock { padding: 30px; }
+    .footer { padding: 40px 30px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-tag">05 — Brand Applications</div>
+  <h1 class="cover-title">In practice.</h1>
+  <p class="cover-subtitle">How Rev Whisper looks, feels, and communicates across every touchpoint — from business cards to mobile screens.</p>
+  <div class="cover-page-no">Page 5 of 5</div>
+</section>
+
+<!-- BUSINESS CARDS -->
+<section class="section">
+  <div class="section-label">Stationery</div>
+  <h2 class="section-heading">Business Card</h2>
+  <p class="section-body">Simple, refined, two-sided. The front carries contact information; the back carries the brand.</p>
+
+  <div class="card-showcase">
+    <div class="biz-card biz-card-front">
+      <div class="biz-card-logo">Rev Whisper</div>
+      <div class="biz-card-info">
+        <div class="biz-card-name">Sarah Chen</div>
+        <div class="biz-card-role">Revenue Manager</div>
+        <div class="biz-card-contact">sarah@revwhisper.com<br>+1 (555) 234-5678<br>revwhisper.com</div>
+      </div>
+    </div>
+    <div class="biz-card biz-card-back">
+      <div class="biz-card-logo">Rev Whisper</div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTERHEAD -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Stationery</div>
+  <h2 class="section-heading">Letterhead</h2>
+  <p class="section-body">Clean header with logo and address. Ample margins. The content is the focus — the brand stays quietly present.</p>
+
+  <div class="letterhead-mock">
+    <div class="letterhead">
+      <div class="letterhead-header">
+        <div class="letterhead-logo">Rev Whisper</div>
+        <div class="letterhead-address">1200 Market Street, Suite 400<br>San Francisco, CA 94103<br>revwhisper.com</div>
+      </div>
+      <div class="letterhead-line letterhead-line-1"></div>
+      <div class="letterhead-line letterhead-line-2"></div>
+      <div class="letterhead-line letterhead-line-3"></div>
+      <div class="letterhead-line letterhead-line-4"></div>
+      <div class="letterhead-line letterhead-line-5"></div>
+      <div class="letterhead-line letterhead-line-6"></div>
+      <div class="letterhead-line letterhead-line-7"></div>
+      <div class="letterhead-line letterhead-line-8"></div>
+      <div class="letterhead-line letterhead-line-9"></div>
+      <div class="letterhead-footer">
+        <span>Rev Whisper — A Kasu Capital Company</span>
+        <span>Confidential</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEBSITE -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Digital</div>
+  <h2 class="section-heading">Website</h2>
+  <p class="section-body">The website leads with type and white space. No hero images competing for attention — the message comes first.</p>
+
+  <div class="web-mock">
+    <div class="web-mock-bar">
+      <div class="web-mock-dot"></div>
+      <div class="web-mock-dot"></div>
+      <div class="web-mock-dot"></div>
+      <span class="web-mock-url">revwhisper.com</span>
+    </div>
+    <div class="web-mock-content">
+      <div class="web-mock-nav">
+        <div class="web-mock-nav-logo">Rev Whisper</div>
+        <div class="web-mock-nav-links">
+          <span>Algorithms</span>
+          <span>Optimization</span>
+          <span>Transparency</span>
+          <span>About</span>
+        </div>
+      </div>
+      <div class="web-mock-hero">
+        <h2>Maximize every listing's revenue.</h2>
+        <p>Listing optimization and revenue management service for short term rentals that has a focus on leveraging our tech team for algorithms and maximizing revenue for STR owners.</p>
+        <button class="btn web-mock-cta">Get Started</button>
+      </div>
+      <div class="web-mock-features">
+        <div class="web-mock-feature">
+          <div class="web-mock-feature-title">Proprietary Algorithms</div>
+          <div class="web-mock-feature-text">Dynamic pricing updated daily</div>
+        </div>
+        <div class="web-mock-feature">
+          <div class="web-mock-feature-title">Expert Tech Team</div>
+          <div class="web-mock-feature-text">Dedicated revenue managers maximizing your STR</div>
+        </div>
+        <div class="web-mock-feature">
+          <div class="web-mock-feature-title">Transparent Reporting</div>
+          <div class="web-mock-feature-text">Clear insights into your revenue growth</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Digital</div>
+  <h2 class="section-heading">Email</h2>
+  <p class="section-body">Transactional and marketing emails share the same restrained aesthetic. Clean, scannable, warm.</p>
+
+  <div class="email-mock">
+    <div class="email">
+      <div class="email-header">
+        <div class="email-logo">Rev Whisper</div>
+      </div>
+      <div class="email-body">
+        <div class="email-greeting">Your listing revenue just hit a milestone.</div>
+        <div class="email-text">Your STR revenue has grown 12% this month. Your revenue manager, Marcus, has prepared a brief summary of what's driving this performance and a few recommendations for the months ahead.</div>
+        <a class="btn email-btn" href="#">View Your Summary</a>
+      </div>
+      <div class="email-footer">
+        <span>Rev Whisper — A Kasu Capital Company · revwhisper.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Digital</div>
+  <h2 class="section-heading">Social Media</h2>
+  <p class="section-body">Social posts use the same palette and type system. Content is quote-driven and educational — never salesy.</p>
+
+  <div class="social-grid">
+    <div class="social-post">
+      <div class="social-post-text">"Pricing isn't about guessing the market. It's about data-driven algorithms."</div>
+      <div class="social-post-tag">Rev Whisper</div>
+    </div>
+    <div class="social-post">
+      <div class="social-post-text">"The best pricing strategy is the one that adjusts to demand automatically."</div>
+      <div class="social-post-tag">Rev Whisper</div>
+    </div>
+    <div class="social-post">
+      <div class="social-post-text">"Your short term rental should work for your wealth, not the other way around."</div>
+      <div class="social-post-tag">Rev Whisper</div>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE APP -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Digital</div>
+  <h2 class="section-heading">Mobile App</h2>
+  <p class="section-body">The app experience carries the brand's warmth into daily interactions. Three core screens demonstrate the visual system in product.</p>
+
+  <div class="app-showcase">
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="phone-content-1">
+          <div class="phone-status-bar">
+            <span class="phone-time">9:41</span>
+            <div class="phone-icons">
+              <div class="phone-icon-bar" style="height:8px;"></div>
+              <div class="phone-icon-bar" style="height:10px;"></div>
+              <div class="phone-icon-bar" style="height:12px;"></div>
+              <div class="phone-icon-bar" style="height:14px;"></div>
+            </div>
+          </div>
+          <div class="phone-greeting">Good morning,</div>
+          <div class="phone-name">Sarah</div>
+          <div class="phone-balance-card">
+            <div class="phone-balance-label">Total Revenue</div>
+            <div class="phone-balance-amount">$12,830</div>
+            <div class="phone-balance-change">+$2,340 this month</div>
+          </div>
+          <div class="phone-section-title">Properties</div>
+          <div class="phone-list-item">
+            <span class="phone-list-name">Seaside Villa</span>
+            <span class="phone-list-value">$9,200</span>
+          </div>
+          <div class="phone-list-item">
+            <span class="phone-list-name">Downtown Loft</span>
+            <span class="phone-list-value">$3,630</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="phone-content-2">
+          <div class="phone-status-bar">
+            <span class="phone-time">9:41</span>
+            <div class="phone-icons">
+              <div class="phone-icon-bar" style="height:8px;"></div>
+              <div class="phone-icon-bar" style="height:10px;"></div>
+              <div class="phone-icon-bar" style="height:12px;"></div>
+              <div class="phone-icon-bar" style="height:14px;"></div>
+            </div>
+          </div>
+          <div class="phone-dark-title">Start optimizing your listing in 5 minutes.</div>
+          <div class="phone-dark-sub">Connect your STR account. We'll deploy our algorithms to maximize your revenue.</div>
+          <button class="btn phone-dark-btn">Let's Begin</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame">
+      <div class="phone-screen">
+        <div class="phone-content-3">
+          <div class="phone-status-bar">
+            <span class="phone-time">9:41</span>
+            <div class="phone-icons">
+              <div class="phone-icon-bar" style="height:8px;"></div>
+              <div class="phone-icon-bar" style="height:10px;"></div>
+              <div class="phone-icon-bar" style="height:12px;"></div>
+              <div class="phone-icon-bar" style="height:14px;"></div>
+            </div>
+          </div>
+          <div class="phone-tab-bar">
+            <div class="phone-tab phone-tab-active">Insights</div>
+            <div class="phone-tab">Activity</div>
+            <div class="phone-tab">Goals</div>
+          </div>
+          <div class="phone-insight-card">
+            <div class="phone-insight-label">This Week</div>
+            <div class="phone-insight-title">You're on track</div>
+            <div class="phone-insight-desc">Your occupancy is 8% above market average. Your listing is on track to hit revenue goals.</div>
+          </div>
+          <div class="phone-insight-card">
+            <div class="phone-insight-label">Recommendation</div>
+            <div class="phone-insight-title">Consider increasing minimum stay</div>
+            <div class="phone-insight-desc">Based on upcoming local events, requiring a 3-night minimum could boost your revenue by 15%.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Rev Whisper — A Kasu Capital Company</span>
+  <span>Brand Applications · Page 05 of 05</span>
+</div>
+
+</body></html>

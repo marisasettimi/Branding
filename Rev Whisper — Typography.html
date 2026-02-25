@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rev Whisper — Typography</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+  :root {
+    --dark: #32302F;
+    --white: #FFFFFF;
+    --light: #E0DCDA;
+    --heading: 'Lora', 'Georgia', serif;
+    --body: 'DM Sans', 'system-ui', 'Helvetica Neue', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--body); color: var(--dark); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+  .cover {
+    min-height: 100vh;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 120px;
+    position: relative;
+  }
+  .cover-tag { font-family: var(--body); font-size: 13px; color: var(--dark); margin-bottom: 40px; }
+  .cover-title {
+    font-family: var(--heading);
+    font-size: clamp(56px, 8vw, 120px);
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.05;
+    letter-spacing: -2px;
+  }
+  .cover-subtitle { font-family: var(--body); font-size: 18px; font-weight: 300; color: var(--dark); margin-top: 40px; max-width: 500px; line-height: 1.7; }
+  .cover-page-no { position: absolute; right: 80px; bottom: 60px; font-family: var(--body); font-size: 13px; color: var(--dark); }
+
+  .section { padding: 100px 120px; max-width: 1400px; margin: 0 auto; }
+  .section-full { padding: 100px 120px; }
+  .section-label { font-family: var(--body); font-size: 13px; color: var(--dark); margin-bottom: 40px; }
+  .section-heading { font-family: var(--heading); font-size: clamp(32px, 4vw, 56px); font-weight: 400; color: var(--dark); line-height: 1.15; letter-spacing: -1px; }
+
+  /* ─── TYPEFACE SPECIMEN ─── */
+  .specimen {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .specimen-display {
+    font-size: clamp(72px, 10vw, 140px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -3px;
+    color: var(--dark);
+  }
+  .specimen-meta { padding-top: 16px; }
+  .specimen-name {
+    font-family: var(--body);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .specimen-designer {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .specimen-tag {
+    display: inline-block;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--dark);
+    border: 1px solid var(--light);
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  .specimen-chars {
+    font-size: 18px;
+    line-height: 2;
+    color: var(--dark);
+    margin-top: 30px;
+    letter-spacing: 2px;
+  }
+
+  /* ─── WEIGHT SHOWCASE ─── */
+  .weights {
+    margin-top: 60px;
+  }
+  .weight-row {
+    display: flex;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--light);
+  }
+  .weight-label {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--dark);
+    width: 120px;
+    flex-shrink: 0;
+  }
+  .weight-sample {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--dark);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  /* ─── TYPE SCALE ─── */
+  .scale {
+    margin-top: 60px;
+  }
+  .scale-row {
+    display: flex;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--light);
+  }
+  .scale-size {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--dark);
+    width: 100px;
+    flex-shrink: 0;
+  }
+  .scale-role {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--dark);
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  /* ─── PAIRING EXAMPLES ─── */
+  .pairing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .pairing-card {
+    padding: 48px;
+    border-radius: var(--radius-md);
+    background: var(--white);
+    border: 1px solid var(--light);
+  }
+  .pairing-heading {
+    font-family: var(--heading);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+  .pairing-body {
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--dark);
+  }
+
+  /* ─── DO / DON'T ─── */
+  .dodont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+  }
+  .dodont-title {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--dark);
+    color: var(--dark);
+  }
+  .dodont-title.dont { border-bottom-color: var(--light); }
+  .dodont-item {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .dodont-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--dark);
+  }
+  .dont .dodont-item::before { background: var(--dark); opacity: 0.5; }
+
+  .footer {
+    padding: 40px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--light);
+  }
+  .footer span { font-family: var(--body); font-size: 13px; color: var(--dark); }
+
+  @media (max-width: 768px) {
+    .cover, .section, .section-full { padding: 60px 30px; }
+    .specimen { grid-template-columns: 1fr; }
+    .pairing-grid { grid-template-columns: 1fr; }
+    .dodont { grid-template-columns: 1fr; }
+    .footer { padding: 40px 30px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-tag">02 — Typography</div>
+  <h1 class="cover-title">Type is<br>personality.</h1>
+  <p class="cover-subtitle">Typography is the single most important brand element. It carries voice, tone, and trust in every word.</p>
+  <div class="cover-page-no">Page 2 of 5</div>
+</section>
+
+<!-- PRIMARY TYPEFACE: TIEMPOS -->
+<section class="section">
+  <div class="section-label">Primary Typeface — Headlines</div>
+  <div class="specimen">
+    <div>
+      <div class="specimen-display" style="font-family: var(--heading);">Aa</div>
+    </div>
+    <div class="specimen-meta">
+      <div class="specimen-name">Tiempos</div>
+      <div class="specimen-designer">Designed by Kris Sowersby at Klim Type Foundry. A contemporary serif with classical proportions — warm, authoritative, and deeply readable at display sizes. Our headlines live here.</div>
+      <div>
+        <span class="specimen-tag">Serif</span>
+        <span class="specimen-tag">Display + Text</span>
+        <span class="specimen-tag">Weight 400</span>
+        <span class="specimen-tag">Klim Type Foundry</span>
+      </div>
+      <div class="specimen-chars" style="font-family: var(--heading);">
+        AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+      </div>
+      <div class="specimen-chars" style="font-family: var(--heading); font-size: 16px;">
+        0123456789 &amp; $ % @ ! ? ( ) { } [ ]
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECONDARY TYPEFACE: THE FUTURE -->
+<section class="section-full" style="background: var(--white); border-top: 1px solid var(--light); border-bottom: 1px solid var(--light); padding-top: 100px; padding-bottom: 100px;">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+    <div class="section-label">Secondary Typeface — Body</div>
+    <div class="specimen">
+      <div>
+        <div class="specimen-display" style="font-family: var(--body); font-weight: 400;">Aa</div>
+      </div>
+      <div class="specimen-meta">
+        <div class="specimen-name">The Future</div>
+        <div class="specimen-designer">A clean, geometric sans-serif used for all body copy, UI elements, labels, and navigation. Its neutral warmth complements Tiempos without competing. Fallback: system-ui, Helvetica Neue.</div>
+        <div>
+          <span class="specimen-tag">Sans-Serif</span>
+          <span class="specimen-tag">Geometric</span>
+          <span class="specimen-tag">Weights 200–700</span>
+        </div>
+        <div class="specimen-chars" style="font-family: var(--body);">
+          AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+        </div>
+        <div class="specimen-chars" style="font-family: var(--body); font-size: 16px;">
+          0123456789 &amp; $ % @ ! ? ( ) { } [ ]
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEIGHT SHOWCASE -->
+<section class="section">
+  <div class="section-label">Weight Range — The Future</div>
+  <div class="weights">
+    <div class="weight-row">
+      <div class="weight-label">Light 200</div>
+      <div class="weight-sample" style="font-family: var(--body); font-weight: 200;">Your revenue, optimized.</div>
+    </div>
+    <div class="weight-row">
+      <div class="weight-label">Light 300</div>
+      <div class="weight-sample" style="font-family: var(--body); font-weight: 300;">Your revenue, optimized.</div>
+    </div>
+    <div class="weight-row">
+      <div class="weight-label">Regular 400</div>
+      <div class="weight-sample" style="font-family: var(--body); font-weight: 400;">Your revenue, optimized.</div>
+    </div>
+    <div class="weight-row">
+      <div class="weight-label">Medium 500</div>
+      <div class="weight-sample" style="font-family: var(--body); font-weight: 500;">Your revenue, optimized.</div>
+    </div>
+    <div class="weight-row">
+      <div class="weight-label">Semi 600</div>
+      <div class="weight-sample" style="font-family: var(--body); font-weight: 600;">Your revenue, optimized.</div>
+    </div>
+    <div class="weight-row">
+      <div class="weight-label">Bold 700</div>
+      <div class="weight-sample" style="font-family: var(--body); font-weight: 700;">Your revenue, optimized.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE HIERARCHY -->
+<section class="section-full" style="background: var(--white); border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+    <div class="section-label">Type Hierarchy</div>
+    <div class="scale">
+      <div class="scale-row">
+        <div class="scale-size">64px</div>
+        <div class="scale-role">Display</div>
+        <div style="font-family: var(--heading); font-size: 64px; font-weight: 400; color: var(--dark); line-height: 1.1; letter-spacing: -2px;">Maximize every booking.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-size">42px</div>
+        <div class="scale-role">H1</div>
+        <div style="font-family: var(--heading); font-size: 42px; font-weight: 400; color: var(--dark); line-height: 1.2; letter-spacing: -1px;">Your revenue, optimized.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-size">28px</div>
+        <div class="scale-role">H2</div>
+        <div style="font-family: var(--heading); font-size: 28px; font-weight: 400; color: var(--dark); line-height: 1.3;">Built for hosts who want more.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-size">20px</div>
+        <div class="scale-role">Body</div>
+        <div style="font-family: var(--body); font-size: 20px; font-weight: 400; color: var(--dark); line-height: 1.5;">Algorithms that price smarter, so you earn more from every night.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-size">14px</div>
+        <div class="scale-role">Caption</div>
+        <div style="font-family: var(--body); font-size: 14px; font-weight: 300; color: var(--dark); line-height: 1.6;">Results based on historical performance. Individual outcomes may vary.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-size">13px</div>
+        <div class="scale-role">Label</div>
+        <div style="font-family: var(--body); font-size: 13px; font-weight: 400; color: var(--dark); letter-spacing: 0px;">Rev Whisper</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIRING EXAMPLES -->
+<section class="section">
+  <div class="section-label">Pairing in Context</div>
+  <div class="pairing-grid">
+    <div class="pairing-card">
+      <div class="pairing-heading">Smart algorithms. Dedicated team.</div>
+      <div class="pairing-body">A revenue management experience that feels effortless, transparent, and genuinely aligned with your goals. Because your listings deserve better.</div>
+    </div>
+    <div class="pairing-card">
+      <div class="pairing-heading">Optimize on autopilot.</div>
+      <div class="pairing-body">Set up your listings and let our algorithms do the heavy lifting. Your pricing adjusts itself so you don't have to.</div>
+    </div>
+    <div class="pairing-card">
+      <div class="pairing-heading">No guesswork. No missed revenue.</div>
+      <div class="pairing-body">We believe in radical transparency. You'll always know exactly why your rates are set the way they are. That's a promise.</div>
+    </div>
+    <div class="pairing-card">
+      <div class="pairing-heading">Your monthly revenue report is ready.</div>
+      <div class="pairing-body">Your listings had a strong month. Our team has prepared a detailed review with market insights and pricing recommendations.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DO / DON'T -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Typography Guidelines</div>
+  <div class="dodont">
+    <div>
+      <div class="dodont-title">Do</div>
+      <div class="dodont-item">Use Tiempos at large display sizes (42px+) for maximum impact</div>
+      <div class="dodont-item">Keep body text in The Future at 400 weight for readability</div>
+      <div class="dodont-item">Maintain generous line height (1.4–1.8) for breathing room</div>
+      <div class="dodont-item">Use negative letter-spacing (-1px to -2px) on headlines only</div>
+      <div class="dodont-item">Let the type hierarchy do the work — avoid bold for emphasis</div>
+    </div>
+    <div>
+      <div class="dodont-title dont">Don't</div>
+      <div class="dodont-item">Don't use Tiempos below 20px — switch to The Future for small sizes</div>
+      <div class="dodont-item">Don't use more than two type sizes on a single card or component</div>
+      <div class="dodont-item">Don't set all-caps in Tiempos — it loses its warmth</div>
+      <div class="dodont-item">Don't stretch, compress, or outline the letterforms</div>
+      <div class="dodont-item">Don't mix in third-party typefaces without brand approval</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Rev Whisper — A Kasu Capital Company</span>
+  <span>Typography · Page 02 of 05</span>
+</div>
+
+</body></html>

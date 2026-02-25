@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rev Whisper — Brand Overview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+  :root {
+    --dark: #32302F;
+    --white: #FFFFFF;
+    --light: #E0DCDA;
+    --heading: 'Lora', 'Georgia', serif;
+    --body: 'DM Sans', 'system-ui', 'Helvetica Neue', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--body); color: var(--dark); background: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+  /* --- COVER --- */
+  .cover {
+    min-height: 100vh;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 120px;
+    position: relative;
+  }
+  .cover-tag {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 40px;
+  }
+  .cover-title {
+    font-family: var(--heading);
+    font-size: clamp(56px, 8vw, 120px);
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    max-width: 900px;
+  }
+  .cover-subtitle {
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-top: 40px;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+  .cover-page-no {
+    position: absolute;
+    right: 80px;
+    bottom: 60px;
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--dark);
+  }
+
+  /* --- SHARED --- */
+  .section { padding: 100px 120px; max-width: 1400px; margin: 0 auto; }
+  .section-full { padding: 100px 120px; }
+  .section-label {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 40px;
+  }
+  .section-heading {
+    font-family: var(--heading);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    max-width: 800px;
+  }
+  .section-body {
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.8;
+    max-width: 600px;
+    margin-top: 30px;
+  }
+
+  /* --- MANIFESTO --- */
+  .manifesto {
+    padding: 120px;
+    background: var(--white);
+    border-top: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
+    text-align: center;
+  }
+  .manifesto-text {
+    font-family: var(--heading);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.35;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .manifesto-text em {
+    font-style: italic;
+  }
+
+  /* --- TWO-COLUMN --- */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .two-col-right {
+    padding-top: 20px;
+  }
+
+  /* --- BRAND PILLARS --- */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 60px;
+  }
+  .pillar {
+    padding: 60px 40px;
+    border-right: 1px solid var(--light);
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar-num {
+    font-family: var(--heading);
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+  .pillar-title {
+    font-family: var(--heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+  .pillar-text {
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.7;
+  }
+
+  /* --- BRAND ESSENCE --- */
+  .essence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .essence-card {
+    padding: 48px 36px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+  }
+  .essence-label {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .essence-value {
+    font-family: var(--heading);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .essence-desc {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.7;
+  }
+
+  /* --- QUOTE --- */
+  .quote-section {
+    padding: 120px;
+    background: var(--white);
+    border-top: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
+    text-align: center;
+  }
+  .quote-text {
+    font-family: var(--heading);
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--dark);
+    line-height: 1.4;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  .quote-attr {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-top: 30px;
+  }
+
+  /* --- FOOTER --- */
+  .footer {
+    padding: 40px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--light);
+  }
+  .footer span {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--dark);
+  }
+
+  @media (max-width: 768px) {
+    .cover, .section, .section-full, .manifesto, .quote-section { padding: 60px 30px; }
+    .two-col { grid-template-columns: 1fr; gap: 40px; }
+    .pillars { grid-template-columns: 1fr; }
+    .pillar { border-right: none; border-bottom: 1px solid var(--light); }
+    .essence-grid { grid-template-columns: 1fr; }
+    .footer { padding: 40px 30px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-tag">01 — Brand Overview</div>
+  <h1 class="cover-title">Rev Whisper.</h1>
+  <p class="cover-subtitle">An intelligent revenue management platform that optimizes listings, drives pricing strategy, and maximizes returns for short-term rental owners.</p>
+  <div class="cover-page-no">Page 1 of 5</div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="section-label" style="text-align: center;">Our Belief</div>
+  <p class="manifesto-text">We believe every short-term rental deserves <em>smarter</em> pricing. Not guesswork. Not gut feelings. Revenue driven by <em>algorithms</em> that never sleep.</p>
+</section>
+
+<!-- BRAND STORY -->
+<section class="section">
+  <div class="two-col">
+    <div>
+      <div class="section-label">The Story</div>
+      <h2 class="section-heading">Built for hosts who want more from their listings.</h2>
+    </div>
+    <div class="two-col-right">
+      <p class="section-body">Rev Whisper exists because most short-term rental owners leave revenue on the table. We combine proprietary algorithms with a dedicated tech team to optimize every listing, every night, every market — turning data into dollars while you focus on your guests.</p>
+      <p class="section-body" style="margin-top: 20px;">The brand reflects this philosophy: precise, intelligent, confident. No noise, no empty promises. Just results you can measure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND ESSENCE -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Brand Essence</div>
+  <div class="essence-grid">
+    <div class="essence-card">
+      <div class="essence-label">Attribute</div>
+      <div class="essence-value">Precision</div>
+      <div class="essence-desc">Every pricing decision is data-driven. Our algorithms analyze market conditions, demand signals, and competitive landscapes to set the optimal rate — every single night.</div>
+    </div>
+    <div class="essence-card">
+      <div class="essence-label">Attribute</div>
+      <div class="essence-value">Intelligence</div>
+      <div class="essence-desc">Machine learning that gets sharper with every booking. We don't just react to the market — we anticipate it, positioning your listings ahead of demand shifts.</div>
+    </div>
+    <div class="essence-card">
+      <div class="essence-label">Attribute</div>
+      <div class="essence-value">Results</div>
+      <div class="essence-desc">Revenue growth you can see. We measure success in occupancy rates, average daily rates, and total revenue — not vanity metrics. The numbers speak for themselves.</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <p class="quote-text">"The best revenue strategy doesn't feel like a strategy at all. It feels like your listing was always priced exactly right."</p>
+  <p class="quote-attr">— Rev Whisper Brand Philosophy</p>
+</section>
+
+<!-- BRAND PILLARS -->
+<section class="section">
+  <div class="section-label">Brand Pillars</div>
+  <h2 class="section-heading">Three ideas that hold everything together.</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">Algorithms</div>
+      <div class="pillar-text">Proprietary pricing models that analyze thousands of data points in real-time — from local events and seasonality to competitor rates and booking velocity.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">Optimization</div>
+      <div class="pillar-text">Listing titles, descriptions, photos, and amenity positioning — all refined to rank higher, convert better, and command stronger rates on every platform.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">Transparency</div>
+      <div class="pillar-text">Clear reporting on revenue performance, market positioning, and pricing rationale. You'll always understand exactly why your rates are set the way they are.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Rev Whisper — A Kasu Capital Company</span>
+  <span>Brand Overview · Page 01 of 05</span>
+</div>
+
+</body></html>

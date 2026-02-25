@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rev Whisper — Icon & Symbol</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+  :root {
+    --dark: #32302F;
+    --white: #FFFFFF;
+    --light: #E0DCDA;
+    --green: #4A6741;
+    --heading: 'Lora', 'Georgia', serif;
+    --body: 'DM Sans', 'system-ui', 'Helvetica Neue', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--body); color: var(--dark); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+  .cover {
+    min-height: 100vh;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 120px;
+    position: relative;
+  }
+  .cover-tag { font-family: var(--body); font-size: 13px; color: var(--dark); margin-bottom: 40px; }
+  .cover-title {
+    font-family: var(--heading);
+    font-size: clamp(56px, 8vw, 120px);
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.05;
+    letter-spacing: -2px;
+  }
+  .cover-subtitle { font-family: var(--body); font-size: 18px; font-weight: 300; color: var(--dark); margin-top: 40px; max-width: 500px; line-height: 1.7; }
+  .cover-page-no { position: absolute; right: 80px; bottom: 60px; font-family: var(--body); font-size: 13px; color: var(--dark); }
+
+  .section { padding: 100px 120px; max-width: 1400px; margin: 0 auto; }
+  .section-full { padding: 100px 120px; }
+  .section-label { font-family: var(--body); font-size: 13px; color: var(--dark); margin-bottom: 40px; }
+  .section-heading { font-family: var(--heading); font-size: clamp(32px, 4vw, 56px); font-weight: 400; color: var(--dark); line-height: 1.15; letter-spacing: -1px; max-width: 700px; }
+  .section-body { font-family: var(--body); font-size: 18px; font-weight: 300; color: var(--dark); line-height: 1.8; max-width: 600px; margin-top: 30px; }
+
+  /* ─── ICON DISPLAY ─── */
+  .icon-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    padding: 100px 60px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+  }
+  .icon-hero svg {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* ─── ICON VARIANTS ─── */
+  .icon-variants {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .icon-variant-card {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--light);
+  }
+  .icon-variant-card svg {
+    width: 100px;
+    height: 100px;
+  }
+  .icon-variant-label {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-top: 24px;
+  }
+
+  /* ─── CLEAR SPACE ─── */
+  .clearspace-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    padding: 80px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+    position: relative;
+  }
+  .clearspace-inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .clearspace-inner svg {
+    width: 120px;
+    height: 120px;
+  }
+  .clearspace-box {
+    position: absolute;
+    border: 1px dashed var(--green);
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    border-radius: 4px;
+  }
+  .clearspace-label-top,
+  .clearspace-label-side {
+    position: absolute;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--green);
+  }
+  .clearspace-label-top {
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .clearspace-label-side {
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  /* ─── MINIMUM SIZE ─── */
+  .min-size-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .min-size-card {
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+    min-height: 200px;
+  }
+  .min-size-label {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-top: 16px;
+  }
+
+  /* ─── DO / DON'T ─── */
+  .dodont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+  }
+  .dodont-title {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--dark);
+    color: var(--dark);
+  }
+  .dodont-title.dont { border-bottom-color: var(--light); }
+  .dodont-item {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .dodont-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--dark);
+  }
+  .dont .dodont-item::before { background: var(--dark); opacity: 0.5; }
+
+  /* ─── VISUAL DO / DON'T ─── */
+  .visual-dodont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .visual-card {
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+    min-height: 220px;
+  }
+  .visual-card-icon {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .visual-card-icon svg {
+    width: 80px;
+    height: 80px;
+  }
+  .visual-card-label {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-top: 16px;
+    text-align: center;
+  }
+  .visual-card-status {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 8px;
+    text-align: center;
+  }
+  .status-do { color: var(--green); }
+  .status-dont { color: var(--dark); opacity: 0.4; }
+
+  .footer {
+    padding: 40px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--light);
+  }
+  .footer span { font-family: var(--body); font-size: 13px; color: var(--dark); }
+
+  @media (max-width: 768px) {
+    .cover, .section, .section-full { padding: 60px 30px; }
+    .icon-variants { grid-template-columns: 1fr; }
+    .min-size-grid { grid-template-columns: 1fr 1fr; }
+    .dodont { grid-template-columns: 1fr; }
+    .visual-dodont { grid-template-columns: 1fr; }
+    .footer { padding: 40px 30px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-tag">04 — Icon & Symbol</div>
+  <h1 class="cover-title">The mark<br>speaks softly.</h1>
+  <p class="cover-subtitle">A speech bubble carrying a data waveform — a visual shorthand for intelligent revenue conversations. Treat it with the same precision it represents.</p>
+  <div class="cover-page-no">Page 4 of 7</div>
+</section>
+
+<!-- ICON DISPLAY -->
+<section class="section">
+  <div class="section-label">Brand Icon</div>
+  <h2 class="section-heading">The Rev Whisper symbol.</h2>
+  <p class="section-body">The icon combines a speech bubble with an algorithmic waveform — representing intelligent, data-driven conversations about revenue. It serves as the standalone brand mark and pairs with the wordmark to form the full logo.</p>
+
+  <div class="icon-hero">
+    <svg width="200" height="200" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ICON VARIANTS -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Icon Variants</div>
+  <h2 class="section-heading">Three approved versions.</h2>
+  <p class="section-body">The icon works in Dune, Fern, or reversed on dark backgrounds. No other color treatments are permitted.</p>
+
+  <div class="icon-variants">
+    <!-- Dune on White -->
+    <div class="icon-variant-card" style="background: var(--white);">
+      <svg width="100" height="100" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="icon-variant-label">Dune on White</div>
+    </div>
+    <!-- Fern on White -->
+    <div class="icon-variant-card" style="background: var(--white);">
+      <svg width="100" height="100" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#4A6741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#4A6741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="icon-variant-label">Fern on White</div>
+    </div>
+    <!-- White on Dune -->
+    <div class="icon-variant-card" style="background: var(--dark); border-color: var(--dark);">
+      <svg width="100" height="100" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="icon-variant-label" style="color: var(--white);">White on Dune</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLEAR SPACE & SIZING -->
+<section class="section-full" style="background: var(--white); border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+    <div class="section-label">Clear Space</div>
+    <h2 class="section-heading">Give the icon room to breathe.</h2>
+    <p class="section-body">Maintain a minimum clear space equal to 25% of the icon's height on all sides. No text, graphics, or other elements may enter this zone.</p>
+
+    <div class="clearspace-demo">
+      <div class="clearspace-inner">
+        <svg width="120" height="120" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="clearspace-box"></div>
+        <div class="clearspace-label-top">25% height</div>
+        <div class="clearspace-label-side">25% height</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINIMUM SIZES -->
+<section class="section">
+  <div class="section-label">Minimum Sizing</div>
+  <h2 class="section-heading">Legibility at every scale.</h2>
+  <p class="section-body">The icon must remain recognizable at all sizes. Below these minimums, the waveform detail is lost and the mark becomes illegible.</p>
+
+  <div class="min-size-grid">
+    <div class="min-size-card">
+      <svg width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="min-size-label">64px — Large</div>
+    </div>
+    <div class="min-size-card">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="min-size-label">48px — Standard</div>
+    </div>
+    <div class="min-size-card">
+      <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="min-size-label">32px — Small</div>
+    </div>
+    <div class="min-size-card" style="border-color: #E0DCDA; opacity: 0.5;">
+      <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="min-size-label">20px — Too small</div>
+    </div>
+  </div>
+</section>
+
+<!-- DO / DON'T — TEXT -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Symbol Guidelines</div>
+  <h2 class="section-heading">Protect the integrity of the mark.</h2>
+  <div class="dodont">
+    <div>
+      <div class="dodont-title">Do</div>
+      <div class="dodont-item">Use the icon in approved brand colors only (Dune, Fern, or White)</div>
+      <div class="dodont-item">Maintain the 25% clear space minimum around the icon at all times</div>
+      <div class="dodont-item">Use the icon at 32px or larger to preserve waveform detail</div>
+      <div class="dodont-item">Place the icon on solid, uncluttered backgrounds</div>
+      <div class="dodont-item">Use the icon as a standalone mark for favicons, app icons, and social avatars</div>
+    </div>
+    <div>
+      <div class="dodont-title dont">Don't</div>
+      <div class="dodont-item">Don't change the stroke weight or modify the waveform shape</div>
+      <div class="dodont-item">Don't apply gradients, shadows, outlines, or 3D effects to the icon</div>
+      <div class="dodont-item">Don't rotate, skew, stretch, or distort the icon in any way</div>
+      <div class="dodont-item">Don't place the icon on busy photographs or patterned backgrounds</div>
+      <div class="dodont-item">Don't recreate or redraw the icon — always use the original SVG asset</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISUAL DO / DON'T EXAMPLES -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Visual Examples</div>
+
+  <!-- DO examples -->
+  <div style="font-family: var(--body); font-size: 14px; font-weight: 500; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--dark); color: var(--dark);">Correct Usage</div>
+  <div class="visual-dodont">
+    <div class="visual-card">
+      <div class="visual-card-icon">
+        <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="visual-card-label">Dune on clean white</div>
+      <div class="visual-card-status status-do">Correct</div>
+    </div>
+    <div class="visual-card">
+      <div class="visual-card-icon">
+        <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#4A6741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#4A6741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="visual-card-label">Fern on clean white</div>
+      <div class="visual-card-status status-do">Correct</div>
+    </div>
+    <div class="visual-card" style="background: var(--dark); border-color: var(--dark);">
+      <div class="visual-card-icon">
+        <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="visual-card-label" style="color: var(--white);">White reversed on Dune</div>
+      <div class="visual-card-status status-do" style="color: #8FBC8F;">Correct</div>
+    </div>
+  </div>
+
+  <!-- DON'T examples -->
+  <div style="font-family: var(--body); font-size: 14px; font-weight: 500; margin-top: 48px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--light); color: var(--dark);">Incorrect Usage</div>
+  <div class="visual-dodont">
+    <div class="visual-card">
+      <div class="visual-card-icon" style="transform: rotate(15deg);">
+        <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="visual-card-label">Don't rotate the icon</div>
+      <div class="visual-card-status status-dont">Incorrect</div>
+    </div>
+    <div class="visual-card">
+      <div class="visual-card-icon" style="transform: scaleX(1.4);">
+        <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="visual-card-label">Don't stretch or distort</div>
+      <div class="visual-card-status status-dont">Incorrect</div>
+    </div>
+    <div class="visual-card">
+      <div class="visual-card-icon">
+        <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.3));">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="visual-card-label">Don't add shadows or effects</div>
+      <div class="visual-card-status status-dont">Incorrect</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Rev Whisper — A Kasu Capital Company</span>
+  <span>Icon & Symbol · Page 04 of 07</span>
+</div>
+
+</body></html>

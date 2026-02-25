@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rev Whisper — Logo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+  :root {
+    --dark: #32302F;
+    --white: #FFFFFF;
+    --light: #E0DCDA;
+    --green: #4A6741;
+    --heading: 'Lora', 'Georgia', serif;
+    --body: 'DM Sans', 'system-ui', 'Helvetica Neue', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--body); color: var(--dark); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+  .cover {
+    min-height: 100vh;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 120px;
+    position: relative;
+  }
+  .cover-tag { font-family: var(--body); font-size: 13px; color: var(--dark); margin-bottom: 40px; }
+  .cover-title {
+    font-family: var(--heading);
+    font-size: clamp(56px, 8vw, 120px);
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.05;
+    letter-spacing: -2px;
+  }
+  .cover-subtitle { font-family: var(--body); font-size: 18px; font-weight: 300; color: var(--dark); margin-top: 40px; max-width: 500px; line-height: 1.7; }
+  .cover-page-no { position: absolute; right: 80px; bottom: 60px; font-family: var(--body); font-size: 13px; color: var(--dark); }
+
+  .section { padding: 100px 120px; max-width: 1400px; margin: 0 auto; }
+  .section-full { padding: 100px 120px; }
+  .section-label { font-family: var(--body); font-size: 13px; color: var(--dark); margin-bottom: 40px; }
+  .section-heading { font-family: var(--heading); font-size: clamp(32px, 4vw, 56px); font-weight: 400; color: var(--dark); line-height: 1.15; letter-spacing: -1px; max-width: 700px; }
+  .section-body { font-family: var(--body); font-size: 18px; font-weight: 300; color: var(--dark); line-height: 1.8; max-width: 600px; margin-top: 30px; }
+
+  /* ─── LOGO DISPLAY ─── */
+  .logo-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    padding: 100px 60px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+  }
+  .logo-lockup {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo-lockup svg {
+    flex-shrink: 0;
+  }
+  .logo-wordmark {
+    font-family: var(--heading);
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .logo-wordmark .rev {
+    color: var(--green);
+  }
+  .logo-wordmark .whisper {
+    color: var(--dark);
+  }
+
+  /* ─── LOGO VARIANTS ─── */
+  .logo-variants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .logo-variant-card {
+    padding: 60px 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 240px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--light);
+  }
+  .logo-variant-label {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    text-align: center;
+    margin-top: 16px;
+  }
+  .logo-variant-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ─── ANATOMY ─── */
+  .anatomy-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    padding: 80px 60px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+    position: relative;
+  }
+  .anatomy-lockup {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
+  .anatomy-callout {
+    position: absolute;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--green);
+  }
+  .anatomy-line {
+    position: absolute;
+    background: var(--green);
+    opacity: 0.4;
+  }
+
+  /* ─── LOGO COMPONENTS ─── */
+  .components-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .component-card {
+    padding: 48px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+  }
+  .component-label {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .component-desc {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--dark);
+    text-align: center;
+    line-height: 1.6;
+    margin-top: 20px;
+    max-width: 220px;
+  }
+
+  /* ─── CLEAR SPACE ─── */
+  .clearspace-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    padding: 80px;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--radius-md);
+  }
+  .clearspace-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .clearspace-box {
+    position: absolute;
+    border: 1px dashed var(--green);
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    border-radius: 4px;
+  }
+  .clearspace-marker {
+    position: absolute;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--green);
+  }
+
+  /* ─── BACKGROUND USAGE ─── */
+  .bg-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .bg-card {
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--light);
+  }
+  .bg-card-label {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  /* ─── DO / DON'T ─── */
+  .dodont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+  }
+  .dodont-title {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--dark);
+    color: var(--dark);
+  }
+  .dodont-title.dont { border-bottom-color: var(--light); }
+  .dodont-item {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .dodont-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--dark);
+  }
+  .dont .dodont-item::before { background: var(--dark); opacity: 0.5; }
+
+  .footer {
+    padding: 40px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--light);
+  }
+  .footer span { font-family: var(--body); font-size: 13px; color: var(--dark); }
+
+  @media (max-width: 768px) {
+    .cover, .section, .section-full { padding: 60px 30px; }
+    .logo-variants { grid-template-columns: 1fr; }
+    .components-grid { grid-template-columns: 1fr; }
+    .bg-grid { grid-template-columns: 1fr; }
+    .dodont { grid-template-columns: 1fr; }
+    .footer { padding: 40px 30px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-tag">05 — Logo</div>
+  <h1 class="cover-title">Icon meets<br>wordmark.</h1>
+  <p class="cover-subtitle">The complete logo brings together the speech-wave icon with the Rev Whisper wordmark. "Rev" in Fern, "Whisper" in Dune — two voices, one mark.</p>
+  <div class="cover-page-no">Page 5 of 7</div>
+</section>
+
+<!-- PRIMARY LOGO -->
+<section class="section">
+  <div class="section-label">Primary Logo</div>
+  <h2 class="section-heading">The full logo lockup.</h2>
+  <p class="section-body">The primary logo combines the icon on the left with the two-tone wordmark. "Rev" appears in Fern (#4A6741) and "Whisper" in Dune (#32302F). This is the default logo for all applications.</p>
+
+  <div class="logo-hero">
+    <div class="logo-lockup">
+      <svg width="56" height="56" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="logo-wordmark" style="font-size: 42px;">
+        <span class="rev">Rev</span><span class="whisper"> Whisper</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO VARIANTS -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Logo Variants</div>
+  <h2 class="section-heading">Four approved presentations.</h2>
+  <p class="section-body">The logo adapts to different contexts. Use the primary version whenever possible. The reversed version is for dark backgrounds only.</p>
+
+  <div class="logo-variants">
+    <!-- Primary on White -->
+    <div class="logo-variant-wrapper">
+      <div class="logo-variant-card" style="background: var(--white); width: 100%;">
+        <div class="logo-lockup">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="logo-wordmark" style="font-size: 30px;">
+            <span class="rev">Rev</span><span class="whisper"> Whisper</span>
+          </div>
+        </div>
+      </div>
+      <div class="logo-variant-label">Primary — Default</div>
+    </div>
+
+    <!-- All Dune -->
+    <div class="logo-variant-wrapper">
+      <div class="logo-variant-card" style="background: var(--white); width: 100%;">
+        <div class="logo-lockup">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="logo-wordmark" style="font-size: 30px;">
+            <span style="color: var(--dark);">Rev</span><span style="color: var(--dark);"> Whisper</span>
+          </div>
+        </div>
+      </div>
+      <div class="logo-variant-label">Monochrome — Dune</div>
+    </div>
+
+    <!-- Reversed on Dune -->
+    <div class="logo-variant-wrapper">
+      <div class="logo-variant-card" style="background: var(--dark); border-color: var(--dark); width: 100%;">
+        <div class="logo-lockup">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="logo-wordmark" style="font-size: 30px;">
+            <span style="color: #8FBC8F;">Rev</span><span style="color: #FFFFFF;"> Whisper</span>
+          </div>
+        </div>
+      </div>
+      <div class="logo-variant-label">Reversed — Dark Background</div>
+    </div>
+
+    <!-- On Fern -->
+    <div class="logo-variant-wrapper">
+      <div class="logo-variant-card" style="background: var(--green); border-color: var(--green); width: 100%;">
+        <div class="logo-lockup">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="logo-wordmark" style="font-size: 30px;">
+            <span style="color: #FFFFFF;">Rev</span><span style="color: #FFFFFF;"> Whisper</span>
+          </div>
+        </div>
+      </div>
+      <div class="logo-variant-label">Reversed — Fern Background</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO COMPONENTS -->
+<section class="section-full" style="background: var(--white); border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+    <div class="section-label">Logo Anatomy</div>
+    <h2 class="section-heading">Three parts, one identity.</h2>
+    <p class="section-body">The logo is constructed from three distinct elements. Each can be identified separately, but the full lockup is the primary brand expression.</p>
+
+    <div class="components-grid">
+      <div class="component-card">
+        <div class="component-label">Icon</div>
+        <svg width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="component-desc">The speech-wave symbol. Used standalone for favicons, app icons, and social avatars.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-label">Wordmark</div>
+        <div class="logo-wordmark" style="font-size: 32px;">
+          <span class="rev">Rev</span><span class="whisper"> Whisper</span>
+        </div>
+        <div class="component-desc">"Rev" in Fern, "Whisper" in Dune. Set in Lora at regular weight. Never retype — use the approved asset.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-label">Full Lockup</div>
+        <div class="logo-lockup">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="logo-wordmark" style="font-size: 24px;">
+            <span class="rev">Rev</span><span class="whisper"> Whisper</span>
+          </div>
+        </div>
+        <div class="component-desc">Icon + wordmark together. This is the primary logo for all brand communications.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLEAR SPACE -->
+<section class="section">
+  <div class="section-label">Clear Space</div>
+  <h2 class="section-heading">Protect the logo's presence.</h2>
+  <p class="section-body">The minimum clear space around the full logo equals the height of the icon. No competing elements — text, graphics, or edges — may enter this zone.</p>
+
+  <div class="clearspace-demo">
+    <div class="clearspace-inner">
+      <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="logo-wordmark" style="font-size: 34px;">
+        <span class="rev">Rev</span><span class="whisper"> Whisper</span>
+      </div>
+      <div class="clearspace-box" style="top: -44px; left: -44px; right: -44px; bottom: -44px;"></div>
+      <div class="clearspace-marker" style="top: -64px; left: 50%; transform: translateX(-50%);">icon height</div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND USAGE -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Background Usage</div>
+  <h2 class="section-heading">Every background, considered.</h2>
+  <p class="section-body">The logo has approved treatments for different background scenarios. When in doubt, use the primary version on white.</p>
+
+  <div class="bg-grid">
+    <div class="bg-card" style="background: var(--white);">
+      <div class="logo-lockup">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-wordmark" style="font-size: 28px;"><span class="rev">Rev</span><span class="whisper"> Whisper</span></div>
+      </div>
+      <div class="bg-card-label" style="color: var(--dark);">On White — Primary</div>
+    </div>
+    <div class="bg-card" style="background: #E0DCDA;">
+      <div class="logo-lockup">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-wordmark" style="font-size: 28px;"><span class="rev">Rev</span><span class="whisper"> Whisper</span></div>
+      </div>
+      <div class="bg-card-label" style="color: var(--dark);">On Stone — Acceptable</div>
+    </div>
+    <div class="bg-card" style="background: var(--dark); border-color: var(--dark);">
+      <div class="logo-lockup">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-wordmark" style="font-size: 28px;"><span style="color: #8FBC8F;">Rev</span><span style="color: #FFFFFF;"> Whisper</span></div>
+      </div>
+      <div class="bg-card-label" style="color: var(--white);">On Dune — Reversed</div>
+    </div>
+    <div class="bg-card" style="background: var(--green); border-color: var(--green);">
+      <div class="logo-lockup">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-wordmark" style="font-size: 28px;"><span style="color: #FFFFFF;">Rev</span><span style="color: #FFFFFF;"> Whisper</span></div>
+      </div>
+      <div class="bg-card-label" style="color: var(--white);">On Fern — Reversed</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO DO / DON'T -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Logo Guidelines</div>
+  <h2 class="section-heading">Rules for protecting the mark.</h2>
+  <div class="dodont">
+    <div>
+      <div class="dodont-title">Do</div>
+      <div class="dodont-item">Always use the approved logo files — never recreate the lockup manually</div>
+      <div class="dodont-item">Maintain the fixed relationship between icon and wordmark</div>
+      <div class="dodont-item">Use "Rev" in Fern (#4A6741) and "Whisper" in Dune (#32302F) on light backgrounds</div>
+      <div class="dodont-item">Ensure the logo has sufficient contrast against its background</div>
+      <div class="dodont-item">Scale the logo proportionally — never resize width or height independently</div>
+    </div>
+    <div>
+      <div class="dodont-title dont">Don't</div>
+      <div class="dodont-item">Don't separate the icon from the wordmark in the lockup arrangement</div>
+      <div class="dodont-item">Don't change the color relationship — "Rev" is always the accent color</div>
+      <div class="dodont-item">Don't place the icon on the right side or below the wordmark</div>
+      <div class="dodont-item">Don't add effects like drop shadows, outlines, bevels, or gradients</div>
+      <div class="dodont-item">Don't set the wordmark in a different typeface — it must be Lora</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Rev Whisper — A Kasu Capital Company</span>
+  <span>Logo · Page 05 of 07</span>
+</div>
+
+</body></html>
