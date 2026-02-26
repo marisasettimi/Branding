@@ -393,6 +393,35 @@
     .asset-card-desc { font-family: var(--body); font-size: 14px; font-weight: 300; color: var(--dark); line-height: 1.7; margin-bottom: 16px; }
     .asset-card-formats { font-family: var(--body); font-size: 12px; font-weight: 400; color: var(--green); margin-top: auto; }
 
+    /* Emphasis Marks */
+    .emphasis-marks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+    .emphasis-mark-card { padding: 60px 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .emphasis-mark-demo { flex: 1; display: flex; align-items: center; justify-content: center; }
+    .emphasis-mark-label { font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark); margin-top: 24px; }
+    .emphasis-mark-desc { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; margin-top: 8px; text-align: center; max-width: 220px; }
+    .emphasis-spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+    .emphasis-spec-card { padding: 48px 36px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .emphasis-spec-value { font-family: var(--heading); font-size: 36px; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
+    .emphasis-spec-label { font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
+    .emphasis-spec-desc { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; }
+    .emphasis-hierarchy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
+    .emphasis-hierarchy-card { padding: 48px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .emphasis-hierarchy-label { font-family: var(--body); font-size: 12px; font-weight: 400; color: var(--dark); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .emphasis-hierarchy-sample { margin-bottom: 16px; }
+    .emphasis-hierarchy-note { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; }
+    .emphasis-example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
+    .emphasis-example { padding: 48px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .emphasis-example-label { font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--dark); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .emphasis-example-label.do-label { color: var(--green); }
+    .emphasis-example-label.dont-label { opacity: 0.4; }
+    .emphasis-example-text { font-family: var(--heading); font-size: 28px; font-weight: 400; color: var(--dark); line-height: 1.4; }
+    .emphasis-example-body { font-family: var(--body); font-size: 15px; font-weight: 300; color: var(--dark); line-height: 1.8; margin-top: 16px; }
+    .emphasis-restraint-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .emphasis-restraint-card { padding: 48px 36px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-md); }
+    .emphasis-restraint-num { font-family: var(--heading); font-size: 48px; font-weight: 400; color: var(--green); margin-bottom: 16px; line-height: 1; }
+    .emphasis-restraint-title { font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--dark); margin-bottom: 8px; }
+    .emphasis-restraint-desc { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--dark); line-height: 1.6; }
+
     /* Footer */
     .footer { padding: 40px 120px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--light); }
     .footer span { font-family: var(--body); font-size: 13px; color: var(--dark); }
@@ -430,6 +459,11 @@
       .motion-grid { grid-template-columns: 1fr; }
       .motion-principle-grid { grid-template-columns: 1fr; }
       .asset-grid { grid-template-columns: 1fr; }
+      .emphasis-marks-grid { grid-template-columns: 1fr; }
+      .emphasis-spec-grid { grid-template-columns: 1fr; }
+      .emphasis-hierarchy-grid { grid-template-columns: 1fr; }
+      .emphasis-example-grid { grid-template-columns: 1fr; }
+      .emphasis-restraint-grid { grid-template-columns: 1fr; }
       .card-showcase, .social-grid, .app-showcase { grid-template-columns: 1fr; }
       .web-mock-features { grid-template-columns: 1fr; }
       .web-mock-feature { border-right: none; border-bottom: 1px solid var(--light); }
@@ -454,6 +488,7 @@
     <button type="button" class="site-nav-btn" data-tab="motion">Motion</button>
     <button type="button" class="site-nav-btn" data-tab="applications">Applications</button>
     <button type="button" class="site-nav-btn" data-tab="assets">Assets</button>
+    <button type="button" class="site-nav-btn" data-tab="emphasis">Emphasis</button>
   </nav>
 </header>
 
@@ -1595,7 +1630,7 @@
   <!-- PANEL: Applications -->
   <div id="panel-applications" class="tab-panel">
     <section class="cover">
-      <div class="cover-tag">06 / Brand Applications</div>
+      <div class="cover-tag">10 / Brand Applications</div>
       <h1 class="cover-title">In <span style="color: var(--green);">practice.</span></h1>
       <p class="cover-subtitle">How Rev Whisper looks, feels, and communicates across every touchpoint, from business cards to mobile screens.</p>
     </section>
@@ -1738,10 +1773,9 @@
 
     <!-- COVER -->
     <section class="cover">
-      <div class="cover-tag">10 / Brand Assets</div>
+      <div class="cover-tag">11 / Brand Assets</div>
       <h1 class="cover-title">Brand <span style="color: var(--green);">Assets.</span></h1>
       <p class="cover-subtitle">A reference guide to all Rev Whisper brand files, formats, and usage contexts. Everything you need to represent the brand consistently.</p>
-      <div class="cover-page-no">Page 10 of 10</div>
     </section>
 
     <!-- PRIMARY ASSETS -->
@@ -1890,30 +1924,282 @@
       <div class="section-label">Usage Notes</div>
       <h2 class="section-heading">File <span style="color: var(--green);">Guidelines</span></h2>
 
-      <div class="dos-donts" style="margin-top: 60px;">
-        <div class="do-col">
-          <div class="do-label">Do</div>
-          <ul class="do-list">
-            <li>Use SVG files for all digital applications when possible</li>
-            <li>Use EPS files for print production and large-format output</li>
-            <li>Use PNG files only when vector formats are not supported</li>
-            <li>Export PNG assets at 2x resolution minimum for retina screens</li>
-            <li>Reference this guide before creating any new brand materials</li>
-          </ul>
+      <div class="dodont">
+        <div>
+          <div class="dodont-title">Do</div>
+          <div class="dodont-item">Use SVG files for all digital applications when possible</div>
+          <div class="dodont-item">Use EPS files for print production and large-format output</div>
+          <div class="dodont-item">Use PNG files only when vector formats are not supported</div>
+          <div class="dodont-item">Export PNG assets at 2x resolution minimum for retina screens</div>
+          <div class="dodont-item">Reference this guide before creating any new brand materials</div>
         </div>
-        <div class="dont-col">
-          <div class="dont-label">Don't</div>
-          <ul class="dont-list">
-            <li>Recreate, retrace, or manually redraw any brand assets</li>
-            <li>Convert between file formats without using the source files</li>
-            <li>Use low-resolution assets in print or large-format applications</li>
-            <li>Distribute brand files without proper access permissions</li>
-            <li>Modify asset colors, proportions, or elements from source files</li>
-          </ul>
+        <div>
+          <div class="dodont-title dont">Don't</div>
+          <div class="dodont-item">Recreate, retrace, or manually redraw any brand assets</div>
+          <div class="dodont-item">Convert between file formats without using the source files</div>
+          <div class="dodont-item">Use low-resolution assets in print or large-format applications</div>
+          <div class="dodont-item">Distribute brand files without proper access permissions</div>
+          <div class="dodont-item">Modify asset colors, proportions, or elements from source files</div>
         </div>
       </div>
     </section>
 
+  </div>
+
+  <!-- PANEL: Text Emphasis & Annotation Marks -->
+  <div id="panel-emphasis" class="tab-panel">
+    <section class="cover">
+      <div class="cover-tag">12 / Text Emphasis & Annotation Marks</div>
+      <h1 class="cover-title">Mark what<br><span style="color: var(--green);">matters.</span></h1>
+      <p class="cover-subtitle">Hand-drawn emphasis marks that highlight a single idea with warmth and intention. Controlled enough to feel premium. Human enough to feel real.</p>
+    </section>
+
+    <!-- Design Intent -->
+    <section class="section">
+      <div class="section-label">Design Intent</div>
+      <h2 class="section-heading">Why the brand uses <span style="color: var(--green);">emphasis marks.</span></h2>
+      <div class="two-col">
+        <div>
+          <p class="section-body">Rev Whisper is built on data and precision. But precision alone doesn't build trust. It earns respect. What builds trust is the feeling that a real person is behind the algorithm, pointing at the number that matters, circling the insight worth remembering.</p>
+          <p class="section-body" style="margin-top: 20px;">Emphasis marks introduce a controlled moment of human texture into an otherwise minimal system. They signal: we know what's important, and we want to make sure you see it too.</p>
+        </div>
+        <div class="two-col-right">
+          <p class="section-body">These marks are not decoration. They are editorial tools, the visual equivalent of a revenue manager leaning across the table and saying, "This is the number." They add warmth without sacrificing authority. They create focus without introducing noise.</p>
+          <p class="section-body" style="margin-top: 20px;">Used correctly, they make the brand feel more considered, not less precise.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approved Marks -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-label">Approved Marks</div>
+      <h2 class="section-heading">Three marks. <span style="color: var(--green);">Nothing</span> else.</h2>
+      <p class="section-body">The emphasis system consists of exactly three mark types. Each has a distinct purpose. No additional marks may be introduced without brand approval.</p>
+      <div class="emphasis-marks-grid">
+        <div class="emphasis-mark-card">
+          <div class="emphasis-mark-demo">
+            <span style="font-family: var(--heading); font-size: 32px; font-weight: 400; color: var(--dark); position: relative; display: inline-block;">12.3%<svg style="position: absolute; top: 50%; left: 50%; width: calc(100% + 28px); height: calc(100% + 18px); transform: translate(-50%, -50%) rotate(-2deg);" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none"><ellipse cx="50" cy="50" rx="48" ry="46" stroke="#4A6741" stroke-width="2" stroke-linecap="round"/></svg></span>
+          </div>
+          <div class="emphasis-mark-label">Circle</div>
+          <div class="emphasis-mark-desc">Draws the eye to a single data point, metric, or key phrase. The primary emphasis mark. Use it most.</div>
+        </div>
+        <div class="emphasis-mark-card">
+          <div class="emphasis-mark-demo">
+            <span style="font-family: var(--heading); font-size: 32px; font-weight: 400; color: var(--dark); position: relative; display: inline-block;">revenue<svg style="position: absolute; bottom: -6px; left: -4px; width: calc(100% + 8px); height: 8px;" viewBox="0 0 100 8" preserveAspectRatio="none" fill="none"><path d="M2 6 C25 2, 50 1, 98 5" stroke="#4A6741" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          </div>
+          <div class="emphasis-mark-label">Underline</div>
+          <div class="emphasis-mark-desc">A hand-drawn underline beneath a single word or short phrase. Subtler than the circle. Use for secondary emphasis.</div>
+        </div>
+        <div class="emphasis-mark-card">
+          <div class="emphasis-mark-demo">
+            <span style="font-family: var(--heading); font-size: 32px; font-weight: 400; color: var(--dark); position: relative; display: inline-block;">optimized<svg style="position: absolute; top: -12px; right: -18px; width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none"><path d="M12 6 L14 11 L12 9 L10 11 Z" stroke="#4A6741" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4 L12 1" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/><path d="M16 6 L19 3" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/><path d="M8 6 L5 3" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <div class="emphasis-mark-label">Star</div>
+          <div class="emphasis-mark-desc">A small, hand-drawn star placed at the top-right of a word. Reserved for moments of achievement or milestone emphasis. Use sparingly.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage Rules -->
+    <section class="section-full" style="border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+        <div class="section-label">Usage Rules</div>
+        <h2 class="section-heading">When to mark. When to <span style="color: var(--green);">leave it.</span></h2>
+        <p class="section-body">Emphasis marks exist to direct attention, not to decorate. If the content hierarchy already does the work, the mark is unnecessary. When in doubt, leave it out.</p>
+        <div class="dodont">
+          <div>
+            <div class="dodont-title">Do</div>
+            <div class="dodont-item">Use marks when a single data point or metric is the most important element on the page</div>
+            <div class="dodont-item">Draw the eye to a key phrase within a dense content block</div>
+            <div class="dodont-item">Mark revenue milestones or performance achievements that deserve visual weight</div>
+            <div class="dodont-item">Highlight the word that carries the entire meaning of a headline</div>
+            <div class="dodont-item">Reinforce the typographic hierarchy rather than competing with it</div>
+          </div>
+          <div>
+            <div class="dodont-title dont">Don't</div>
+            <div class="dodont-item">Don't add marks when the content is already clear without additional visual cues</div>
+            <div class="dodont-item">Don't use more than one mark in the same view or component</div>
+            <div class="dodont-item">Don't apply marks to body copy, captions, or small text below 16px</div>
+            <div class="dodont-item">Don't use marks for decoration. Every mark must serve an editorial purpose</div>
+            <div class="dodont-item">Don't mark content in layouts that are already visually active or information-dense</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consistency Rules -->
+    <section class="section">
+      <div class="section-label">Consistency Rules</div>
+      <h2 class="section-heading">Built on the same <span style="color: var(--green);">precision.</span></h2>
+      <p class="section-body">Emphasis marks follow the same design language as the brand icon and UI iconography. Stroke weight, color, and spacing are fixed. Never improvise.</p>
+      <div class="emphasis-spec-grid">
+        <div class="emphasis-spec-card">
+          <div class="emphasis-spec-value">1.8px</div>
+          <div class="emphasis-spec-label">Stroke Weight</div>
+          <div class="emphasis-spec-desc">All emphasis marks use a 1.8px stroke weight. This matches the brand icon's line quality and feels intentional at every scale. Never go thinner or thicker.</div>
+        </div>
+        <div class="emphasis-spec-card">
+          <div class="emphasis-spec-value" style="color: var(--green);">Fern</div>
+          <div class="emphasis-spec-label">Color</div>
+          <div class="emphasis-spec-desc">Emphasis marks are always rendered in Fern (#4A6741). This maintains the brand rule: green is reserved for moments of strategic emphasis. No other colors.</div>
+        </div>
+        <div class="emphasis-spec-card">
+          <div class="emphasis-spec-value">8px</div>
+          <div class="emphasis-spec-label">Clearance</div>
+          <div class="emphasis-spec-desc">Maintain a minimum 8px gap between the mark and the text it emphasizes. The mark should feel adjacent, not touching. Give the text room to breathe.</div>
+        </div>
+        <div class="emphasis-spec-card">
+          <div class="emphasis-spec-value" style="font-size: 28px; letter-spacing: -0.5px;">Round</div>
+          <div class="emphasis-spec-label">Line Caps</div>
+          <div class="emphasis-spec-desc">Round line caps on all strokes. This matches the speech-wave icon and the UI icon system. It keeps the marks feeling warm and organic, not mechanical.</div>
+        </div>
+        <div class="emphasis-spec-card">
+          <div class="emphasis-spec-value">1&ndash;3&deg;</div>
+          <div class="emphasis-spec-label">Rotation</div>
+          <div class="emphasis-spec-desc">Circles and underlines may carry a subtle 1&ndash;3 degree rotation to convey a hand-drawn quality. Never exceed 3 degrees. The imperfection should feel deliberate.</div>
+        </div>
+        <div class="emphasis-spec-card">
+          <div class="emphasis-spec-value">1x</div>
+          <div class="emphasis-spec-label">Scale Ratio</div>
+          <div class="emphasis-spec-desc">Circles scale proportionally to the text they enclose. Underlines match the width of the word. Stars are fixed at 12&ndash;16px. Never scale marks independently.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hierarchy -->
+    <section class="section-full" style="border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+        <div class="section-label">Hierarchy</div>
+        <h2 class="section-heading">How marks interact with <span style="color: var(--green);">type.</span></h2>
+        <p class="section-body">Emphasis marks are subordinate to the typographic hierarchy. They never replace size, weight, or color as the primary means of creating visual structure. They accent. They do not lead.</p>
+        <div class="emphasis-hierarchy-grid">
+          <div class="emphasis-hierarchy-card">
+            <div class="emphasis-hierarchy-label">Display / H1</div>
+            <div class="emphasis-hierarchy-sample">
+              <div style="position: relative; padding: 10px 0 20px;">
+                <span style="font-family: var(--heading); font-size: 32px; font-weight: 400; color: var(--dark); line-height: 1.3;">Maximize every <span style="color: var(--green); position: relative; display: inline-block;">booking.<svg style="position: absolute; bottom: -8px; left: -4px; width: calc(100% + 8px); height: 8px;" viewBox="0 0 100 8" preserveAspectRatio="none" fill="none"><path d="M2 6 C20 2, 50 1, 98 4" stroke="#4A6741" stroke-width="1.8" stroke-linecap="round"/></svg></span></span>
+              </div>
+            </div>
+            <div class="emphasis-hierarchy-note">At display sizes, marks can appear on a single emphasized word. The mark supports the existing Fern color emphasis already present in headings. Use one technique per heading, not both.</div>
+          </div>
+          <div class="emphasis-hierarchy-card">
+            <div class="emphasis-hierarchy-label">H2 / Subhead</div>
+            <div class="emphasis-hierarchy-sample">
+              <div style="position: relative; padding: 10px 0;">
+                <span style="font-family: var(--heading); font-size: 24px; font-weight: 400; color: var(--dark); line-height: 1.3;">Revenue grew by <span style="position: relative; display: inline-block;">18%<svg style="position: absolute; top: 50%; left: 50%; width: calc(100% + 24px); height: calc(100% + 16px); transform: translate(-50%, -50%) rotate(-2deg);" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none"><ellipse cx="50" cy="50" rx="48" ry="46" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round"/></svg></span>.</span>
+              </div>
+            </div>
+            <div class="emphasis-hierarchy-note">At subhead sizes, circles work well around data points or percentages. The circle should enclose the metric naturally without crowding adjacent words.</div>
+          </div>
+          <div class="emphasis-hierarchy-card">
+            <div class="emphasis-hierarchy-label">Data / Metrics</div>
+            <div class="emphasis-hierarchy-sample">
+              <div style="position: relative; padding: 16px 0;">
+                <span style="font-family: var(--heading); font-size: 40px; font-weight: 400; color: var(--dark); line-height: 1; position: relative; display: inline-block;">$12,830<svg style="position: absolute; top: 50%; left: 50%; width: calc(100% + 32px); height: calc(100% + 20px); transform: translate(-50%, -50%) rotate(-2deg);" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none"><ellipse cx="50" cy="50" rx="48" ry="46" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/></svg><svg style="position: absolute; top: -14px; right: -20px; width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none"><path d="M12 6 L14 11 L12 9 L10 11 Z" stroke="#4A6741" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4 L12 1" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/><path d="M16 6 L19 3" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/><path d="M8 6 L5 3" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+              </div>
+            </div>
+            <div class="emphasis-hierarchy-note">On standalone metrics and revenue figures, the circle is the primary mark. The star may be paired for milestone moments only. Never use both circle and underline on the same element.</div>
+          </div>
+          <div class="emphasis-hierarchy-card">
+            <div class="emphasis-hierarchy-label">Body Copy</div>
+            <div class="emphasis-hierarchy-sample" style="padding: 16px 0;">
+              <p style="font-family: var(--body); font-size: 15px; font-weight: 300; color: var(--dark); line-height: 1.8; opacity: 0.4;">Emphasis marks are not used on body copy. At 20px and below, they introduce visual noise that competes with readability. Let the text do the work.</p>
+            </div>
+            <div class="emphasis-hierarchy-note">Body copy, captions, labels, and UI text are off-limits for emphasis marks. The typographic system already handles hierarchy at these sizes. Adding marks here would undermine the restraint the brand depends on.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Restraint Rules -->
+    <section class="section">
+      <div class="section-label">Restraint Rules</div>
+      <h2 class="section-heading">The power is in <span style="color: var(--green);">scarcity.</span></h2>
+      <p class="section-body">Emphasis marks follow the same logic as the Fern accent color: their impact comes from how rarely they appear. If every element is marked, nothing is emphasized. Treat each mark as a budget you cannot afford to overspend.</p>
+      <div class="emphasis-restraint-grid">
+        <div class="emphasis-restraint-card">
+          <div class="emphasis-restraint-num">1</div>
+          <div class="emphasis-restraint-title">One mark per view</div>
+          <div class="emphasis-restraint-desc">A single screen, page section, or card should contain no more than one emphasis mark. If two elements compete for emphasis, choose the one that matters more. There is always one.</div>
+        </div>
+        <div class="emphasis-restraint-card">
+          <div class="emphasis-restraint-num">2</div>
+          <div class="emphasis-restraint-title">One word or metric</div>
+          <div class="emphasis-restraint-desc">Each mark highlights one word, one number, or one short phrase (three words maximum). Never circle an entire sentence. Never underline a paragraph. The mark is a scalpel, not a highlighter.</div>
+        </div>
+        <div class="emphasis-restraint-card">
+          <div class="emphasis-restraint-num">3</div>
+          <div class="emphasis-restraint-title">Earn the mark</div>
+          <div class="emphasis-restraint-desc">Before adding a mark, ask: does this element already have sufficient visual weight through size, color, or position? If the answer is yes, the mark is redundant. Remove it.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Do / Don't Examples -->
+    <section class="section-full" style="border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 0 120px;">
+        <div class="section-label">Application Examples</div>
+        <h2 class="section-heading">How it looks in <span style="color: var(--green);">practice.</span></h2>
+        <div class="emphasis-example-grid">
+          <div class="emphasis-example" style="border-left: 3px solid var(--green);">
+            <div class="emphasis-example-label" style="color: var(--green);">Do</div>
+            <div style="margin-bottom: 24px; padding: 8px 0;">
+              <span style="font-family: var(--heading); font-size: 28px; font-weight: 400; color: var(--dark); line-height: 1.4;">Occupancy hit <span style="position: relative; display: inline-block;">94%<svg style="position: absolute; top: 50%; left: 50%; width: calc(100% + 20px); height: calc(100% + 14px); transform: translate(-50%, -50%) rotate(-2deg);" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none"><ellipse cx="50" cy="50" rx="48" ry="46" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round"/></svg></span>.</span>
+            </div>
+            <div class="emphasis-example-body">A single circle on the key metric. The mark directs attention without competing with the headline. The rest of the content remains unmarked.</div>
+          </div>
+          <div class="emphasis-example" style="border-left: 3px solid var(--light);">
+            <div class="emphasis-example-label" style="opacity: 0.4;">Don't</div>
+            <div style="margin-bottom: 24px; padding: 8px 0; opacity: 0.4;">
+              <span style="font-family: var(--heading); font-size: 28px; font-weight: 400; color: var(--dark); line-height: 1.4;"><span style="position: relative; display: inline-block;">Occupancy<svg style="position: absolute; top: 50%; left: 50%; width: calc(100% + 20px); height: calc(100% + 14px); transform: translate(-50%, -50%) rotate(-2deg);" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none"><ellipse cx="50" cy="50" rx="48" ry="46" stroke="#32302F" stroke-width="2.5" stroke-linecap="round"/></svg></span> <span style="position: relative; display: inline-block;">hit<svg style="position: absolute; bottom: -6px; left: -2px; width: calc(100% + 4px); height: 6px;" viewBox="0 0 100 8" preserveAspectRatio="none" fill="none"><path d="M2 6 C20 2, 50 1, 98 5" stroke="#32302F" stroke-width="2" stroke-linecap="round"/></svg></span> <span style="position: relative; display: inline-block;">94%<svg style="position: absolute; top: 50%; left: 50%; width: calc(100% + 20px); height: calc(100% + 14px); transform: translate(-50%, -50%) rotate(1deg);" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none"><ellipse cx="50" cy="50" rx="48" ry="46" stroke="#32302F" stroke-width="2.5" stroke-linecap="round"/></svg></span>.</span>
+            </div>
+            <div class="emphasis-example-body" style="opacity: 0.4;">Multiple marks in a single headline. The emphasis is diluted. Nothing stands out when everything is marked. This reads as decoration, not direction.</div>
+          </div>
+          <div class="emphasis-example" style="border-left: 3px solid var(--green);">
+            <div class="emphasis-example-label" style="color: var(--green);">Do</div>
+            <div style="margin-bottom: 24px; padding: 8px 0;">
+              <span style="font-family: var(--heading); font-size: 28px; font-weight: 400; color: var(--dark); line-height: 1.4;">Your best month <span style="position: relative; display: inline-block;">yet.<svg style="position: absolute; top: -12px; right: -16px; width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none"><path d="M12 6 L14 11 L12 9 L10 11 Z" stroke="#4A6741" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4 L12 1" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/><path d="M16 6 L19 3" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/><path d="M8 6 L5 3" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/></svg></span></span>
+            </div>
+            <div class="emphasis-example-body">A small star adjacent to a milestone statement. Subtle, celebratory, and aligned with the calm confidence of the brand. The star earns its place because the achievement is real.</div>
+          </div>
+          <div class="emphasis-example" style="border-left: 3px solid var(--light);">
+            <div class="emphasis-example-label" style="opacity: 0.4;">Don't</div>
+            <div style="margin-bottom: 24px; padding: 8px 0;">
+              <p style="font-family: var(--body); font-size: 14px; font-weight: 300; color: var(--dark); line-height: 1.8; opacity: 0.4;">
+                <span style="text-decoration: underline; text-decoration-color: rgba(50,48,47,0.3);">Your listings earned</span> $12,830 this month.
+                <span style="text-decoration: underline; text-decoration-color: rgba(50,48,47,0.3);">Occupancy</span> is 8% above
+                <span style="text-decoration: underline; text-decoration-color: rgba(50,48,47,0.3);">market average</span>.
+              </p>
+            </div>
+            <div class="emphasis-example-body" style="opacity: 0.4;">Emphasis marks applied to body copy. At this scale, marks become visual clutter. Body text relies on the typographic system for hierarchy, not annotation.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guidelines Do/Don't -->
+    <section class="section">
+      <div class="section-label">Emphasis Guidelines</div>
+      <h2 class="section-heading">Rules for protecting <span style="color: var(--green);">the system.</span></h2>
+      <div class="dodont">
+        <div>
+          <div class="dodont-title">Do</div>
+          <div class="dodont-item">Use emphasis marks exclusively in Fern (#4A6741) on light backgrounds</div>
+          <div class="dodont-item">Apply marks only to headings, subheadings, or standalone metrics</div>
+          <div class="dodont-item">Maintain the 1.8px stroke weight across all mark types</div>
+          <div class="dodont-item">Limit each page section or card to a single emphasis mark</div>
+          <div class="dodont-item">Treat the marks as editorial signals: purposeful, specific, and rare</div>
+        </div>
+        <div>
+          <div class="dodont-title dont">Don't</div>
+          <div class="dodont-item">Don't apply marks to body copy, labels, captions, or UI elements</div>
+          <div class="dodont-item">Don't use multiple mark types on the same word or phrase</div>
+          <div class="dodont-item">Don't use marks in colors other than Fern. No Dune, no White, no gradients</div>
+          <div class="dodont-item">Don't animate emphasis marks. They are static and intentional</div>
+          <div class="dodont-item">Don't introduce new mark types. The system is closed: circle, underline, star</div>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
