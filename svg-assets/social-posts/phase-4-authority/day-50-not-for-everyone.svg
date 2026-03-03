@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background — Terracotta! -->
+  <rect width="1080" height="1440" fill="#8B4A3E"/>
+
+  <!-- Star icon top-right -->
+  <g transform="translate(860, 120)" opacity="0.35">
+    <polygon points="40,4 48,30 76,30 54,48 62,76 40,58 18,76 26,48 4,30 32,30" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Heading -->
+  <text x="80" y="600" font-family="'Lora', serif" font-size="54" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    <tspan x="80" dy="0">"Rev Whisper is not</tspan>
+    <tspan x="80" dy="72">for everyone."</tspan>
+  </text>
+
+  <!-- Subtext -->
+  <text x="80" y="770" font-family="'DM Sans', sans-serif" font-size="24" font-weight="300" fill="#FFFFFF" opacity="0.35">
+    And that's intentional.
+  </text>
+
+  <!-- Body -->
+  <text x="80" y="830" font-family="'DM Sans', sans-serif" font-size="16" font-weight="300" fill="#FFFFFF" opacity="0.3">
+    For hosts who treat this like a business.
+  </text>
+</svg>

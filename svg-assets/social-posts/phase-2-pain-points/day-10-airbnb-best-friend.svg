@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#4A6741"/>
+
+  <!-- Checkmark circle icon top-right -->
+  <g transform="translate(880, 120)" opacity="0.5">
+    <circle cx="28" cy="28" r="26" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+    <polyline points="16,28 24,36 40,20" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Heading -->
+  <text x="80" y="620" font-family="'Lora', serif" font-size="54" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    <tspan x="80" dy="0">Airbnb should be your</tspan>
+    <tspan x="80" dy="72">best friend.</tspan>
+  </text>
+
+  <!-- Subtext -->
+  <text x="80" y="770" font-family="'DM Sans', sans-serif" font-size="13" font-weight="300" fill="#FFFFFF" opacity="0.45">
+    Guests. Payments. Insurance. Marketing.
+  </text>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="#4A6741"/>
+
+  <!-- Supertitle -->
+  <text x="540" y="700" font-family="'DM Mono', monospace" font-size="14" fill="#FFFFFF" opacity="0.5" letter-spacing="3" text-anchor="middle" text-transform="uppercase">
+    DATA DROP
+  </text>
+  <text x="540" y="730" font-family="'DM Sans', sans-serif" font-size="14" fill="#FFFFFF" opacity="0.3" text-anchor="middle">
+    Weekly market intelligence
+  </text>
+
+  <!-- Bar chart visualization -->
+  <g transform="translate(540, 920)">
+    <rect x="-100" y="-80" width="50" height="80" rx="4" fill="#FFFFFF" opacity="0.6"/>
+    <rect x="-25" y="-140" width="50" height="140" rx="4" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="50" y="-110" width="50" height="110" rx="4" fill="#FFFFFF" opacity="0.4"/>
+  </g>
+
+  <!-- Play button -->
+  <circle cx="540" cy="1060" r="50" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <polygon points="528,1038 528,1082 564,1060" fill="#FFFFFF"/>
+
+  <!-- Heading -->
+  <text x="540" y="1200" font-family="'Lora', serif" font-size="36" font-weight="600" fill="#FFFFFF" letter-spacing="-0.3" text-anchor="middle">
+    <tspan x="540" dy="0">"Average rate in [Market]</tspan>
+    <tspan x="540" dy="48">this week vs. last year."</tspan>
+  </text>
+
+  <!-- Footer -->
+  <text x="540" y="1840" font-family="'DM Mono', monospace" font-size="12" fill="#FFFFFF" opacity="0.25" letter-spacing="3" text-anchor="middle">
+    REEL
+  </text>
+</svg>

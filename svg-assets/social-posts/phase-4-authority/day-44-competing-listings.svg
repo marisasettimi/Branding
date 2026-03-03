@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#E0DCDA;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background gradient -->
+  <rect width="1080" height="1440" fill="url(#bgGrad)"/>
+
+  <!-- House icon top-right -->
+  <g transform="translate(860, 120)" opacity="0.35">
+    <path d="M10 42 L40 16 L70 42" fill="none" stroke="#32302F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18 38 V62 H62 V38" fill="none" stroke="#32302F" stroke-width="2"/>
+    <rect x="32" y="46" width="16" height="16" fill="none" stroke="#32302F" stroke-width="1.5"/>
+  </g>
+
+  <!-- Heading -->
+  <text x="80" y="580" font-family="'Lora', serif" font-size="48" font-weight="600" fill="#32302F" letter-spacing="-0.5">
+    <tspan x="80" dy="0">"You're not competing</tspan>
+    <tspan x="80" dy="64">with other</tspan>
+    <tspan x="80" dy="64">properties."</tspan>
+  </text>
+
+  <!-- Subtext -->
+  <text x="80" y="820" font-family="'DM Sans', sans-serif" font-size="24" font-weight="300" fill="#32302F" opacity="0.3">
+    You're competing with other listings.
+  </text>
+</svg>

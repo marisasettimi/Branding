@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 110" width="220" height="110" fill="none">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400&amp;display=swap');
+  </style>
+  <!-- Icon (centered) -->
+  <g transform="translate(78, 0) scale(1.3333)">
+    <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Wordmark (centered below) -->
+  <text x="110" y="100" font-family="'Lora', Georgia, serif" font-size="32" font-weight="400" fill="#32302F" letter-spacing="-0.5" text-anchor="middle">RevWhisper</text>
+</svg>

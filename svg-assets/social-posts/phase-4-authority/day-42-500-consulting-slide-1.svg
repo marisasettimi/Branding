@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#32302F"/>
+
+  <!-- Supertitle -->
+  <text x="80" y="540" font-family="'DM Mono', monospace" font-size="14" fill="#FFFFFF" opacity="0.3" letter-spacing="3">
+    TRANSPARENCY
+  </text>
+
+  <!-- Heading -->
+  <text x="80" y="620" font-family="'Lora', serif" font-size="48" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    <tspan x="80" dy="0">What $500 of</tspan>
+    <tspan x="80" dy="64">consulting actually</tspan>
+    <tspan x="80" dy="64">looks like.</tspan>
+  </text>
+</svg>

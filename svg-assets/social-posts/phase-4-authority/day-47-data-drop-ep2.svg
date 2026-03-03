@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="#4A6741"/>
+
+  <!-- Supertitle -->
+  <text x="540" y="560" font-family="'DM Mono', monospace" font-size="14" fill="#FFFFFF" opacity="0.4" letter-spacing="3" text-anchor="middle">
+    DATA DROP
+  </text>
+  <text x="540" y="590" font-family="'DM Mono', monospace" font-size="14" fill="#FFFFFF" opacity="0.4" letter-spacing="3" text-anchor="middle">
+    EP. 02
+  </text>
+
+  <!-- Center context -->
+  <text x="540" y="740" font-family="'DM Mono', monospace" font-size="14" fill="#FFFFFF" opacity="0.4" letter-spacing="2" text-anchor="middle">
+    DYNAMIC VS. STATIC
+  </text>
+
+  <!-- Center stat -->
+  <text x="540" y="840" font-family="'Lora', serif" font-size="72" font-weight="600" fill="#FFFFFF" text-anchor="middle" letter-spacing="-1">
+    18%
+  </text>
+  <text x="540" y="880" font-family="'DM Sans', sans-serif" font-size="18" fill="#FFFFFF" opacity="0.4" text-anchor="middle">
+    more revenue
+  </text>
+
+  <!-- Heading -->
+  <text x="80" y="1060" font-family="'Lora', serif" font-size="36" font-weight="600" fill="#FFFFFF" letter-spacing="-0.3">
+    <tspan x="80" dy="0">"Hosts who price</tspan>
+    <tspan x="80" dy="48">dynamically earn</tspan>
+    <tspan x="80" dy="48">18% more."</tspan>
+  </text>
+
+  <!-- Play button -->
+  <circle cx="540" cy="1400" r="40" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
+  <polygon points="528,1382 528,1418 560,1400" fill="#FFFFFF" opacity="0.4"/>
+
+  <!-- Footer -->
+  <text x="540" y="1840" font-family="'DM Mono', monospace" font-size="12" fill="#FFFFFF" opacity="0.2" letter-spacing="4" text-anchor="middle">
+    REEL
+  </text>
+</svg>

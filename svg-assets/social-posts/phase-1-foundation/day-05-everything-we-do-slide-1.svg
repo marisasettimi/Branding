@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#32302F"/>
+
+  <!-- Heading -->
+  <text x="80" y="700" font-family="'Lora', serif" font-size="54" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    Everything we do.
+  </text>
+</svg>

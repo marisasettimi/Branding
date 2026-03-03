@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E0DCDA"/>
+    </linearGradient>
+  </defs>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background with gradient -->
+  <rect width="1080" height="1440" fill="url(#bgGradient)"/>
+
+  <!-- Star icon top-right -->
+  <g transform="translate(880, 120)" opacity="0.4">
+    <polygon points="28,2 34,20 54,20 38,32 44,50 28,38 12,50 18,32 2,20 22,20" fill="none" stroke="#32302F" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Heading -->
+  <text x="80" y="580" font-family="'Lora', serif" font-size="54" font-weight="600" fill="#32302F" letter-spacing="-0.5">
+    <tspan x="80" dy="0">Improve what you have</tspan>
+    <tspan x="80" dy="72">before you add what</tspan>
+    <tspan x="80" dy="72">you don't.</tspan>
+  </text>
+
+  <!-- Subtext -->
+  <text x="80" y="820" font-family="'DM Sans', sans-serif" font-size="13" font-weight="300" fill="#32302F" opacity="0.35">
+    The highest-impact improvements cost almost nothing.
+  </text>
+</svg>

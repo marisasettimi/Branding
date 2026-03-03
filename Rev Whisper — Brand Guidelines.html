@@ -481,9 +481,15 @@
 
     /* Iconography */
     .icon-system-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; margin-top: 60px; }
-    .icon-system-card { padding: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px; background: var(--white); border: 1px solid rgba(224, 220, 218, 0.5); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    .icon-system-card { padding: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px; background: var(--white); border: 1px solid rgba(224, 220, 218, 0.5); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); position: relative; transition: border-color 0.2s, box-shadow 0.2s; }
+    .icon-system-card[data-icon] { cursor: pointer; }
+    .icon-system-card[data-icon]:hover { border-color: var(--green); box-shadow: 0 2px 12px rgba(74, 103, 65, 0.12); }
+    .icon-system-card[data-icon]::after { content: '↓ SVG'; position: absolute; bottom: 8px; right: 8px; font-family: var(--body); font-size: 9px; font-weight: 500; color: var(--green); opacity: 0; transition: opacity 0.2s; letter-spacing: 0.5px; }
+    .icon-system-card[data-icon]:hover::after { opacity: 1; }
     .icon-system-card svg { width: 32px; height: 32px; }
     .icon-system-label { font-family: var(--body); font-size: 11px; font-weight: 300; color: var(--dark); margin-top: 12px; text-align: center; }
+    .asset-download { display: inline-block; margin-top: 12px; font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--green); text-decoration: none; cursor: pointer; transition: opacity 0.2s; }
+    .asset-download:hover { opacity: 0.7; }
     .icon-spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
     .icon-spec-card { padding: 48px 36px; background: var(--white); border: 1px solid rgba(224, 220, 218, 0.5); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
     .icon-spec-value { font-family: var(--heading); font-size: 36px; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
@@ -2763,6 +2769,7 @@
           <div class="asset-card-title">Primary Logo Lockup</div>
           <div class="asset-card-desc">Full logo with icon and wordmark. Use this as the default logo in all brand communications.</div>
           <div class="asset-card-formats">SVG / PNG / EPS</div>
+          <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-dune.svg">↓ Download SVG</a>
         </div>
         <div class="asset-card">
           <div class="asset-card-preview dark-bg">
@@ -2775,6 +2782,7 @@
           <div class="asset-card-title">Reversed Logo Lockup</div>
           <div class="asset-card-desc">White logo for use on dark backgrounds. Maintain full contrast at all times.</div>
           <div class="asset-card-formats">SVG / PNG / EPS</div>
+          <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-white.svg">↓ Download SVG</a>
         </div>
         <div class="asset-card">
           <div class="asset-card-preview">
@@ -2786,6 +2794,7 @@
           <div class="asset-card-title">Icon / Symbol</div>
           <div class="asset-card-desc">Standalone speech-wave icon for favicons, app icons, social avatars, and compact placements.</div>
           <div class="asset-card-formats">SVG / PNG / ICO</div>
+          <a class="asset-download" data-file="svg-assets/logo/logo-dune.svg">↓ Download SVG</a>
         </div>
         <div class="asset-card">
           <div class="asset-card-preview">
@@ -2796,6 +2805,7 @@
           <div class="asset-card-title">Wordmark Only</div>
           <div class="asset-card-desc">Standalone wordmark for use when the icon is displayed separately or space is limited horizontally.</div>
           <div class="asset-card-formats">SVG / PNG / EPS</div>
+          <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-dune.svg">↓ Download SVG</a>
         </div>
       </div>
     </section>
@@ -2872,6 +2882,7 @@
           <div class="asset-card-title">Icon Library</div>
           <div class="asset-card-desc">Full set of outline icons at 24px grid. Includes property, revenue, analytics, and UI category sets.</div>
           <div class="asset-card-formats">SVG / Icon Font</div>
+          <a class="asset-download" href="svg-assets/icons/" target="_blank">↓ Browse Icons</a>
         </div>
         <div class="asset-card">
           <div class="asset-card-preview">
@@ -5922,6 +5933,36 @@
     });
   });
 })();
+
+// Icon downloads - derive filename from label text
+document.querySelectorAll('.icon-system-card').forEach(function(card) {
+  var label = card.querySelector('.icon-system-label');
+  if (!label) return;
+  var name = label.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+  card.setAttribute('data-icon', name);
+  card.addEventListener('click', function() {
+    var iconName = this.getAttribute('data-icon');
+    var a = document.createElement('a');
+    a.href = 'svg-assets/icons/' + iconName + '.svg';
+    a.download = iconName + '.svg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+});
+
+// Asset downloads
+document.querySelectorAll('.asset-download').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    var a = document.createElement('a');
+    a.href = this.getAttribute('data-file');
+    a.download = this.getAttribute('data-file').split('/').pop();
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+});
 </script>
 </body>
 </html>

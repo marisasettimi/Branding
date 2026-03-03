@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#32302F"/>
+
+  <!-- Label -->
+  <text x="80" y="580" font-family="'DM Mono', monospace" font-size="11" fill="#FFFFFF" letter-spacing="2" text-transform="uppercase">
+    SIGNAL 2
+  </text>
+
+  <!-- Heading -->
+  <text x="80" y="650" font-family="'Lora', serif" font-size="42" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    Conversion rate
+  </text>
+
+  <!-- Sub -->
+  <text x="80" y="710" font-family="'DM Sans', sans-serif" font-size="18" fill="#FFFFFF" opacity="0.5">
+    Pricing &amp; description
+  </text>
+</svg>

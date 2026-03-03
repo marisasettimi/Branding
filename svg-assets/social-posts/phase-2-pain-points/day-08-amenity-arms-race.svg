@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#32302F"/>
+
+  <!-- House icon top-right -->
+  <g transform="translate(870, 120)" opacity="0.35">
+    <!-- Roof triangle -->
+    <polyline points="0,36 40,4 80,36" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Body rectangle -->
+    <rect x="10" y="36" width="60" height="40" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Door -->
+    <rect x="30" y="50" width="20" height="26" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Heading -->
+  <text x="80" y="620" font-family="'Lora', serif" font-size="54" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    <tspan x="80" dy="0">The amenity arms race</tspan>
+    <tspan x="80" dy="72">is a trap.</tspan>
+  </text>
+
+  <!-- Subtext -->
+  <text x="80" y="770" font-family="'DM Sans', sans-serif" font-size="13" font-weight="300" fill="#FFFFFF" opacity="0.35">
+    Fix the fundamentals before you renovate.
+  </text>
+</svg>

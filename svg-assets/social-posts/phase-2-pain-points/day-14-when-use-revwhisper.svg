@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background with border -->
+  <rect width="1080" height="1440" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="1079" height="1439" fill="none" stroke="#E0DCDA" stroke-width="1"/>
+
+  <!-- Heading -->
+  <text x="80" y="540" font-family="'Lora', serif" font-size="42" font-weight="600" fill="#32302F" letter-spacing="-0.5">
+    <tspan x="80" dy="0">When should you use</tspan>
+    <tspan x="80" dy="56">Rev Whisper?</tspan>
+  </text>
+
+  <!-- Checklist -->
+  <!-- Item 1 -->
+  <g transform="translate(80, 680)">
+    <circle cx="16" cy="0" r="16" fill="none" stroke="#4A6741" stroke-width="2"/>
+    <polyline points="8,0 14,6 24,-6" fill="none" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="48" y="6" font-family="'DM Sans', sans-serif" font-size="18" font-weight="400" fill="#32302F">You adjust rates manually</text>
+  </g>
+
+  <!-- Item 2 -->
+  <g transform="translate(80, 748)">
+    <circle cx="16" cy="0" r="16" fill="none" stroke="#4A6741" stroke-width="2"/>
+    <polyline points="8,0 14,6 24,-6" fill="none" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="48" y="6" font-family="'DM Sans', sans-serif" font-size="18" font-weight="400" fill="#32302F">Occupancy is high but revenue flat</text>
+  </g>
+
+  <!-- Item 3 -->
+  <g transform="translate(80, 816)">
+    <circle cx="16" cy="0" r="16" fill="none" stroke="#4A6741" stroke-width="2"/>
+    <polyline points="8,0 14,6 24,-6" fill="none" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="48" y="6" font-family="'DM Sans', sans-serif" font-size="18" font-weight="400" fill="#32302F">You can't price for events</text>
+  </g>
+
+  <!-- Item 4 -->
+  <g transform="translate(80, 884)">
+    <circle cx="16" cy="0" r="16" fill="none" stroke="#4A6741" stroke-width="2"/>
+    <polyline points="8,0 14,6 24,-6" fill="none" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="48" y="6" font-family="'DM Sans', sans-serif" font-size="18" font-weight="400" fill="#32302F">You manage multiple properties</text>
+  </g>
+
+  <!-- Item 5 -->
+  <g transform="translate(80, 952)">
+    <circle cx="16" cy="0" r="16" fill="none" stroke="#4A6741" stroke-width="2"/>
+    <polyline points="8,0 14,6 24,-6" fill="none" stroke="#4A6741" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="48" y="6" font-family="'DM Sans', sans-serif" font-size="18" font-weight="400" fill="#32302F">You don't have market data</text>
+  </g>
+
+  <!-- Green accent bar at bottom -->
+  <rect x="0" y="1436" width="1080" height="4" fill="#4A6741"/>
+</svg>

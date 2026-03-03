@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="#32302F"/>
+
+  <!-- Supertitle -->
+  <text x="540" y="680" font-family="'DM Mono', monospace" font-size="14" fill="#FFFFFF" opacity="0.5" letter-spacing="3" text-anchor="middle" text-transform="uppercase">
+    THE OTA WHISPERER
+  </text>
+  <text x="540" y="710" font-family="'DM Mono', monospace" font-size="14" fill="#FFFFFF" opacity="0.3" text-anchor="middle" letter-spacing="2">
+    EP. 03
+  </text>
+
+  <!-- Price comparison center -->
+  <text x="540" y="840" font-family="'Lora', serif" font-size="48" font-weight="600" fill="#FFFFFF" opacity="0.3" text-anchor="middle" text-decoration="line-through">
+    $200
+  </text>
+  <text x="540" y="920" font-family="'Lora', serif" font-size="56" font-weight="600" fill="#FFFFFF" text-anchor="middle" letter-spacing="-1">
+    $285
+  </text>
+
+  <!-- Heading -->
+  <text x="540" y="1020" font-family="'Lora', serif" font-size="36" font-weight="600" fill="#FFFFFF" letter-spacing="-0.3" text-anchor="middle">
+    <tspan x="540" dy="0">"This property is charging</tspan>
+    <tspan x="540" dy="48">$200/night. It should</tspan>
+    <tspan x="540" dy="48">be $285."</tspan>
+  </text>
+
+  <!-- Play button -->
+  <circle cx="540" cy="1260" r="50" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <polygon points="528,1238 528,1282 564,1260" fill="#FFFFFF"/>
+
+  <!-- Footer -->
+  <text x="540" y="1840" font-family="'DM Mono', monospace" font-size="12" fill="#FFFFFF" opacity="0.25" letter-spacing="3" text-anchor="middle">
+    REEL
+  </text>
+</svg>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background with border -->
+  <rect width="1080" height="1440" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="1079" height="1439" fill="none" stroke="#E0DCDA" stroke-width="1"/>
+
+  <!-- Bar chart icon top-right -->
+  <g transform="translate(860, 120)" opacity="0.35">
+    <rect x="0" y="40" width="20" height="24" rx="2" fill="none" stroke="#32302F" stroke-width="2"/>
+    <rect x="30" y="24" width="20" height="40" rx="2" fill="none" stroke="#32302F" stroke-width="2"/>
+    <rect x="60" y="4" width="20" height="60" rx="2" fill="none" stroke="#32302F" stroke-width="2"/>
+  </g>
+
+  <!-- Heading -->
+  <text x="80" y="580" font-family="'Lora', serif" font-size="48" font-weight="600" fill="#32302F" letter-spacing="-0.5">
+    <tspan x="80" dy="0">"Your pricing tool</tspan>
+    <tspan x="80" dy="64">is not a pricing</tspan>
+    <tspan x="80" dy="64">consultant."</tspan>
+  </text>
+
+  <!-- Subtext -->
+  <text x="80" y="830" font-family="'DM Sans', sans-serif" font-size="16" font-weight="300" fill="#32302F" opacity="0.3">
+    Software sets rates. Consultants understand why.
+  </text>
+
+  <!-- Green accent bar at bottom -->
+  <rect x="0" y="1436" width="1080" height="4" fill="#4A6741"/>
+</svg>

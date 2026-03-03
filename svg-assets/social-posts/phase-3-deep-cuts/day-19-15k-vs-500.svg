@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background with border -->
+  <rect width="1080" height="1440" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="1079" height="1439" fill="none" stroke="#E0DCDA" stroke-width="1"/>
+
+  <!-- Supertitle -->
+  <text x="540" y="500" font-family="'DM Mono', monospace" font-size="14" fill="#32302F" opacity="0.35" letter-spacing="3" text-anchor="middle" text-transform="uppercase">
+    THE MATH
+  </text>
+
+  <!-- $15,000 section -->
+  <text x="540" y="600" font-family="'Lora', serif" font-size="56" font-weight="600" fill="#32302F" text-anchor="middle" letter-spacing="-1">
+    $15,000
+  </text>
+  <text x="540" y="638" font-family="'DM Sans', sans-serif" font-size="16" fill="#32302F" opacity="0.35" text-anchor="middle">
+    upgrade
+  </text>
+
+  <!-- vs. -->
+  <text x="540" y="720" font-family="'DM Sans', sans-serif" font-size="20" fill="#32302F" opacity="0.3" text-anchor="middle">
+    vs.
+  </text>
+
+  <!-- $500 section -->
+  <text x="540" y="810" font-family="'Lora', serif" font-size="56" font-weight="600" fill="#32302F" text-anchor="middle" letter-spacing="-1">
+    $500
+  </text>
+  <text x="540" y="848" font-family="'DM Sans', sans-serif" font-size="16" fill="#32302F" opacity="0.35" text-anchor="middle">
+    optimization
+  </text>
+
+  <!-- Green accent bar at bottom -->
+  <rect x="0" y="1436" width="1080" height="4" fill="#4A6741"/>
+</svg>

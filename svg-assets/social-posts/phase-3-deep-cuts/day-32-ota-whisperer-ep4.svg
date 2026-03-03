@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background with border -->
+  <rect width="1080" height="1920" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="1079" height="1919" fill="none" stroke="#E0DCDA" stroke-width="1"/>
+
+  <!-- Supertitle -->
+  <text x="540" y="700" font-family="'DM Mono', monospace" font-size="14" fill="#32302F" opacity="0.5" letter-spacing="3" text-anchor="middle" text-transform="uppercase">
+    THE OTA WHISPERER
+  </text>
+  <text x="540" y="730" font-family="'DM Mono', monospace" font-size="14" fill="#32302F" opacity="0.3" text-anchor="middle" letter-spacing="2">
+    EP. 04
+  </text>
+
+  <!-- Center stat -->
+  <text x="540" y="860" font-family="'Lora', serif" font-size="72" font-weight="600" fill="#32302F" text-anchor="middle" letter-spacing="-1">
+    30%
+  </text>
+  <text x="540" y="900" font-family="'DM Sans', sans-serif" font-size="18" fill="#32302F" opacity="0.3" text-anchor="middle">
+    of clicks lost
+  </text>
+
+  <!-- Heading -->
+  <text x="540" y="1000" font-family="'Lora', serif" font-size="36" font-weight="600" fill="#32302F" letter-spacing="-0.3" text-anchor="middle">
+    <tspan x="540" dy="0">"Your first photo is</tspan>
+    <tspan x="540" dy="48">losing you 30% of</tspan>
+    <tspan x="540" dy="48">clicks."</tspan>
+  </text>
+
+  <!-- Play button -->
+  <circle cx="540" cy="1240" r="50" fill="none" stroke="#32302F" stroke-width="2"/>
+  <polygon points="528,1218 528,1262 564,1240" fill="#32302F"/>
+
+  <!-- Footer -->
+  <text x="540" y="1840" font-family="'DM Mono', monospace" font-size="12" fill="#32302F" opacity="0.25" letter-spacing="3" text-anchor="middle">
+    REEL
+  </text>
+</svg>

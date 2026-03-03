@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#32302F"/>
+
+  <!-- Heading -->
+  <text x="80" y="600" font-family="'Lora', serif" font-size="54" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    <tspan x="80" dy="0">You're never going to</tspan>
+    <tspan x="80" dy="72">outpace Airbnb.</tspan>
+  </text>
+
+  <!-- Subtext -->
+  <text x="80" y="760" font-family="'DM Sans', sans-serif" font-size="24" font-weight="300" fill="#FFFFFF" opacity="0.35">
+    And you don't need to.
+  </text>
+
+  <!-- Body -->
+  <text x="80" y="830" font-family="'DM Sans', sans-serif" font-size="13" font-weight="300" fill="#FFFFFF" opacity="0.3">
+    Win on the platform. Don't compete with it.
+  </text>
+</svg>

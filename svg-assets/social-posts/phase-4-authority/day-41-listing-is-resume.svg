@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#32302F"/>
+
+  <!-- Eye icon top-right -->
+  <g transform="translate(840, 120)" opacity="0.35">
+    <path d="M10 40 Q50 12 90 40 Q50 68 10 40Z" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="50" cy="40" r="14" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="50" cy="40" r="5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Heading -->
+  <text x="80" y="600" font-family="'Lora', serif" font-size="54" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    <tspan x="80" dy="0">"An Airbnb listing</tspan>
+    <tspan x="80" dy="72">is a resume."</tspan>
+  </text>
+
+  <!-- Subtext -->
+  <text x="80" y="780" font-family="'DM Sans', sans-serif" font-size="24" font-weight="300" fill="#FFFFFF" opacity="0.35">
+    And nobody is reading yours.
+  </text>
+
+  <!-- Body -->
+  <text x="80" y="840" font-family="'DM Sans', sans-serif" font-size="16" font-weight="300" fill="#FFFFFF" opacity="0.3">
+    You need to be at the top of the list.
+  </text>
+</svg>

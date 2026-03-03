@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#32302F"/>
+
+  <!-- Pulse icon top-right -->
+  <g transform="translate(860, 120)" opacity="0.35">
+    <polyline points="0,30 20,30 30,10 40,50 50,20 60,30 80,30" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Supertitle -->
+  <text x="80" y="520" font-family="'DM Mono', monospace" font-size="14" fill="#FFFFFF" opacity="0.3" letter-spacing="3" text-transform="uppercase">
+    DIAGNOSE. PRESCRIBE. RECOVER.
+  </text>
+
+  <!-- Heading -->
+  <text x="80" y="600" font-family="'Lora', serif" font-size="48" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">
+    <tspan x="80" dy="0">"The doctor of</tspan>
+    <tspan x="80" dy="64">Airbnb listings."</tspan>
+  </text>
+
+  <!-- Body -->
+  <text x="80" y="760" font-family="'DM Sans', sans-serif" font-size="16" font-weight="300" fill="#FFFFFF" opacity="0.3">
+    <tspan x="80" dy="0">Alex audits.</tspan>
+    <tspan x="80" dy="28">The algorithms prescribe.</tspan>
+    <tspan x="80" dy="28">Your revenue recovers.</tspan>
+  </text>
+
+  <!-- Logo bottom-right -->
+  <g transform="translate(980, 1360) scale(0.4167)" opacity="0.15">
+    <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+    <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

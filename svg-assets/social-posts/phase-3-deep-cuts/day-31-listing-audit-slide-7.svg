@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&amp;family=DM+Sans:wght@300;400&amp;family=DM+Mono:wght@400&amp;display=swap');</style>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="#FFFFFF"/>
+
+  <!-- Number -->
+  <text x="80" y="640" font-family="'Lora', serif" font-size="72" font-weight="600" fill="#32302F" opacity="0.15">
+    6
+  </text>
+
+  <!-- Heading -->
+  <text x="80" y="720" font-family="'Lora', serif" font-size="42" font-weight="600" fill="#32302F" letter-spacing="-0.5">
+    Response rate
+  </text>
+</svg>

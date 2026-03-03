@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rev Whisper SVG Asset Gallery</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Lora:wght@400;500&family=DM+Mono:wght@400&display=swap');
+
+    :root {
+      --dark: #32302F;
+      --white: #FFFFFF;
+      --light: #E0DCDA;
+      --green: #4A6741;
+      --terracotta: #8B4A3E;
+      --bg-subtle: #F8F7F6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      padding: 48px 64px 40px;
+      border-bottom: 1px solid var(--light);
+    }
+    .header-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .header-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      color: var(--dark);
+    }
+    .header-title span { color: var(--green); }
+    .header-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--dark);
+      opacity: 0.6;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .section {
+      padding: 48px 64px;
+      border-bottom: 1px solid var(--light);
+    }
+    .section-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .section-subtitle {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--dark);
+      opacity: 0.5;
+      margin-bottom: 32px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+    .grid-logo { grid-template-columns: repeat(4, 1fr); }
+    .grid-icons { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .grid-emphasis { grid-template-columns: repeat(3, 1fr); }
+    .grid-social { grid-template-columns: repeat(4, 1fr); }
+    .grid-decorative { grid-template-columns: repeat(4, 1fr); }
+    .grid-lockup-h { grid-template-columns: repeat(2, 1fr); }
+    .grid-lockup-s { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--light);
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(50, 48, 47, 0.08);
+    }
+
+    .card-preview {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid rgba(224, 220, 218, 0.5);
+    }
+    .card-preview img {
+      width: 48px;
+      height: 48px;
+    }
+    .card-preview.logo-preview img {
+      width: 80px;
+      height: 80px;
+    }
+    .card-preview.lockup-preview {
+      aspect-ratio: auto;
+      padding: 24px 16px;
+    }
+    .card-preview.lockup-preview img {
+      width: 100%;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain;
+    }
+    .card-preview.emphasis-preview img {
+      width: 80px;
+      height: auto;
+    }
+    .card-preview.dark-bg {
+      background: var(--dark);
+    }
+
+    .card-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--dark);
+      opacity: 0.7;
+      text-align: center;
+      word-break: break-all;
+    }
+
+    .card-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--green);
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1px solid var(--green);
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .card-download:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+    .card-download svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 16px;
+    }
+    .stat {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--dark);
+      opacity: 0.5;
+    }
+    .stat strong {
+      font-weight: 500;
+      opacity: 1;
+      color: var(--green);
+    }
+
+    @media (max-width: 768px) {
+      .header, .section { padding: 32px 24px; }
+      .grid-logo { grid-template-columns: 1fr; }
+      .grid-icons { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+      .grid-emphasis, .grid-social, .grid-decorative { grid-template-columns: repeat(2, 1fr); }
+      .grid-lockup-h { grid-template-columns: 1fr; }
+      .grid-lockup-s { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-label">Brand Asset Library</div>
+    <h1 class="header-title">Rev Whisper <span>SVG Assets</span></h1>
+    <p class="header-desc">All SVG assets extracted from the brand guidelines. Click any download button to save the standalone SVG file.</p>
+    <div class="stats">
+      <div class="stat"><strong>4</strong> Logo icons</div>
+      <div class="stat"><strong>8</strong> Logo lockups</div>
+      <div class="stat"><strong>30</strong> Utility icons</div>
+      <div class="stat"><strong>3</strong> Emphasis marks</div>
+      <div class="stat"><strong>4</strong> Social icons</div>
+      <div class="stat"><strong>4</strong> Decorative elements</div>
+    </div>
+  </div>
+
+  <!-- Logo Icon Variants -->
+  <div class="section">
+    <h2 class="section-title">Logo Icon Variants</h2>
+    <p class="section-subtitle">Speech bubble with algorithmic waveform -- viewBox 0 0 48 48</p>
+    <div class="grid grid-logo">
+      <div class="card">
+        <div class="card-preview logo-preview">
+          <img src="logo/logo-dune.svg" alt="Logo Dune">
+        </div>
+        <div class="card-name">logo-dune.svg</div>
+        <a class="card-download" href="logo/logo-dune.svg" download="logo-dune.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview logo-preview">
+          <img src="logo/logo-fern.svg" alt="Logo Fern">
+        </div>
+        <div class="card-name">logo-fern.svg</div>
+        <a class="card-download" href="logo/logo-fern.svg" download="logo-fern.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview logo-preview dark-bg">
+          <img src="logo/logo-white.svg" alt="Logo White">
+        </div>
+        <div class="card-name">logo-white.svg</div>
+        <a class="card-download" href="logo/logo-white.svg" download="logo-white.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview logo-preview">
+          <img src="logo/logo-gold.svg" alt="Logo Gold">
+        </div>
+        <div class="card-name">logo-gold.svg</div>
+        <a class="card-download" href="logo/logo-gold.svg" download="logo-gold.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo Lockups - Horizontal -->
+  <div class="section">
+    <h2 class="section-title">Logo Lockups -- Horizontal</h2>
+    <p class="section-subtitle">Icon + wordmark side by side -- Lora 400 weight</p>
+    <div class="grid grid-lockup-h">
+      <div class="card">
+        <div class="card-preview lockup-preview">
+          <img src="logo/lockup-horizontal-dune.svg" alt="Horizontal Lockup Dune">
+        </div>
+        <div class="card-name">lockup-horizontal-dune.svg</div>
+        <a class="card-download" href="logo/lockup-horizontal-dune.svg" download="lockup-horizontal-dune.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview lockup-preview">
+          <img src="logo/lockup-horizontal-fern.svg" alt="Horizontal Lockup Fern">
+        </div>
+        <div class="card-name">lockup-horizontal-fern.svg</div>
+        <a class="card-download" href="logo/lockup-horizontal-fern.svg" download="lockup-horizontal-fern.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview lockup-preview dark-bg">
+          <img src="logo/lockup-horizontal-white.svg" alt="Horizontal Lockup White">
+        </div>
+        <div class="card-name">lockup-horizontal-white.svg</div>
+        <a class="card-download" href="logo/lockup-horizontal-white.svg" download="lockup-horizontal-white.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview lockup-preview">
+          <img src="logo/lockup-horizontal-gold.svg" alt="Horizontal Lockup Gold">
+        </div>
+        <div class="card-name">lockup-horizontal-gold.svg</div>
+        <a class="card-download" href="logo/lockup-horizontal-gold.svg" download="lockup-horizontal-gold.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo Lockups - Stacked -->
+  <div class="section">
+    <h2 class="section-title">Logo Lockups -- Stacked</h2>
+    <p class="section-subtitle">Icon on top, wordmark below -- Lora 400 weight</p>
+    <div class="grid grid-lockup-s">
+      <div class="card">
+        <div class="card-preview lockup-preview">
+          <img src="logo/lockup-stacked-dune.svg" alt="Stacked Lockup Dune">
+        </div>
+        <div class="card-name">lockup-stacked-dune.svg</div>
+        <a class="card-download" href="logo/lockup-stacked-dune.svg" download="lockup-stacked-dune.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview lockup-preview">
+          <img src="logo/lockup-stacked-fern.svg" alt="Stacked Lockup Fern">
+        </div>
+        <div class="card-name">lockup-stacked-fern.svg</div>
+        <a class="card-download" href="logo/lockup-stacked-fern.svg" download="lockup-stacked-fern.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview lockup-preview dark-bg">
+          <img src="logo/lockup-stacked-white.svg" alt="Stacked Lockup White">
+        </div>
+        <div class="card-name">lockup-stacked-white.svg</div>
+        <a class="card-download" href="logo/lockup-stacked-white.svg" download="lockup-stacked-white.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview lockup-preview">
+          <img src="logo/lockup-stacked-gold.svg" alt="Stacked Lockup Gold">
+        </div>
+        <div class="card-name">lockup-stacked-gold.svg</div>
+        <a class="card-download" href="logo/lockup-stacked-gold.svg" download="lockup-stacked-gold.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Utility Icons -->
+  <div class="section">
+    <h2 class="section-title">Utility Icons</h2>
+    <p class="section-subtitle">24px grid, 2px stroke, rounded caps -- viewBox 0 0 24 24</p>
+    <div class="grid grid-icons" id="icons-grid"></div>
+  </div>
+
+  <!-- Emphasis Marks -->
+  <div class="section">
+    <h2 class="section-title">Emphasis Marks</h2>
+    <p class="section-subtitle">Hand-drawn annotation marks for text emphasis</p>
+    <div class="grid grid-emphasis">
+      <div class="card">
+        <div class="card-preview emphasis-preview">
+          <img src="emphasis/circle-emphasis.svg" alt="Circle Emphasis" style="width: 80px; height: 80px;">
+        </div>
+        <div class="card-name">circle-emphasis.svg</div>
+        <a class="card-download" href="emphasis/circle-emphasis.svg" download="circle-emphasis.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview emphasis-preview">
+          <img src="emphasis/underline-emphasis.svg" alt="Underline Emphasis" style="width: 100px; height: auto;">
+        </div>
+        <div class="card-name">underline-emphasis.svg</div>
+        <a class="card-download" href="emphasis/underline-emphasis.svg" download="underline-emphasis.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview emphasis-preview">
+          <img src="emphasis/star-emphasis.svg" alt="Star Emphasis" style="width: 48px; height: 48px;">
+        </div>
+        <div class="card-name">star-emphasis.svg</div>
+        <a class="card-download" href="emphasis/star-emphasis.svg" download="star-emphasis.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="section">
+    <h2 class="section-title">Social Platform Icons</h2>
+    <p class="section-subtitle">Platform-specific icons -- viewBox 0 0 24 24</p>
+    <div class="grid grid-social">
+      <div class="card">
+        <div class="card-preview">
+          <img src="social/instagram.svg" alt="Instagram">
+        </div>
+        <div class="card-name">instagram.svg</div>
+        <a class="card-download" href="social/instagram.svg" download="instagram.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview">
+          <img src="social/linkedin.svg" alt="LinkedIn">
+        </div>
+        <div class="card-name">linkedin.svg</div>
+        <a class="card-download" href="social/linkedin.svg" download="linkedin.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview">
+          <img src="social/twitter-x.svg" alt="Twitter / X">
+        </div>
+        <div class="card-name">twitter-x.svg</div>
+        <a class="card-download" href="social/twitter-x.svg" download="twitter-x.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview">
+          <img src="social/reddit-fb.svg" alt="Reddit / FB Groups">
+        </div>
+        <div class="card-name">reddit-fb.svg</div>
+        <a class="card-download" href="social/reddit-fb.svg" download="reddit-fb.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="section" style="border-bottom: none;">
+    <h2 class="section-title">Decorative Elements</h2>
+    <p class="section-subtitle">Background and decorative icons -- viewBox 0 0 32 32</p>
+    <div class="grid grid-decorative">
+      <div class="card">
+        <div class="card-preview">
+          <img src="decorative/eye-decorative.svg" alt="Eye Decorative">
+        </div>
+        <div class="card-name">eye-decorative.svg</div>
+        <a class="card-download" href="decorative/eye-decorative.svg" download="eye-decorative.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview">
+          <img src="decorative/house-decorative.svg" alt="House Decorative">
+        </div>
+        <div class="card-name">house-decorative.svg</div>
+        <a class="card-download" href="decorative/house-decorative.svg" download="house-decorative.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview">
+          <img src="decorative/star-decorative.svg" alt="Star Decorative">
+        </div>
+        <div class="card-name">star-decorative.svg</div>
+        <a class="card-download" href="decorative/star-decorative.svg" download="star-decorative.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-preview">
+          <img src="decorative/bars-decorative.svg" alt="Bars Decorative">
+        </div>
+        <div class="card-name">bars-decorative.svg</div>
+        <a class="card-download" href="decorative/bars-decorative.svg" download="bars-decorative.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dynamically build the icons grid
+    const icons = [
+      'home', 'revenue', 'analytics', 'calendar', 'settings', 'alerts',
+      'rating', 'location', 'dashboard', 'guests', 'key', 'chart',
+      'views', 'verified', 'security', 'time', 'edit', 'display',
+      'bed', 'bath', 'kitchen', 'wifi', 'tv', 'parking',
+      'pool', 'hot-tub', 'air-conditioning', 'heating', 'washer', 'coffee'
+    ];
+
+    const grid = document.getElementById('icons-grid');
+    icons.forEach(name => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-preview">
+          <img src="icons/${name}.svg" alt="${name}">
+        </div>
+        <div class="card-name">${name}.svg</div>
+        <a class="card-download" href="icons/${name}.svg" download="${name}.svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
