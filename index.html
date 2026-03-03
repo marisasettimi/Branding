@@ -514,7 +514,7 @@
     /* Assets */
     .asset-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
     .asset-card { padding: 48px; background: var(--white); border: 1px solid rgba(224, 220, 218, 0.5); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: flex; flex-direction: column; }
-    .asset-card-preview { display: flex; align-items: center; justify-content: center; padding: 40px 32px; margin-bottom: 24px; }
+    .asset-card-preview { display: flex; align-items: center; justify-content: center; padding: 40px 32px; margin-bottom: 24px; border-radius: var(--radius-lg); }
     .asset-card-preview.has-bg { background: var(--bg-subtle); border-radius: var(--radius-lg); padding: 48px 40px; }
     .asset-card-preview.dark-bg { background: var(--dark); border-radius: var(--radius-lg); padding: 48px 40px; }
     .asset-card-icon { width: 48px; height: 48px; background: var(--white); border: 1px solid var(--light); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
@@ -3036,55 +3036,133 @@
       <h2 class="section-heading">Logo & <span style="color: var(--green);">Icon</span> Files</h2>
       <p class="section-body">Core identity files for digital and print applications. Always use the provided files rather than recreating or tracing the logo.</p>
 
+      <!-- Logo Lockup Variations -->
+      <div style="font-family: var(--body); font-size: 13px; font-weight: 500; color: var(--dark); letter-spacing: 1px; text-transform: uppercase; margin-top: 60px; margin-bottom: 24px;">Logo Lockup</div>
       <div class="asset-grid">
         <div class="asset-card">
-          <div class="asset-card-preview">
-            <svg width="240" height="60" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <svg width="200" height="50" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 16C4 9.5 9 5 17 5H20C28 5 33 9.5 33 16C33 22.5 28 27 20 27H15L9 32V27C6.2 25.5 4 21.5 4 16Z" stroke="#32302F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M11 17C11 17 12.5 11.5 14.5 11.5C16.5 11.5 16.5 22.5 18.5 22.5C20.5 22.5 20.5 13 22 13C23.5 13 24.5 18 25.5 18" stroke="#32302F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               <text x="40" y="24" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#32302F">RevWhisper</text>
             </svg>
           </div>
-          <div class="asset-card-title">Primary Logo Lockup</div>
-          <div class="asset-card-desc">Full logo with icon and wordmark. Use this as the default logo in all brand communications.</div>
-          <div class="asset-card-formats">SVG / PNG / EPS</div>
+          <div class="asset-card-title">Dune</div>
+          <div class="asset-card-desc">Primary lockup. Use on white or light backgrounds.</div>
+          <div class="asset-card-formats">#32302F</div>
           <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-dune.svg">↓ Download SVG</a>
         </div>
         <div class="asset-card">
-          <div class="asset-card-preview dark-bg">
-            <svg width="240" height="60" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="asset-card-preview" style="background: var(--dark);">
+            <svg width="200" height="50" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 16C4 9.5 9 5 17 5H20C28 5 33 9.5 33 16C33 22.5 28 27 20 27H15L9 32V27C6.2 25.5 4 21.5 4 16Z" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M11 17C11 17 12.5 11.5 14.5 11.5C16.5 11.5 16.5 22.5 18.5 22.5C20.5 22.5 20.5 13 22 13C23.5 13 24.5 18 25.5 18" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               <text x="40" y="24" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#FFFFFF">RevWhisper</text>
             </svg>
           </div>
-          <div class="asset-card-title">Reversed Logo Lockup</div>
-          <div class="asset-card-desc">White logo for use on dark backgrounds. Maintain full contrast at all times.</div>
-          <div class="asset-card-formats">SVG / PNG / EPS</div>
+          <div class="asset-card-title">White</div>
+          <div class="asset-card-desc">Reversed lockup. Use on dark or Dune backgrounds.</div>
+          <div class="asset-card-formats">#FFFFFF</div>
           <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-white.svg">↓ Download SVG</a>
         </div>
         <div class="asset-card">
-          <div class="asset-card-preview">
-            <svg width="72" height="72" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <svg width="200" height="50" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16C4 9.5 9 5 17 5H20C28 5 33 9.5 33 16C33 22.5 28 27 20 27H15L9 32V27C6.2 25.5 4 21.5 4 16Z" stroke="#4A6741" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 17C11 17 12.5 11.5 14.5 11.5C16.5 11.5 16.5 22.5 18.5 22.5C20.5 22.5 20.5 13 22 13C23.5 13 24.5 18 25.5 18" stroke="#4A6741" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="40" y="24" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#4A6741">RevWhisper</text>
+            </svg>
+          </div>
+          <div class="asset-card-title">Fern</div>
+          <div class="asset-card-desc">Accent lockup. Use sparingly on white or Stone backgrounds.</div>
+          <div class="asset-card-formats">#4A6741</div>
+          <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-fern.svg">↓ Download SVG</a>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--light);">
+            <svg width="200" height="50" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16C4 9.5 9 5 17 5H20C28 5 33 9.5 33 16C33 22.5 28 27 20 27H15L9 32V27C6.2 25.5 4 21.5 4 16Z" stroke="#32302F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 17C11 17 12.5 11.5 14.5 11.5C16.5 11.5 16.5 22.5 18.5 22.5C20.5 22.5 20.5 13 22 13C23.5 13 24.5 18 25.5 18" stroke="#32302F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="40" y="24" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#32302F">RevWhisper</text>
+            </svg>
+          </div>
+          <div class="asset-card-title">On Stone</div>
+          <div class="asset-card-desc">Dune lockup on Stone background. For neutral surface placements.</div>
+          <div class="asset-card-formats">#32302F on #E0DCDA</div>
+          <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-dune.svg">↓ Download SVG</a>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: #4A6741;">
+            <svg width="200" height="50" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16C4 9.5 9 5 17 5H20C28 5 33 9.5 33 16C33 22.5 28 27 20 27H15L9 32V27C6.2 25.5 4 21.5 4 16Z" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 17C11 17 12.5 11.5 14.5 11.5C16.5 11.5 16.5 22.5 18.5 22.5C20.5 22.5 20.5 13 22 13C23.5 13 24.5 18 25.5 18" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="40" y="24" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#FFFFFF">RevWhisper</text>
+            </svg>
+          </div>
+          <div class="asset-card-title">On Fern</div>
+          <div class="asset-card-desc">Reversed lockup on Fern background. Use for branded accent panels.</div>
+          <div class="asset-card-formats">#FFFFFF on #4A6741</div>
+          <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-white.svg">↓ Download SVG</a>
+        </div>
+      </div>
+
+      <!-- Icon Variations -->
+      <div style="font-family: var(--body); font-size: 13px; font-weight: 500; color: var(--dark); letter-spacing: 1px; text-transform: uppercase; margin-top: 60px; margin-bottom: 24px;">Icon / Symbol</div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#32302F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#32302F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="asset-card-title">Icon / Symbol</div>
-          <div class="asset-card-desc">Standalone speech-wave icon for favicons, app icons, social avatars, and compact placements.</div>
-          <div class="asset-card-formats">SVG / PNG / ICO</div>
+          <div class="asset-card-title">Dune Icon</div>
+          <div class="asset-card-formats">#32302F</div>
           <a class="asset-download" data-file="svg-assets/logo/logo-dune.svg">↓ Download SVG</a>
         </div>
         <div class="asset-card">
-          <div class="asset-card-preview">
-            <svg width="200" height="36" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <text x="0" y="18" font-family="Lora, Georgia, serif" font-size="18" font-weight="400" fill="#32302F">RevWhisper</text>
+          <div class="asset-card-preview" style="background: var(--dark);">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="asset-card-title">Wordmark Only</div>
-          <div class="asset-card-desc">Standalone wordmark for use when the icon is displayed separately or space is limited horizontally.</div>
-          <div class="asset-card-formats">SVG / PNG / EPS</div>
-          <a class="asset-download" data-file="svg-assets/logo/lockup-horizontal-dune.svg">↓ Download SVG</a>
+          <div class="asset-card-title">White Icon</div>
+          <div class="asset-card-formats">#FFFFFF</div>
+          <a class="asset-download" data-file="svg-assets/logo/logo-white.svg">↓ Download SVG</a>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--white); border: 1px solid var(--light);">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#4A6741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#4A6741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="asset-card-title">Fern Icon</div>
+          <div class="asset-card-formats">#4A6741</div>
+          <a class="asset-download" data-file="svg-assets/logo/logo-fern.svg">↓ Download SVG</a>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: var(--dark);">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#C5A572" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#C5A572" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="asset-card-title">Gold Icon</div>
+          <div class="asset-card-formats">#C5A572</div>
+          <a class="asset-download" data-file="svg-assets/logo/logo-gold.svg">↓ Download SVG</a>
+        </div>
+        <div class="asset-card">
+          <div class="asset-card-preview" style="background: #4A6741;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="asset-card-title">On Fern</div>
+          <div class="asset-card-formats">#FFFFFF on #4A6741</div>
+          <a class="asset-download" data-file="svg-assets/logo/logo-white.svg">↓ Download SVG</a>
         </div>
       </div>
     </section>
