@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rev Whisper — Export Post PNGs</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+    :root {
+      --dark: #32302F;
+      --white: #FFFFFF;
+      --light: #E0DCDA;
+      --green: #4A6741;
+      --terracotta: #8B4A3E;
+      --gold: #9B7B3A;
+      --heading: 'Lora', 'Georgia', serif;
+      --body: 'DM Sans', 'system-ui', 'Helvetica Neue', sans-serif;
+      --mono: 'DM Mono', 'SF Mono', 'Fira Code', monospace;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --shadow-sm: 0 1px 2px rgba(50,48,47,0.04), 0 1px 3px rgba(50,48,47,0.06);
+      --shadow-md: 0 2px 4px rgba(50,48,47,0.03), 0 4px 12px rgba(50,48,47,0.06);
+      --shadow-lg: 0 4px 8px rgba(50,48,47,0.04), 0 8px 24px rgba(50,48,47,0.08);
+      --shadow-xl: 0 8px 16px rgba(50,48,47,0.05), 0 16px 48px rgba(50,48,47,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--body);
+      background: #F8F7F6;
+      color: var(--dark);
+      padding: 40px;
+    }
+
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: var(--radius-lg);
+      padding: 24px 32px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+    }
+    .controls h1 {
+      font-family: var(--heading);
+      font-size: 22px;
+      font-weight: 400;
+    }
+    .controls .status {
+      font-size: 14px;
+      color: var(--dark);
+      opacity: 0.5;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 400;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn--green { background: var(--green); }
+
+    .progress-bar {
+      width: 200px;
+      height: 4px;
+      background: var(--light);
+      border-radius: 2px;
+      overflow: hidden;
+      display: none;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--green);
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .phase-divider {
+      grid-column: 1 / -1;
+      font-family: var(--heading);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--dark);
+      opacity: 0.3;
+      padding: 40px 0 0;
+      border-top: 1px solid var(--light);
+    }
+    .phase-divider:first-child { border-top: none; padding-top: 0; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-preview {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      position: relative;
+      background: #eee;
+    }
+    .card-preview.is-reel { aspect-ratio: 9 / 16; }
+    .card-preview.is-wide { aspect-ratio: 1.91 / 1; }
+    .card-preview .mockup-container {
+      width: 100%;
+      height: 100%;
+      transform-origin: top left;
+    }
+    .card-info {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-label {
+      font-size: 13px;
+      font-weight: 400;
+    }
+    .card-day {
+      font-family: var(--mono);
+      font-size: 11px;
+      opacity: 0.4;
+    }
+    .card-btn {
+      font-family: var(--body);
+      font-size: 12px;
+      padding: 6px 14px;
+      background: transparent;
+      border: 1px solid var(--light);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--dark);
+    }
+    .card-btn:hover { background: #f0f0f0; }
+    .card-btn.done { background: var(--green); color: white; border-color: var(--green); }
+
+    /* ─── RENDER CONTAINER (offscreen) ─── */
+    #render-area {
+      position: fixed;
+      left: -9999px;
+      top: 0;
+    }
+
+    /* ─── Mockup CSS (from brand guidelines) ─── */
+    .launch-mockup {
+      width: 1080px;
+      height: 1440px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px;
+      text-align: center;
+      position: relative;
+    }
+    .launch-mockup--left {
+      text-align: left;
+      align-items: flex-start;
+    }
+    .launch-mockup--wide {
+      width: 1200px;
+      height: 628px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 56px;
+      text-align: left;
+      position: relative;
+    }
+    .launch-mockup--reel {
+      width: 1080px;
+      height: 1920px;
+    }
+
+    /* Carousel slides rendered at full size */
+    .launch-slide-fullsize {
+      width: 1080px;
+      height: 1440px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 144px 120px;
+      text-align: center;
+      position: relative;
+    }
+    .launch-slide-fullsize .launch-slide-num {
+      position: absolute;
+      top: 72px;
+      right: 84px;
+      font-family: var(--mono);
+      font-size: 54px;
+      font-weight: 400;
+      opacity: 0.3;
+    }
+
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      font-family: var(--body);
+    }
+    .loading-overlay h2 {
+      font-family: var(--heading);
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .loading-overlay p {
+      font-size: 15px;
+      opacity: 0.5;
+      margin-bottom: 24px;
+    }
+    .spinner {
+      width: 32px; height: 32px;
+      border: 3px solid var(--light);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+  <div class="loading-overlay" id="loading">
+    <h2>Loading mockups...</h2>
+    <p>Extracting all 50 posts from brand guidelines</p>
+    <div class="spinner"></div>
+  </div>
+
+  <div class="controls">
+    <div>
+      <h1>RevWhisper Post Export</h1>
+      <div class="status" id="status">Loading...</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <div class="progress-bar" id="progress-bar">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <button class="btn btn--green" id="download-all" disabled onclick="downloadAll()">
+        ↓ Download All PNGs (.zip)
+      </button>
+    </div>
+  </div>
+
+  <div class="grid" id="gallery"></div>
+  <div id="render-area"></div>
+
+<script>
+  // Global state
+  let posts = [];
+  let renderedPNGs = {};
+
+  async function init() {
+    try {
+      // Fetch the brand guidelines HTML
+      const resp = await fetch('index.html');
+      const html = await resp.text();
+
+      // Parse HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+
+      // Find the content calendar section - all launch-post elements
+      const allPosts = doc.querySelectorAll('.launch-post');
+      const dividers = doc.querySelectorAll('.launch-divider');
+
+      // Build a mapping of divider positions to phase names
+      const calendarSection = doc.querySelector('.launch-grid');
+      if (!calendarSection) {
+        document.getElementById('loading').innerHTML = '<h2>Error</h2><p>Could not find content calendar in index.html</p>';
+        return;
+      }
+
+      // Get all children of launch-grid to determine phase context
+      const children = Array.from(calendarSection.children);
+      let currentPhase = 'Foundation';
+      let postIndex = 0;
+
+      children.forEach(child => {
+        if (child.classList.contains('launch-divider')) {
+          currentPhase = child.textContent.trim().replace(/\s+/g, ' ');
+        } else if (child.classList.contains('launch-post')) {
+          const dayEl = child.querySelector('.launch-day');
+          const dayText = dayEl ? dayEl.textContent.trim() : `Post ${postIndex + 1}`;
+
+          // Check for carousel (launch-carousel with launch-slide children)
+          const carousel = child.querySelector('.launch-carousel');
+          if (carousel) {
+            const slides = carousel.querySelectorAll('.launch-slide');
+            slides.forEach((slide, i) => {
+              let filename = dayText.toLowerCase().replace(/\s+/g, '-');
+              filename += `-slide-${i + 1}`;
+              filename = filename.replace(/[^a-z0-9-]/g, '');
+              posts.push({
+                index: posts.length,
+                day: dayText,
+                phase: currentPhase,
+                type: 'carousel',
+                slideNum: i + 1,
+                totalSlides: slides.length,
+                filename: filename,
+                html: slide.outerHTML
+              });
+            });
+          } else {
+            // Single mockup (feed, reel, or wide)
+            const mockups = child.querySelectorAll('.launch-mockup, .launch-mockup--wide');
+            mockups.forEach((mockup, i) => {
+              const style = mockup.getAttribute('style') || '';
+              const isReel = style.includes('9/16') || style.includes('9 / 16');
+              const isMockupWide = mockup.classList.contains('launch-mockup--wide') ||
+                                  style.includes('1.91');
+
+              let type = 'feed';
+              if (isReel) type = 'reel';
+              if (isMockupWide) type = 'wide';
+
+              let filename = dayText.toLowerCase().replace(/\s+/g, '-');
+              if (mockups.length > 1) filename += `-slide-${i + 1}`;
+              filename = filename.replace(/[^a-z0-9-]/g, '');
+
+              posts.push({
+                index: posts.length,
+                day: dayText,
+                phase: currentPhase,
+                type: type,
+                slideNum: mockups.length > 1 ? i + 1 : null,
+                totalSlides: mockups.length > 1 ? mockups.length : null,
+                filename: filename,
+                html: mockup.outerHTML
+              });
+            });
+          }
+          postIndex++;
+        }
+      });
+
+      // Render gallery
+      renderGallery();
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('status').textContent = `${posts.length} mockups ready — click "Download All" to export`;
+      document.getElementById('download-all').disabled = false;
+
+    } catch (err) {
+      document.getElementById('loading').innerHTML =
+        `<h2>Error</h2><p>${err.message}</p><p style="margin-top:12px;font-size:13px;opacity:0.4;">Make sure index.html is in the same folder as this file.</p>`;
+    }
+  }
+
+  // Design widths: how wide each mockup type appears in the brand guidelines HTML
+  function getDesignInfo(post) {
+    if (post.type === 'carousel') return { designW: 180, targetW: 1080, targetH: 1440 };
+    if (post.type === 'wide')     return { designW: 480, targetW: 1200, targetH: 628 };
+    if (post.type === 'reel')     return { designW: 380, targetW: 1080, targetH: 1920 };
+    /* feed */                    return { designW: 380, targetW: 1080, targetH: 1440 };
+  }
+
+  function buildMockupEl(post) {
+    const { designW, targetW, targetH } = getDesignInfo(post);
+    const scale = targetW / designW;
+    const designH = targetH / scale;
+
+    const temp = document.createElement('div');
+    temp.innerHTML = post.html;
+    const el = temp.firstElementChild;
+
+    // Set to design dimensions
+    el.style.width = designW + 'px';
+    el.style.height = designH + 'px';
+    el.style.aspectRatio = 'unset';
+    el.style.borderRadius = '0';
+    el.style.boxShadow = 'none';
+    el.style.display = 'flex';
+    el.style.flexDirection = 'column';
+    el.style.justifyContent = 'center';
+    el.style.alignItems = post.type === 'carousel' ? 'center' : el.style.alignItems;
+    el.style.textAlign = post.type === 'carousel' ? 'center' : el.style.textAlign;
+    el.style.position = 'relative';
+    el.style.overflow = 'hidden';
+    el.style.transform = `scale(${scale})`;
+    el.style.transformOrigin = 'top left';
+
+    // Wrapper at target size to contain the scaled element
+    const wrapper = document.createElement('div');
+    wrapper.style.width = targetW + 'px';
+    wrapper.style.height = targetH + 'px';
+    wrapper.style.overflow = 'hidden';
+    wrapper.style.position = 'relative';
+    wrapper.appendChild(el);
+
+    return wrapper;
+  }
+
+  function renderGallery() {
+    const gallery = document.getElementById('gallery');
+    let currentPhase = '';
+
+    posts.forEach((post, idx) => {
+      // Phase divider
+      if (post.phase !== currentPhase) {
+        currentPhase = post.phase;
+        const divider = document.createElement('div');
+        divider.className = 'phase-divider';
+        divider.textContent = currentPhase;
+        gallery.appendChild(divider);
+      }
+
+      // Card
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.id = `card-${idx}`;
+
+      const previewClass = post.type === 'reel' ? 'card-preview is-reel' :
+                           post.type === 'wide' ? 'card-preview is-wide' :
+                           'card-preview';
+
+      const slideLabel = post.slideNum ? ` (Slide ${post.slideNum}/${post.totalSlides})` : '';
+
+      card.innerHTML = `
+        <div class="${previewClass}">
+          <div class="mockup-container" id="preview-${idx}"></div>
+        </div>
+        <div class="card-info">
+          <div>
+            <div class="card-label">${post.day}${slideLabel}</div>
+            <div class="card-day">${post.filename}.png</div>
+          </div>
+          <button class="card-btn" id="btn-${idx}" onclick="downloadOne(${idx})">PNG</button>
+        </div>
+      `;
+      gallery.appendChild(card);
+
+      // Inject scaled preview
+      const container = card.querySelector(`#preview-${idx}`);
+      const mockupEl = buildMockupEl(post);
+      container.appendChild(mockupEl);
+
+      // Scale wrapper to fit preview card
+      requestAnimationFrame(() => {
+        const previewEl = card.querySelector(`.${previewClass.split(' ')[0]}`);
+        if (previewEl && mockupEl) {
+          const { targetW } = getDesignInfo(post);
+          const previewScale = previewEl.offsetWidth / targetW;
+          mockupEl.style.transform = `scale(${previewScale})`;
+          mockupEl.style.transformOrigin = 'top left';
+        }
+      });
+    });
+  }
+
+  async function renderPNG(idx) {
+    if (renderedPNGs[idx]) return renderedPNGs[idx];
+
+    const post = posts[idx];
+    const renderArea = document.getElementById('render-area');
+    const { designW, targetW, targetH } = getDesignInfo(post);
+    const scale = targetW / designW;
+    const designH = targetH / scale;
+
+    // Create element at design size (no CSS transform for render — use html2canvas scale instead)
+    const outerWrap = document.createElement('div');
+    outerWrap.style.position = 'absolute';
+    outerWrap.style.left = '0';
+    outerWrap.style.top = '0';
+
+    const temp = document.createElement('div');
+    temp.innerHTML = post.html;
+    const el = temp.firstElementChild;
+
+    el.style.width = designW + 'px';
+    el.style.height = designH + 'px';
+    el.style.aspectRatio = 'unset';
+    el.style.borderRadius = '0';
+    el.style.boxShadow = 'none';
+    el.style.display = 'flex';
+    el.style.flexDirection = 'column';
+    el.style.justifyContent = 'center';
+    el.style.position = 'relative';
+    el.style.overflow = 'hidden';
+    // No CSS transform — html2canvas scale handles the upscaling
+
+    outerWrap.appendChild(el);
+    renderArea.appendChild(outerWrap);
+
+    // Wait for fonts and layout
+    await new Promise(r => setTimeout(r, 150));
+
+    const canvas = await html2canvas(el, {
+      width: designW,
+      height: Math.round(designH),
+      scale: scale,
+      useCORS: true,
+      allowTaint: true,
+      backgroundColor: null,
+      logging: false
+    });
+
+    renderArea.removeChild(outerWrap);
+
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+    renderedPNGs[idx] = blob;
+    return blob;
+  }
+
+  async function downloadOne(idx) {
+    const btn = document.getElementById(`btn-${idx}`);
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    try {
+      const blob = await renderPNG(idx);
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = posts[idx].filename + '.png';
+      a.click();
+      URL.revokeObjectURL(url);
+      btn.textContent = '✓';
+      btn.className = 'card-btn done';
+    } catch (err) {
+      btn.textContent = 'Error';
+      console.error(err);
+    }
+  }
+
+  async function downloadAll() {
+    const btn = document.getElementById('download-all');
+    const progressBar = document.getElementById('progress-bar');
+    const progressFill = document.getElementById('progress-fill');
+    const status = document.getElementById('status');
+
+    btn.disabled = true;
+    btn.textContent = 'Rendering...';
+    progressBar.style.display = 'block';
+
+    const zip = new JSZip();
+
+    // Group by phase for folder structure
+    const phases = {
+      'Foundation': 'phase-1-foundation',
+      'Pain Points': 'phase-2-pain-points',
+      'Deep Cuts': 'phase-3-deep-cuts',
+      'Authority': 'phase-4-authority'
+    };
+
+    for (let i = 0; i < posts.length; i++) {
+      status.textContent = `Rendering ${i + 1} of ${posts.length}...`;
+      progressFill.style.width = ((i + 1) / posts.length * 100) + '%';
+
+      try {
+        const blob = await renderPNG(i);
+        const phase = posts[i].phase;
+        const folder = phases[phase] || phase.toLowerCase().replace(/\s+/g, '-');
+        zip.file(`${folder}/${posts[i].filename}.png`, blob);
+
+        // Mark card as done
+        const cardBtn = document.getElementById(`btn-${i}`);
+        if (cardBtn) {
+          cardBtn.textContent = '✓';
+          cardBtn.className = 'card-btn done';
+        }
+      } catch (err) {
+        console.error(`Error rendering post ${i}:`, err);
+      }
+
+      // Small delay to keep UI responsive
+      await new Promise(r => setTimeout(r, 50));
+    }
+
+    status.textContent = 'Creating ZIP file...';
+
+    const zipBlob = await zip.generateAsync({ type: 'blob' }, (meta) => {
+      progressFill.style.width = meta.percent + '%';
+    });
+
+    const url = URL.createObjectURL(zipBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'RevWhisper-Social-Posts.zip';
+    a.click();
+    URL.revokeObjectURL(url);
+
+    btn.textContent = '✓ Downloaded';
+    btn.disabled = false;
+    status.textContent = `All ${posts.length} posts exported successfully`;
+    progressBar.style.display = 'none';
+  }
+
+  // Wait for fonts to load, then initialize
+  document.fonts.ready.then(() => {
+    setTimeout(init, 500);
+  });
+</script>
+</body>
+</html>
