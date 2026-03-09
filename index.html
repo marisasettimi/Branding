@@ -7658,6 +7658,12 @@ document.querySelectorAll('.png-download').forEach(function(btn) {
 });
 
 // ─── Email Signature Builder ───
+// Base64-encoded PNGs for email-safe embedding (no external hosting)
+var SIG_ICON_B64 = 'data:image/png;base64,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';
+var SIG_GLOBE_B64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAJKADAAQAAAABAAAAJAAAAAAJxsHGAAAAvUlEQVRYCe2SsQrCQBBE5wLGdIIKYiUICopgpYj/34iWtiKImELFYBMTycVomWbKRZiD41imuMfbccnzUW73G8TXGKv5GqPBGJYn2FUw7VYHi9kS9+SG/J1b8iB45RmO58Pvni5HeO9tgSbDKQpfIM1S9Lp9RM3IFMiV1fmuqXoQNkI45+yBTAlqnwe12XwUEFuBDMkQM8BydUiGmAGWq0MyxAywXB2SIWaA5eqQDDEDLFeHZIgZYLk69HeGPl0WNaE2QwU1AAAAAElFTkSuQmCC';
+var SIG_IG_B64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAJKADAAQAAAABAAAAJAAAAAAJxsHGAAAA1ElEQVRYCe3SsQ6CQBAE0N1DLxgtTCRRf8bexP82tn6BFhZaWCrI4XnQLZn+LIYCMtPc3lv0dD7G0peiTuV6u8h+d5DCFZLrmWg6+fG8y7t+yWpZSRtaKXy+gdx8tpAYo6yr7fBNr1w4w7mu19mkYUII0n07UXVZB9LQhdh8muG/UVXxU593oLSuvDsaXT/vfkbD9JEDARRTUchwgEAhgGIqChkOECgEUExFIcMBAoUAiqkoZDhAoBBAMRWFDAcIFAIopqKQ4QCBQgDFVBQyHCD8ndAPvQ4sav86iScAAAAASUVORK5CYII=';
+var SIG_X_B64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAJKADAAQAAAABAAAAJAAAAAAJxsHGAAAAuUlEQVRYCe3SMQrCQBQE0PkpTBHXk9gIgoXgHSwtLWysvJONJ7AXLITAgmDAcwRJstWa7QNTbjMLgexO8T+Psad/RINhvdyg/rywXe2Q81j7a+PtfkUfehz3J7hqkXMfFK5ymI9fOSsxhCHrMmm4+aaO6acLHd5fj/Phkq7ZjsXxZJs+MbiYeMv6pIUYv4QkxARYrg5JiAmwXB2SEBNguTokISbAcnVIQkyA5eqQhJgAy9UhCTEBlv8BB1Mie495owUAAAAASUVORK5CYII=';
+
 function generateSigHTML() {
   var first = document.getElementById('sig-first').value || '';
   var last = document.getElementById('sig-last').value || '';
@@ -7680,18 +7686,18 @@ function generateSigHTML() {
     phoneRow = '<tr><td><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:#32302F;text-decoration:none;">' + phone + '</a></td></tr>';
   }
 
-  // Social icons
+  // Social icons — base64 embedded PNGs (no external hosting)
   var socialIcons = '';
   if (website) {
-    socialIcons += '<td style="padding-right:10px;"><a href="' + website + '" style="text-decoration:none;display:inline-block;" title="' + website.replace(/https?:\/\//, '') + '"><img src="https://img.icons8.com/ios/24/4A6741/globe--v1.png" alt="Website" width="18" height="18" style="display:block;border:0;" /></a></td>';
+    socialIcons += '<td style="padding-right:10px;"><a href="' + website + '" style="text-decoration:none;display:inline-block;" title="' + website.replace(/https?:\/\//, '') + '"><img src="' + SIG_GLOBE_B64 + '" alt="Website" width="18" height="18" style="display:block;border:0;" /></a></td>';
   }
   if (instagram) {
     var igHandle = instagram.replace(/^@/, '');
-    socialIcons += '<td style="padding-right:10px;"><a href="https://instagram.com/' + igHandle + '" style="text-decoration:none;display:inline-block;" title="@' + igHandle + '"><img src="https://img.icons8.com/ios/24/4A6741/instagram-new--v1.png" alt="Instagram" width="18" height="18" style="display:block;border:0;" /></a></td>';
+    socialIcons += '<td style="padding-right:10px;"><a href="https://instagram.com/' + igHandle + '" style="text-decoration:none;display:inline-block;" title="@' + igHandle + '"><img src="' + SIG_IG_B64 + '" alt="Instagram" width="18" height="18" style="display:block;border:0;" /></a></td>';
   }
   if (xHandle) {
     var xUser = xHandle.replace(/^@/, '');
-    socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><img src="https://img.icons8.com/ios/24/4A6741/twitterx--v1.png" alt="X" width="18" height="18" style="display:block;border:0;" /></a></td>';
+    socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><img src="' + SIG_X_B64 + '" alt="X" width="18" height="18" style="display:block;border:0;" /></a></td>';
   }
 
   var socialRow = '';
@@ -7713,7 +7719,7 @@ function generateSigHTML() {
     '<td style="vertical-align:top;padding-right:14px;width:44px;">' +
     '<div style="width:44px;height:44px;background-color:#4A6741;border-radius:22px;text-align:center;line-height:44px;">' +
     '<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" style="width:44px;height:44px;v-text-anchor:middle;" arcsize="50%" fillcolor="#4A6741" stroke="f"><v:textbox inset="0,0,0,0"><center><![endif]-->' +
-    '<img src="https://i.ibb.co/TBSCjjCF/rev-whisper-icon-white.png" alt="Rev Whisper" width="26" height="26" style="display:inline-block;vertical-align:middle;border:0;" />' +
+    '<img src="' + SIG_ICON_B64 + '" alt="Rev Whisper" width="26" height="26" style="display:inline-block;vertical-align:middle;border:0;" />' +
     '<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->' +
     '</div>' +
     '</td>' +
@@ -7868,7 +7874,7 @@ function copySigRichText() {
 
 function downloadSigHTML() {
   var result = generateSigHTML();
-  var fullHTML = '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="UTF-8">\n<title>Email Signature - ' + (document.getElementById('sig-first').value || 'Rev Whisper') + '</title>\n</head>\n<body style="margin:0;padding:20px;">\n' + result.html + '\n</body>\n</html>';
+  var fullHTML = '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="UTF-8">\n<meta name="color-scheme" content="light only">\n<meta name="supported-color-schemes" content="light only">\n<title>Email Signature - ' + (document.getElementById('sig-first').value || 'Rev Whisper') + '</title>\n<style>\n:root { color-scheme: light only; }\n[data-ogsc], [data-ogsb] { background-color: #FFFFFF !important; color: #32302F !important; }\n</style>\n</head>\n<body style="margin:0;padding:20px;background-color:#FFFFFF;">\n' + result.html + '\n</body>\n</html>';
   var blob = new Blob([fullHTML], { type: 'text/html' });
   var url = URL.createObjectURL(blob);
   var a = document.createElement('a');
