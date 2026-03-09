@@ -1028,6 +1028,144 @@
       font-weight: 600;
     }
 
+    /* ─── EMAIL SIGNATURE BUILDER ─── */
+    .sig-builder {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+    .sig-builder-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .sig-form-section {
+      margin-bottom: 28px;
+    }
+    .sig-form-section-title {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #948d85;
+      margin-bottom: 14px;
+    }
+    .sig-field {
+      margin-bottom: 12px;
+    }
+    .sig-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+    .sig-field input {
+      width: 100%;
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--dark);
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      outline: none;
+    }
+    .sig-field input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+    }
+    .sig-field input::placeholder {
+      color: #C4BDB6;
+    }
+    .sig-preview-wrap {
+      position: sticky;
+      top: 88px;
+    }
+    .sig-preview-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #948d85;
+      margin-bottom: 14px;
+    }
+    .sig-preview-frame {
+      padding: 32px;
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .sig-btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .sig-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .sig-btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+    .sig-btn-primary:hover { background: #3d5636; }
+    .sig-btn-secondary {
+      background: var(--white);
+      color: var(--dark);
+      border: 1px solid var(--light);
+    }
+    .sig-btn-secondary:hover { background: var(--bg-subtle); }
+    .sig-btn svg { width: 14px; height: 14px; }
+    .sig-instructions {
+      margin-top: 48px;
+      padding: 28px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--light);
+    }
+    .sig-instructions-title {
+      font-family: var(--heading);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .sig-instructions ol {
+      padding-left: 20px;
+      font-size: 13px;
+      font-weight: 300;
+      color: #5a5654;
+      line-height: 1.8;
+    }
+    .sig-instructions ol li {
+      margin-bottom: 4px;
+    }
+    .sig-instructions code {
+      font-family: var(--mono);
+      font-size: 12px;
+      background: var(--white);
+      border: 1px solid var(--light);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
     @media (max-width: 768px) {
       .nav-group-dropdown {
         position: fixed;
@@ -1041,6 +1179,15 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
+      }
+      .sig-builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .sig-preview-wrap {
+        position: static;
+      }
+      .sig-builder {
+        padding: 40px 20px;
       }
     }
   </style>
@@ -1085,6 +1232,7 @@
       <button type="button" class="nav-group-label">Applications <svg class="chevron" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
       <div class="nav-group-dropdown">
         <button type="button" class="site-nav-btn" data-tab="applications">Brand Applications</button>
+        <button type="button" class="site-nav-btn" data-tab="signatures">Email Signatures</button>
         <button type="button" class="site-nav-btn" data-tab="assets">Assets</button>
         <button type="button" class="site-nav-btn" data-tab="data">Data &amp; Product</button>
       </div>
@@ -6345,6 +6493,109 @@
 
   </div>
 
+  <!-- PANEL: Email Signatures -->
+  <div id="panel-signatures" class="tab-panel">
+
+    <!-- COVER -->
+    <section class="cover">
+      <div class="cover-tag">11b / Email Signatures</div>
+      <h1 class="cover-title">Email <span style="color: var(--green);">Signatures.</span></h1>
+      <p class="cover-subtitle">Build a branded email signature with your information. Customize the fields below and export as HTML to paste directly into your email client.</p>
+    </section>
+
+    <div class="sig-builder">
+      <div class="sig-builder-grid">
+
+        <!-- LEFT: Form Fields -->
+        <div class="sig-form-fields">
+          <div class="sig-form-section">
+            <div class="sig-form-section-title">Personal Info</div>
+            <div class="sig-field">
+              <label for="sig-first">First Name</label>
+              <input type="text" id="sig-first" placeholder="Nicolas" oninput="updateSigPreview()">
+            </div>
+            <div class="sig-field">
+              <label for="sig-last">Last Name</label>
+              <input type="text" id="sig-last" placeholder="Luna" oninput="updateSigPreview()">
+            </div>
+            <div class="sig-field">
+              <label for="sig-title">Title</label>
+              <input type="text" id="sig-title" placeholder="Chief Operating Officer" oninput="updateSigPreview()">
+            </div>
+          </div>
+
+          <div class="sig-form-section">
+            <div class="sig-form-section-title">Contact</div>
+            <div class="sig-field">
+              <label for="sig-email">Email</label>
+              <input type="email" id="sig-email" placeholder="nluna@revwhisper.com" oninput="updateSigPreview()">
+            </div>
+            <div class="sig-field">
+              <label for="sig-phone">Phone <span style="font-weight:300;color:#948d85;">(optional)</span></label>
+              <input type="tel" id="sig-phone" placeholder="(555) 123-4567" oninput="updateSigPreview()">
+            </div>
+          </div>
+
+          <div class="sig-form-section">
+            <div class="sig-form-section-title">Social Links</div>
+            <div class="sig-field">
+              <label for="sig-website">Website URL</label>
+              <input type="url" id="sig-website" placeholder="https://revwhisper.com" value="https://revwhisper.com" oninput="updateSigPreview()">
+            </div>
+            <div class="sig-field">
+              <label for="sig-instagram">Instagram Handle</label>
+              <input type="text" id="sig-instagram" placeholder="rev.whisper" value="rev.whisper" oninput="updateSigPreview()">
+            </div>
+            <div class="sig-field">
+              <label for="sig-x">X / Twitter Handle</label>
+              <input type="text" id="sig-x" placeholder="revwhisper" value="revwhisper" oninput="updateSigPreview()">
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Live Preview -->
+        <div class="sig-preview-wrap">
+          <div class="sig-preview-label">Live Preview</div>
+          <div class="sig-preview-frame">
+            <div id="sig-live-preview"></div>
+          </div>
+
+          <div class="sig-btn-row">
+            <button class="sig-btn sig-btn-primary" onclick="copySigHTML()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy HTML
+            </button>
+            <button class="sig-btn sig-btn-secondary" onclick="copySigRichText()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Signature
+            </button>
+            <button class="sig-btn sig-btn-secondary" onclick="downloadSigHTML()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download .html
+            </button>
+          </div>
+
+          <div class="sig-instructions">
+            <div class="sig-instructions-title">How to add your signature</div>
+            <ol>
+              <li>Fill in your details on the left — the preview updates live.</li>
+              <li>Click <code>Copy Signature</code> to copy the formatted signature to your clipboard.</li>
+              <li>Open your email client's signature settings:
+                <br>&nbsp;&nbsp;Gmail: Settings → See all settings → Signature
+                <br>&nbsp;&nbsp;Outlook: Settings → Mail → Compose and reply → Email signature
+                <br>&nbsp;&nbsp;Apple Mail: Settings → Signatures
+              </li>
+              <li>Paste into the signature editor. Links will work automatically.</li>
+              <li>Alternatively, click <code>Copy HTML</code> for raw source, or <code>Download .html</code> to save the file.</li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
   <!-- PANEL: Style Guide -->
   <div id="panel-styleguide" class="tab-panel">
     <div style="max-width:960px;margin:0 auto;padding:80px 40px 60px;">
@@ -7404,6 +7655,234 @@ document.querySelectorAll('.png-download').forEach(function(btn) {
     };
     img.src = svgUrl;
   });
+});
+
+// ─── Email Signature Builder ───
+function generateSigHTML() {
+  var first = document.getElementById('sig-first').value || '';
+  var last = document.getElementById('sig-last').value || '';
+  var title = document.getElementById('sig-title').value || '';
+  var email = document.getElementById('sig-email').value || '';
+  var phone = document.getElementById('sig-phone').value || '';
+  var website = document.getElementById('sig-website').value || 'https://revwhisper.com';
+  var instagram = document.getElementById('sig-instagram').value || '';
+  var xHandle = document.getElementById('sig-x').value || '';
+
+  var fullName = (first + ' ' + last).trim() || 'Your Name';
+  var titleText = title || 'Your Title';
+  var emailText = email || 'you@revwhisper.com';
+  var emailPrefix = email ? email.split('@')[0] : 'you';
+  var fileName = first && last ? (first.toLowerCase()[0] + last.toLowerCase()).replace(/\s+/g, '') : 'signature';
+
+  // Phone row
+  var phoneRow = '';
+  if (phone) {
+    phoneRow = '<tr><td><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:#32302F;text-decoration:none;">' + phone + '</a></td></tr>';
+  }
+
+  // Social icons
+  var socialIcons = '';
+  if (website) {
+    socialIcons += '<td style="padding-right:10px;"><a href="' + website + '" style="text-decoration:none;display:inline-block;" title="' + website.replace(/https?:\/\//, '') + '"><img src="https://img.icons8.com/ios/24/4A6741/globe--v1.png" alt="Website" width="18" height="18" style="display:block;border:0;" /></a></td>';
+  }
+  if (instagram) {
+    var igHandle = instagram.replace(/^@/, '');
+    socialIcons += '<td style="padding-right:10px;"><a href="https://instagram.com/' + igHandle + '" style="text-decoration:none;display:inline-block;" title="@' + igHandle + '"><img src="https://img.icons8.com/ios/24/4A6741/instagram-new--v1.png" alt="Instagram" width="18" height="18" style="display:block;border:0;" /></a></td>';
+  }
+  if (xHandle) {
+    var xUser = xHandle.replace(/^@/, '');
+    socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><img src="https://img.icons8.com/ios/24/4A6741/twitterx--v1.png" alt="X" width="18" height="18" style="display:block;border:0;" /></a></td>';
+  }
+
+  var socialRow = '';
+  if (socialIcons) {
+    socialRow = '<tr><td style="padding-top:6px;"><table cellpadding="0" cellspacing="0" border="0"><tr>' + socialIcons + '</tr></table></td></tr>';
+  }
+
+  var html = '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;">' +
+    '<tr><td>' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
+    '<tr>' +
+    '<td width="4" style="background-color:#4A6741;border-radius:4px;"></td>' +
+    '<td width="16"></td>' +
+    '<td style="vertical-align:top;">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
+    // Name row with icon
+    '<tr><td style="padding-bottom:14px;">' +
+    '<table cellpadding="0" cellspacing="0" border="0"><tr>' +
+    '<td style="vertical-align:top;padding-right:14px;width:44px;">' +
+    '<div style="width:44px;height:44px;background-color:#4A6741;border-radius:22px;text-align:center;line-height:44px;">' +
+    '<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" style="width:44px;height:44px;v-text-anchor:middle;" arcsize="50%" fillcolor="#4A6741" stroke="f"><v:textbox inset="0,0,0,0"><center><![endif]-->' +
+    '<img src="https://i.ibb.co/TBSCjjCF/rev-whisper-icon-white.png" alt="Rev Whisper" width="26" height="26" style="display:inline-block;vertical-align:middle;border:0;" />' +
+    '<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->' +
+    '</div>' +
+    '</td>' +
+    '<td style="vertical-align:middle;">' +
+    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:#32302F;display:block;line-height:1.2;letter-spacing:-0.3px;">' + fullName + '</span>' +
+    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:#4A6741;display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;">' + titleText + '</span>' +
+    '</td>' +
+    '</tr></table>' +
+    '</td></tr>' +
+    // Separator
+    '<tr><td style="padding-bottom:14px;"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #E0DCDA;font-size:0;line-height:0;" height="1">&nbsp;</td></tr></table></td></tr>' +
+    // Contact + social
+    '<tr><td>' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>' +
+    '<td style="vertical-align:top;">' +
+    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:#32302F;line-height:1.8;">' +
+    '<tr><td><a href="mailto:' + emailText + '" style="color:#32302F;text-decoration:none;">' + emailText + '</a></td></tr>' +
+    phoneRow +
+    socialRow +
+    '</table>' +
+    '</td>' +
+    '<td style="vertical-align:bottom;text-align:right;">' +
+    '<span style="font-family:\'Lora\',Georgia,serif;font-size:14px;font-weight:400;line-height:1;letter-spacing:-0.3px;">' +
+    '<span style="color:#4A6741;">Rev</span><span style="color:#32302F;"> Whisper</span>' +
+    '</span>' +
+    '</td>' +
+    '</tr></table>' +
+    '</td></tr>' +
+    '</table>' +
+    '</td></tr></table>' +
+    '</td></tr></table>';
+
+  return { html: html, fileName: fileName };
+}
+
+function generateSigPreviewHTML() {
+  var first = document.getElementById('sig-first').value || '';
+  var last = document.getElementById('sig-last').value || '';
+  var title = document.getElementById('sig-title').value || '';
+  var email = document.getElementById('sig-email').value || '';
+  var phone = document.getElementById('sig-phone').value || '';
+  var website = document.getElementById('sig-website').value || 'https://revwhisper.com';
+  var instagram = document.getElementById('sig-instagram').value || '';
+  var xHandle = document.getElementById('sig-x').value || '';
+
+  var fullName = (first + ' ' + last).trim() || 'Your Name';
+  var titleText = title || 'Your Title';
+  var emailText = email || 'you@revwhisper.com';
+
+  var phoneRow = '';
+  if (phone) {
+    phoneRow = '<tr><td><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:#32302F;text-decoration:none;">' + phone + '</a></td></tr>';
+  }
+
+  // Preview uses inline SVGs for crisp rendering
+  var socialIcons = '';
+  if (website) {
+    socialIcons += '<td style="padding-right:10px;"><a href="' + website + '" style="text-decoration:none;display:inline-block;" title="' + website.replace(/https?:\/\//, '') + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><circle cx="12" cy="12" r="10" stroke="#4A6741" stroke-width="1.5"/><path d="M2 12h20" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#4A6741" stroke-width="1.5"/></svg></a></td>';
+  }
+  if (instagram) {
+    var igHandle = instagram.replace(/^@/, '');
+    socialIcons += '<td style="padding-right:10px;"><a href="https://instagram.com/' + igHandle + '" style="text-decoration:none;display:inline-block;" title="@' + igHandle + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#4A6741" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="#4A6741" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#4A6741"/></svg></a></td>';
+  }
+  if (xHandle) {
+    var xUser = xHandle.replace(/^@/, '');
+    socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#4A6741"/></svg></a></td>';
+  }
+
+  var socialRow = '';
+  if (socialIcons) {
+    socialRow = '<tr><td style="padding-top:6px;"><table cellpadding="0" cellspacing="0" border="0"><tr>' + socialIcons + '</tr></table></td></tr>';
+  }
+
+  return '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;">' +
+    '<tr><td>' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
+    '<tr>' +
+    '<td width="4" style="background-color:#4A6741;border-radius:4px;"></td>' +
+    '<td width="16"></td>' +
+    '<td style="vertical-align:top;">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
+    '<tr><td style="padding-bottom:14px;">' +
+    '<table cellpadding="0" cellspacing="0" border="0"><tr>' +
+    '<td style="vertical-align:top;padding-right:14px;width:44px;">' +
+    '<div style="width:44px;height:44px;background-color:#4A6741;border-radius:22px;display:flex;align-items:center;justify-content:center;">' +
+    '<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="26" height="26" style="display:block;"><path d="M6 20C6 12 12 6 22 6H26C36 6 42 12 42 20C42 28 36 34 26 34H20L12 40V34C8.5 32 6 27 6 20Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 21C15 21 17 14 19.5 14C22 14 22 28 24.5 28C27 28 27 16 29 16C31 16 32 22 33 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+    '</div>' +
+    '</td>' +
+    '<td style="vertical-align:middle;">' +
+    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:#32302F;display:block;line-height:1.2;letter-spacing:-0.3px;">' + fullName + '</span>' +
+    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:#4A6741;display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;">' + titleText + '</span>' +
+    '</td>' +
+    '</tr></table>' +
+    '</td></tr>' +
+    '<tr><td style="padding-bottom:14px;"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #E0DCDA;font-size:0;line-height:0;" height="1">&nbsp;</td></tr></table></td></tr>' +
+    '<tr><td>' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>' +
+    '<td style="vertical-align:top;">' +
+    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:#32302F;line-height:1.8;">' +
+    '<tr><td><a href="mailto:' + emailText + '" style="color:#32302F;text-decoration:none;">' + emailText + '</a></td></tr>' +
+    phoneRow +
+    socialRow +
+    '</table>' +
+    '</td>' +
+    '<td style="vertical-align:bottom;text-align:right;">' +
+    '<span style="font-family:\'Lora\',Georgia,serif;font-size:14px;font-weight:400;line-height:1;letter-spacing:-0.3px;">' +
+    '<span style="color:#4A6741;">Rev</span><span style="color:#32302F;"> Whisper</span>' +
+    '</span>' +
+    '</td>' +
+    '</tr></table>' +
+    '</td></tr>' +
+    '</table>' +
+    '</td></tr></table>' +
+    '</td></tr></table>';
+}
+
+function updateSigPreview() {
+  var preview = document.getElementById('sig-live-preview');
+  if (preview) {
+    preview.innerHTML = generateSigPreviewHTML();
+  }
+}
+
+function copySigHTML() {
+  var result = generateSigHTML();
+  navigator.clipboard.writeText(result.html).then(function() {
+    var btns = document.querySelectorAll('.sig-btn-primary');
+    var btn = btns[0];
+    var original = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+    setTimeout(function() { btn.innerHTML = original; }, 2000);
+  });
+}
+
+function copySigRichText() {
+  var result = generateSigHTML();
+  var blob = new Blob([result.html], { type: 'text/html' });
+  var textBlob = new Blob([result.html], { type: 'text/plain' });
+  navigator.clipboard.write([
+    new ClipboardItem({
+      'text/html': blob,
+      'text/plain': textBlob
+    })
+  ]).then(function() {
+    var btns = document.querySelectorAll('.sig-btn-secondary');
+    var btn = btns[0];
+    var original = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+    setTimeout(function() { btn.innerHTML = original; }, 2000);
+  });
+}
+
+function downloadSigHTML() {
+  var result = generateSigHTML();
+  var fullHTML = '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="UTF-8">\n<title>Email Signature - ' + (document.getElementById('sig-first').value || 'Rev Whisper') + '</title>\n</head>\n<body style="margin:0;padding:20px;">\n' + result.html + '\n</body>\n</html>';
+  var blob = new Blob([fullHTML], { type: 'text/html' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = result.fileName + '-signature.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// Initialize preview on load
+document.addEventListener('DOMContentLoaded', function() {
+  updateSigPreview();
 });
 </script>
 </body>
