@@ -7711,10 +7711,10 @@ function generateSigHTML() {
 
   // White background helper: background-image trick forces white even in dark mode
   // Email clients override background-color but NOT background-image
-  // Using inline base64 data URI (1x1 white pixel) so it loads instantly — no external URL needed
+  // Using inline base64 data URI (1x1 white pixel) so it loads instantly
+  // CRITICAL: Do NOT use 'background' shorthand — it resets background-image to none!
   var W_PX = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMBAQApDs4AAAAASUVORK5CYII=';
-  var wBg = 'background-color:#FFFFFF !important;background-image:url(\'' + W_PX + '\');background-repeat:repeat;background-size:auto;';
-  var wAll = wBg + 'background:#FFFFFF !important;';
+  var wAll = 'background-color:#FFFFFF !important;background-image:url(\'' + W_PX + '\') !important;background-repeat:repeat !important;';
 
   // Outer white background wrapper with 30px rounded corners for dark mode protection
   var html = '<div style="color-scheme:light only;-webkit-color-scheme:light only;">' +
