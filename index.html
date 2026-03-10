@@ -7710,46 +7710,48 @@ function generateSigHTML() {
   }
 
   // Outer white background wrapper for dark mode protection
-  var html = '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;background-color:#FFFFFF !important;" bgcolor="#FFFFFF">' +
-    '<tr><td style="padding:20px;background-color:#FFFFFF !important;" bgcolor="#FFFFFF">' +
+  // Uses: bgcolor (Outlook), background+background-color (Gmail/Apple), data-ogsb (Outlook dark mode)
+  var html = '<div style="color-scheme:light only;-webkit-color-scheme:light only;">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;background:#FFFFFF !important;background-color:#FFFFFF !important;color-scheme:light only;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<tr><td style="padding:20px;background:#FFFFFF !important;background-color:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     // Inner signature table
-    '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;background-color:#FFFFFF !important;" bgcolor="#FFFFFF">' +
-    '<tr><td>' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;background:#FFFFFF !important;background-color:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<tr><td style="background:#FFFFFF !important;background-color:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
     '<tr>' +
-    '<td width="4" style="background-color:#4A6741 !important;border-radius:4px;" bgcolor="#4A6741"></td>' +
-    '<td width="16"></td>' +
-    '<td style="vertical-align:top;">' +
+    '<td width="4" style="background:#4A6741 !important;background-color:#4A6741 !important;border-radius:4px;" bgcolor="#4A6741" data-ogsb="#4A6741"></td>' +
+    '<td width="16" style="background:#FFFFFF !important;" bgcolor="#FFFFFF"></td>' +
+    '<td style="vertical-align:top;background:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
-    // Name row with icon (full 44x44 circle PNG — no CSS circle needed)
-    '<tr><td style="padding-bottom:14px;">' +
+    // Name row with icon (full 44x44 circle PNG with white bg baked in)
+    '<tr><td style="padding-bottom:14px;background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
     '<table cellpadding="0" cellspacing="0" border="0"><tr>' +
-    '<td style="vertical-align:top;padding-right:14px;width:44px;">' +
+    '<td style="vertical-align:top;padding-right:14px;width:44px;background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
     '<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" style="width:44px;height:44px;v-text-anchor:middle;" arcsize="50%" fillcolor="#4A6741" stroke="f"><v:textbox inset="0,0,0,0"><center><![endif]-->' +
-    '<img src="' + SIG_ICON_URL + '" alt="Rev Whisper" width="44" height="44" style="display:block;border:0;border-radius:22px;" />' +
+    '<img src="' + SIG_ICON_URL + '" alt="RW" width="44" height="44" style="display:block;border:0;border-radius:22px;" />' +
     '<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->' +
     '</td>' +
-    '<td style="vertical-align:middle;">' +
-    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:#32302F !important;display:block;line-height:1.2;letter-spacing:-0.3px;">' + fullName + '</span>' +
-    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:#4A6741 !important;display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;">' + titleText + '</span>' +
+    '<td style="vertical-align:middle;background:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:#32302F !important;display:block;line-height:1.2;letter-spacing:-0.3px;" data-ogsc="#32302F">' + fullName + '</span>' +
+    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:#4A6741 !important;display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;" data-ogsc="#4A6741">' + titleText + '</span>' +
     '</td>' +
     '</tr></table>' +
     '</td></tr>' +
     // Separator
-    '<tr><td style="padding-bottom:14px;"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #E0DCDA;font-size:0;line-height:0;" height="1">&nbsp;</td></tr></table></td></tr>' +
+    '<tr><td style="padding-bottom:14px;background:#FFFFFF !important;" bgcolor="#FFFFFF"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #E0DCDA;font-size:0;line-height:0;background:#FFFFFF !important;" bgcolor="#FFFFFF" height="1">&nbsp;</td></tr></table></td></tr>' +
     // Contact + social
-    '<tr><td>' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>' +
-    '<td style="vertical-align:top;">' +
-    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:#32302F !important;line-height:1.8;">' +
-    '<tr><td><a href="mailto:' + emailText + '" style="color:#32302F !important;text-decoration:none;">' + emailText + '</a></td></tr>' +
+    '<tr><td style="background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#FFFFFF !important;" bgcolor="#FFFFFF"><tr>' +
+    '<td style="vertical-align:top;background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:#32302F !important;line-height:1.8;background:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<tr><td style="background:#FFFFFF !important;" bgcolor="#FFFFFF"><a href="mailto:' + emailText + '" style="color:#32302F !important;text-decoration:none;" data-ogsc="#32302F">' + emailText + '</a></td></tr>' +
     phoneRow +
     socialRow +
     '</table>' +
     '</td>' +
-    '<td style="vertical-align:bottom;text-align:right;">' +
+    '<td style="vertical-align:bottom;text-align:right;background:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     '<span style="font-family:\'Lora\',Georgia,serif;font-size:14px;font-weight:400;line-height:1;letter-spacing:-0.3px;">' +
-    '<span style="color:#4A6741 !important;">Rev</span><span style="color:#32302F !important;"> Whisper</span>' +
+    '<span style="color:#4A6741 !important;" data-ogsc="#4A6741">Rev</span><span style="color:#32302F !important;" data-ogsc="#32302F"> Whisper</span>' +
     '</span>' +
     '</td>' +
     '</tr></table>' +
@@ -7758,7 +7760,8 @@ function generateSigHTML() {
     '</td></tr></table>' +
     '</td></tr></table>' +
     // Close outer white wrapper
-    '</td></tr></table>';
+    '</td></tr></table>' +
+    '</div>';
 
   return { html: html, fileName: fileName };
 }
@@ -7864,7 +7867,15 @@ function copySigHTML() {
 
 function copySigRichText() {
   var result = generateSigHTML();
-  var blob = new Blob([result.html], { type: 'text/html' });
+  // Wrap in full HTML document with color-scheme meta tags for dark mode prevention
+  var wrappedHTML = '<!DOCTYPE html><html><head>' +
+    '<meta name="color-scheme" content="light only">' +
+    '<meta name="supported-color-schemes" content="light only">' +
+    '<style>:root{color-scheme:light only !important;}body{background-color:#FFFFFF !important;}</style>' +
+    '</head><body style="margin:0;padding:0;background-color:#FFFFFF !important;background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
+    result.html +
+    '</body></html>';
+  var blob = new Blob([wrappedHTML], { type: 'text/html' });
   var textBlob = new Blob([result.html], { type: 'text/plain' });
   navigator.clipboard.write([
     new ClipboardItem({
