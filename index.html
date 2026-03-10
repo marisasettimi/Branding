@@ -6562,11 +6562,7 @@
           </div>
 
           <div class="sig-btn-row">
-            <button class="sig-btn sig-btn-primary" onclick="downloadSigPNG()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download PNG
-            </button>
-            <button class="sig-btn sig-btn-secondary" onclick="copySigRichText()">
+            <button class="sig-btn sig-btn-primary" onclick="copySigRichText()">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               Copy Signature
             </button>
@@ -6577,6 +6573,10 @@
             <button class="sig-btn sig-btn-secondary" onclick="downloadSigHTML()">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Download .html
+            </button>
+            <button class="sig-btn sig-btn-secondary" onclick="downloadSigPNG()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PNG
             </button>
           </div>
 
@@ -7668,6 +7668,7 @@ var SIG_ICON_URL = SIG_IMG_BASE + 'rev-whisper-icon.png';
 var SIG_GLOBE_URL = SIG_IMG_BASE + 'icon-globe.png';
 var SIG_IG_URL = SIG_IMG_BASE + 'icon-instagram.png';
 var SIG_X_URL = SIG_IMG_BASE + 'icon-x-twitter.png';
+var SIG_WHITE_BG_URL = SIG_IMG_BASE + 'white-bg.png';
 
 function generateSigHTML() {
   var first = document.getElementById('sig-first').value || '';
@@ -7709,47 +7710,51 @@ function generateSigHTML() {
     socialRow = '<tr><td style="padding-top:6px;"><table cellpadding="0" cellspacing="0" border="0"><tr>' + socialIcons + '</tr></table></td></tr>';
   }
 
+  // White background helper: background-image trick forces white even in dark mode
+  // Email clients override background-color but NOT background-image
+  var wBg = 'background-color:#FFFFFF !important;background-image:url(\'' + SIG_WHITE_BG_URL + '\');background-repeat:repeat;background-size:auto;';
+  var wAll = wBg + 'background:#FFFFFF !important;';
+
   // Outer white background wrapper with 30px rounded corners for dark mode protection
-  // Uses: bgcolor (Outlook), background+background-color (Gmail/Apple), data-ogsb (Outlook dark mode)
   var html = '<div style="color-scheme:light only;-webkit-color-scheme:light only;">' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;background:#FFFFFF !important;background-color:#FFFFFF !important;color-scheme:light only;border-radius:30px;overflow:hidden;border:1px solid #E0DCDA;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<tr><td style="padding:24px;background:#FFFFFF !important;background-color:#FFFFFF !important;border-radius:30px;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;' + wAll + 'color-scheme:light only;border-radius:30px;overflow:hidden;border:1px solid #E0DCDA;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<tr><td style="padding:24px;' + wAll + 'border-radius:30px;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     // Inner signature table
-    '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;background:#FFFFFF !important;background-color:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<tr><td style="background:#FFFFFF !important;background-color:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<tr><td style="' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="' + wAll + '" bgcolor="#FFFFFF">' +
     '<tr>' +
-    '<td width="4" style="background:#4A6741 !important;background-color:#4A6741 !important;border-radius:4px;" bgcolor="#4A6741" data-ogsb="#4A6741"></td>' +
-    '<td width="16" style="background:#FFFFFF !important;" bgcolor="#FFFFFF"></td>' +
-    '<td style="vertical-align:top;background:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<td width="4" style="background:#4A6741 !important;background-color:#4A6741 !important;background-image:none !important;border-radius:4px;" bgcolor="#4A6741" data-ogsb="#4A6741"></td>' +
+    '<td width="16" style="' + wAll + '" bgcolor="#FFFFFF"></td>' +
+    '<td style="vertical-align:top;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
     // Name row with icon (full 44x44 circle PNG with white bg baked in)
-    '<tr><td style="padding-bottom:14px;background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
+    '<tr><td style="padding-bottom:14px;' + wAll + '" bgcolor="#FFFFFF">' +
     '<table cellpadding="0" cellspacing="0" border="0"><tr>' +
-    '<td style="vertical-align:top;padding-right:14px;width:44px;background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
+    '<td style="vertical-align:top;padding-right:14px;width:44px;' + wAll + '" bgcolor="#FFFFFF">' +
     '<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" style="width:44px;height:44px;v-text-anchor:middle;" arcsize="50%" fillcolor="#4A6741" stroke="f"><v:textbox inset="0,0,0,0"><center><![endif]-->' +
     '<img src="' + SIG_ICON_URL + '" alt="RW" width="44" height="44" style="display:block;border:0;border-radius:22px;" />' +
     '<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->' +
     '</td>' +
-    '<td style="vertical-align:middle;background:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<td style="vertical-align:middle;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:#32302F !important;display:block;line-height:1.2;letter-spacing:-0.3px;" data-ogsc="#32302F">' + fullName + '</span>' +
     '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:#4A6741 !important;display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;" data-ogsc="#4A6741">' + titleText + '</span>' +
     '</td>' +
     '</tr></table>' +
     '</td></tr>' +
     // Separator
-    '<tr><td style="padding-bottom:14px;background:#FFFFFF !important;" bgcolor="#FFFFFF"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #E0DCDA;font-size:0;line-height:0;background:#FFFFFF !important;" bgcolor="#FFFFFF" height="1">&nbsp;</td></tr></table></td></tr>' +
+    '<tr><td style="padding-bottom:14px;' + wAll + '" bgcolor="#FFFFFF"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #E0DCDA;font-size:0;line-height:0;' + wAll + '" bgcolor="#FFFFFF" height="1">&nbsp;</td></tr></table></td></tr>' +
     // Contact + social
-    '<tr><td style="background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#FFFFFF !important;" bgcolor="#FFFFFF"><tr>' +
-    '<td style="vertical-align:top;background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
-    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:#32302F !important;line-height:1.8;background:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<tr><td style="background:#FFFFFF !important;" bgcolor="#FFFFFF"><a href="mailto:' + emailText + '" style="color:#32302F !important;text-decoration:none;" data-ogsc="#32302F">' + emailText + '</a></td></tr>' +
+    '<tr><td style="' + wAll + '" bgcolor="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="' + wAll + '" bgcolor="#FFFFFF"><tr>' +
+    '<td style="vertical-align:top;' + wAll + '" bgcolor="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:#32302F !important;line-height:1.8;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<tr><td style="' + wAll + '" bgcolor="#FFFFFF"><a href="mailto:' + emailText + '" style="color:#32302F !important;text-decoration:none;" data-ogsc="#32302F">' + emailText + '</a></td></tr>' +
     phoneRow +
     socialRow +
     '</table>' +
     '</td>' +
-    '<td style="vertical-align:bottom;text-align:right;background:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<td style="vertical-align:bottom;text-align:right;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     '<span style="font-family:\'Lora\',Georgia,serif;font-size:14px;font-weight:400;line-height:1;letter-spacing:-0.3px;">' +
     '<span style="color:#4A6741 !important;" data-ogsc="#4A6741">Rev</span><span style="color:#32302F !important;" data-ogsc="#32302F"> Whisper</span>' +
     '</span>' +
@@ -7883,8 +7888,7 @@ function copySigRichText() {
       'text/plain': textBlob
     })
   ]).then(function() {
-    var btns = document.querySelectorAll('.sig-btn-secondary');
-    var btn = btns[0];
+    var btn = document.querySelector('.sig-btn-primary');
     var original = btn.innerHTML;
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
     setTimeout(function() { btn.innerHTML = original; }, 2000);
