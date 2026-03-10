@@ -7668,7 +7668,6 @@ var SIG_ICON_URL = SIG_IMG_BASE + 'rev-whisper-icon.png';
 var SIG_GLOBE_URL = SIG_IMG_BASE + 'icon-globe.png';
 var SIG_IG_URL = SIG_IMG_BASE + 'icon-instagram.png';
 var SIG_X_URL = SIG_IMG_BASE + 'icon-x-twitter.png';
-var SIG_WHITE_BG_URL = SIG_IMG_BASE + 'white-bg.png';
 
 function generateSigHTML() {
   var first = document.getElementById('sig-first').value || '';
@@ -7712,7 +7711,9 @@ function generateSigHTML() {
 
   // White background helper: background-image trick forces white even in dark mode
   // Email clients override background-color but NOT background-image
-  var wBg = 'background-color:#FFFFFF !important;background-image:url(\'' + SIG_WHITE_BG_URL + '\');background-repeat:repeat;background-size:auto;';
+  // Using inline base64 data URI (1x1 white pixel) so it loads instantly — no external URL needed
+  var W_PX = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMBAQApDs4AAAAASUVORK5CYII=';
+  var wBg = 'background-color:#FFFFFF !important;background-image:url(\'' + W_PX + '\');background-repeat:repeat;background-size:auto;';
   var wAll = wBg + 'background:#FFFFFF !important;';
 
   // Outer white background wrapper with 30px rounded corners for dark mode protection
