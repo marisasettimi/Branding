@@ -1101,6 +1101,41 @@
       border: 1px solid var(--light);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
+      transition: background 0.3s;
+    }
+    .sig-preview-frame.sig-dark-preview {
+      background: #32302F;
+    }
+    .sig-theme-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .sig-theme-row .sig-preview-label { margin-bottom: 0; }
+    .sig-theme-toggle {
+      display: inline-flex;
+      border: 1px solid var(--light);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-left: auto;
+    }
+    .sig-theme-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 5px 14px;
+      border: none;
+      background: transparent;
+      color: #948d85;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .sig-theme-btn.active {
+      background: var(--green);
+      color: #fff;
     }
     .sig-btn-row {
       display: flex;
@@ -6556,7 +6591,13 @@
 
         <!-- RIGHT: Live Preview -->
         <div class="sig-preview-wrap">
-          <div class="sig-preview-label">Live Preview</div>
+          <div class="sig-theme-row">
+            <div class="sig-preview-label">Live Preview</div>
+            <div class="sig-theme-toggle">
+              <button class="sig-theme-btn active" data-theme="light" onclick="setSigTheme('light')">Light</button>
+              <button class="sig-theme-btn" data-theme="dark" onclick="setSigTheme('dark')">Dark</button>
+            </div>
+          </div>
           <div class="sig-preview-frame">
             <div id="sig-live-preview"></div>
           </div>
@@ -7676,7 +7717,28 @@ var SIG_GLOBE_B64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAA
 var SIG_IG_B64 = 'data:image/png;base64,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';
 var SIG_X_B64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAEjklEQVR4AeyYW3LVMAxAk26Mlk9gH3QXbXdR9gH9bMvGGnw0ccZV5avk+nGB8R1EYll+6FiSM72axu8kgQHoJJ5pGoAGIIeA0z0iaAByCDjdI4IGIIeA0z0iaAByCDjdI4IGIIeA0z0iaAByCDjdxyPImfB/6x6AnBMtAvTl9vP9Ufl2e33t7OlQN/Pl9nBoooxxEaB5WT5Ny3J3RJZlvpsq/QDztswv1vpX09trjWWKAP368XIzT9OhjSzTdP31+83LVPgDjoCx5pnnh5+Pr69W11FdESAWm+flgecRAZI4eGRQYktanYLz9Ph8n5gXvRYDkpMKJ6Z3QWRdzctNlEnbhNQUR/XAHW1JK8surFETDksUA2ISNgUQ3qMQJbwDEDFtzqhH2fRsAIf9VwHERFY90gVZpyMQsw4zqRLSkjFKPXE4HIDW12hXA8RmPABE0hROGtsoOIzjsZ17ik1IS6ufw7H0NXRVAe0BICetIFFwT9WjU3CocTVA5OaoCohF9gDAhrTAPopOx6j34MihROMGz+qA2KMFQN88Xjoyzyk4pGprOOyhCSAm1gDQpQVZnFOpltYjSblMzQEOh8CcraUZIACs9WHzIQWAUpxUkGI90hGHvUiwl3HSaP9fM0BsHUicNu+bhKiQ6FgVOKvr0d8Chy02BcQCOQApJCsdGZsKEJkr1fV4bw4IJ6zvlPTWItJ0OjIuFWuOtL/VexdAbF4D0PUISB/SkYFB9Nig6vavGyATQKhHcpWv7pJCpNLa3B4ydmv1fekGCLdMAAGSV4/SzwPm6SldAeEYtURHiVePdDoyTy/pDgjH9K2lAUhKhe8dbDdRkbbpG79cBFAOgFeP+D5K07ExG5n+IoBYWf7gz0sqKkp0pGGapiPt1nIRQEQKaWU5lwIg0vQVzzjGW2Nb6LoDEudCpOScAUB6awHpw/dRGN8r1boC8uBEaEAS21VhfR70qkfdAInD4eRXn98/uLGQqOUZbNMo4fMAdSppOqb6mu9dAImjwWFz4wEMEYLo7yOiJB1ziXrUBZB2dHN6hRPb1q116XrUHFDqYAQhTwUHHQXZi5JcpEmUMkllaQoIOBRcvWdSCUe1njaQvFurZz1qBoiibMEBguUg+ijAA2Js8yRN0yjxIo0xNaQJIODwt2Vrg9oxywadBTG9tXKRJmszQSWpDkg2mLmxgCOO7dw89qkpESnzr0or0jiYNNJW07MfVQHJ5jNwqCtH4OCR2IdizvsmYX5ZZ1UQaTod00hbzc5+VAMkpxY2b+4kOMlpm32OknEaAFECpCh6Ch1puv9Iuxogiqi5cAGcOJ8VJUCKApBouz3DYQFwa5/5UgUQ17m5fgU4cV7rIzL2ZZ8BkkR21sDvKAYEHOsESQvSw9/CPguzHu0YWlqPigBxOss8/6YAayEtduz/kIkAD1Gp1zrVlv0dWuW9cREgTpVNW/J+mXota62nx+f7U/qS1YsAlSz8r4wdgJyTGoAGIIeA0z0iaAByCDjdI4IGIIeA0z0iaAByCDjdI4IGIIeA0z0iaADKENipHhHkgPoDAAD//9J7sX0AAAAGSURBVAMA163Nr+R8MwcAAAAASUVORK5CYII=';
 
-function generateSigHTML() {
+// White icon variants for dark theme
+var SIG_GLOBE_WHITE_B64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAA80lEQVR4AezSMQqAMAAEweD/H21lqYMWIcS1sViQOLlj9DwKBPTIM0ZAAUEAuQUFBAHkFhQQBJBbUEAQQG5BAUEAuQUFBAHk9wvCB3fLAeFGAwoIAsgtKCAIILeggCCA3IICggByCwoIAsgtKCAIIM9YEI6wdg4I9xNQQBBAbkEBQQC5BQUEAeQWFBAEkFtQQBBAbkEBQQB5zQXh0DNzQNAOKCAIILeggCCA3IICggByCwoIAsgtKCAIILeggCCAvMuC8Jvfc0CwCyggCCC3oIAggNyCAoIAcgsKCALILSggCCC3oIAggPzfBQHmygFdEjfvEwAA///e/cwKAAAABklEQVQDAIApAJHrrwPoAAAAAElFTkSuQmCC';
+var SIG_IG_WHITE_B64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAFRUlEQVR4AeyavY4VNxzFd5Mi6UiVMl1YpLxAIkEBBXkDUiURVRIp6VOwCclS0IMEVAio4A2ggAIkeAEkPjpKKuigQMv5jTxXR3f2jmdsj1dIRj7X//HH32cO9szZ3fvZVvs3qkATaFSera0mUBMookCku+2gJlBEgUh320FNoIgCke62g5pAEQUi3W0HNYEiCkS62w5qAkUUiHTP30GRhN69v79/XPhN2BXOFwY5yX3c1ywdFxdIIuwIl4Q3IvtQuCr8L/xbGOQk90PWElhzR2sULUUFEslzYvdM+FM4ItQqrMWazwKHYusWE0jEbovVnuDlhS5uCheE/wqDnOR+qbxe9gIXb0uOiwgUCJ0xFg8U/7i9vb0j/CrsCucLg5zkPspaAmuq6sqZwKm7yPnIFkhEOFYuzgUJcUq4l0NszlzWEk5pDrtKVVcQCW7dRepHlkASh4eiHyvE2U0lkztPIrG2i8Rxg2Ny6iyBtCoPRlVdeRAIdheH9RE4+HFzjrNp5Qr0s6140eLDDp2Lc5zNK1kgHS8MGq9XFn2p/7lqzxytfVZ4F3AWAo7AhTcozUc0Dq7Us5EskFb6TujL4z5IqbkBAVeMOwbEYzd1Ret8EUCscFCeWItzteZ4mCPQ15b+lcWTQgmyyXGXcsjOyblO4tcPyhHo8z6J6g/C5CJxeP1OcdwcYR6y6w75Dy32PoBY4aA4J+c6GDjWkCPQWN6NfRIn5rh5TY86ZD1jrgtfBlzfuFiBjhoCrWgGcdxU8jped9xVHPKKVCSoJpDE4Vi5OJjKUcetHXJPWMQhR3RZdVcRSOLgZpMdt0Qq7pBXCkSCKgKJAw9aVV1JctxBJI5kl0QfnlOXy5RaArmbdZc79658ruecm2fy+MUF0vHC8PG6hlSW49Yuwq0XcciQmYLFBRIJd7FZjlu5KEUcMommoIZA7mLd3U7hd9AYz+G5Dxqb3VZDoGySh5mghkCv7Qa/sTg19ByeOzXf6LwaAj01Bt9bnBr+YBM9tzWXCxcXSG+eR6L7VqAc1VvtNEEKwtxvw9y3IXe4XKZaXKBA+1aoqf7mIxE+13MmpotPqyXQZaNyUjvBf+ywrs1hmHPSRnhOay4bVhFIR+G5aPPzlKqunAs33F0MPtYawlh+2O17+ImfnP31YnUVgWAvkfg9zx3iAES6r5vf+EyiT7iv8S7OnZBLzcuXagJxK7qxn1S7SByZuxLhhXBD4O9YgJgdclfjGaOqK4hDju6ixkdVgbihIJIfN5p5M/2igJ0CiPmTsppWhWNVVRxWzhEo+Xe+EonjdkwEeND2FkCXg0IfY46FOYMBIw3+e2jnOjJl2JUjkLtYd7fDVQ5o0Q0/F/4SvlL3CeF34Z8A4hP0CYzhuKlrVnFOznVWkhyB3MVmOWSJ8Ei4JuwFEGMwZ93M2uAijjtZIN0IN8ARgFeWQyZBSehhz5uR5xppsxx3skCsLLibdZerrkMtzsU5ziaVKxAP0H7RJIfcTy5Va/fg0t0aOMfZy2QJpGPGw9Nf2Zg/CM4mUmJCEAeb0KfDGsCxv55dZwnEahKJV7abP0QadcjMKwkJc1pYxHFnC8SNSiQMnIvEFl93yKW/J13FcRcRyETy40YzbxJcMdu+9PekyUnuRR13MYFQQzuJ4zbFITO8JLAbPIxTHPcoj6ICsZJE2uSQS39PGtddwnFDeyOKC+QrSSx3yKW/J43rLuG4nfIgXlSgwWqfYEMTKPKf1gRqAkUUiHS3HdQEiigQ6W47qAkUUSDS3XZQEyiiQKS77aAm0AYFJja3HRQR6iMAAAD//9eTe38AAAAGSURBVAMAEk+Mr+brV7kAAAAASUVORK5CYII=';
+var SIG_X_WHITE_B64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAEr0lEQVR4AeyaAXLbIBBF5V6s6cmSnCzpydL/CGLQClhbArmToSMswa6W3ccHZzz9tcx/TQITUBPPskxAE5BDwDFPBU1ADgHHPBU0ATkEHPNU0ATkEHDMU0ETkEPAMU8FTUAOAcf8uIKcgD/NPAE5K3oK0NfX19uB9uLk9JBZ87+oFfN4KFDF+RQgxfyt9nqg6ZXzF2AU5UOtlMOnxk9fpwDdbrc/yuDRRFhxitKrx68IBzClIO+32+3RvEpxuvxg9l6M3B4E0lvbpW4VHLZpC87h2HbWUwoiWFypEiRWEIWtzfq8xkIJ82irKRDldINDUqcBEUSQSAogdNfGKi+yfcZW8qmpYI2xuwvqZXCYvAsgAgkCSrGQLACrIrZarWDCbprgADmA3xiWhUXAtvT+1w1QTKwJQBABWPJxi4twLPAwreKyOOG590dXQErUBSAfYFhIzfOoBUdAhsFR7C7fYsRJ7R4A0QeY6T09FNXhwVEsG0eh+l1dFbSmpaRRiU3cnjVWRbvzyIHDN5adY02h230IoJidBbCo4ARJECnO+gAJuPhyGBdVpfjACX56HnoNAxQBcD7kBSQADMqHIi2k9TxKMPHN2mVwmHMYIIILQEklKwBc+DsJSPiFfvz4L+CQy1BATCBIRQDabmwhXGhWRYzZNuxvHTtR3h8OiMkEyW41htP5IjsKKvngF5p8mvbgNODjEkAxb1ugPY+AVFOSfTeGHH+7DJAUUALAecQWDJXKh2f8Qn/90PhubLWNvl8GiEJUaAkAkJrnkc6r2qFN2KHtUkBUIkhsF6sI7zzabEfiXNUuBxQLs2fNBoAgAtD6WKXFUGNvTwHUAMAWDBXLh2dAhX78+NB2y7djHB53ewqgWA4/+MfHdLMqsSrCMW1HOqPbUwBJBaijpoQEQCpCQZxZOYfNdswNI54vBxThJAiFogCQvrUiJKskq7RCmD5DlwK6A85aFZBQWegLEs+oKfTjxyXn0WWAHDgohPZd+/fnRiWCZLcaXi0lYj/dLgEkOJw3tWLCzxcCUFSJqdBC2ijN+HbpXgJImaYzRc/5FeBkA1ZF/HCW3hVEtpn12Sgti9XlcTggqScVaDK2cPhtCABNlQhSUWmaB5WaKc53hwJS0sApJV79bUcAgNRUiXwsREjUtjC2w20YIMFhpUtwUEqpwFSEAPAuoNKYHuy3lo0x5DwaAijCqa2oLUy17y9BKvmlmLIDsKQ04O4DHhzpDsiDEwu7N10LaaMSxQIGoPJ4XQ/troAcOBzKtpi8sN2zAODfVIl8gIhf/n5SWj545LkbIMHhvKklBhxW++EcBYD3dgA0X/pvd4WgG6UV7HcPdQOkGfnG0m13HYazRhKkmkpYEBqLs7qvd7YacNf+oXsXQFrNYXCyquxWy0zVRyCV4FVfsIbTgCKcUhLVv3VsEvf0pSK22SFI98Sv+ZwCJDiA+avgJL5pKohtIVO/SzHZMpt5FN3rk5/cjl2nACnhoBLd32w7lo7/lp0n9nfz5+N+1LrHKUD1sD/HMgE5azkBTUAOAcc8FTQBOQQc81TQBOQQcMxTQROQQ8AxTwVNQA4BxzwVNAFVCNw5PBXkgPoDAAD//1Qw5ioAAAAGSURBVAMAxwrtoG1pFk4AAAAASUVORK5CYII=';
+
+// Theme state
+var currentSigTheme = 'light';
+
+function setSigTheme(theme) {
+  currentSigTheme = theme;
+  document.querySelectorAll('.sig-theme-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
+  });
+  var frame = document.querySelector('.sig-preview-frame');
+  if (frame) frame.classList.toggle('sig-dark-preview', theme === 'dark');
+  updateSigPreview();
+}
+
+function generateSigHTML(theme) {
+  theme = theme || currentSigTheme || 'light';
+  var isDark = theme === 'dark';
+
   var first = document.getElementById('sig-first').value || '';
   var last = document.getElementById('sig-last').value || '';
   var title = document.getElementById('sig-title').value || '';
@@ -7691,33 +7753,40 @@ function generateSigHTML() {
   var emailText = email || 'you@revwhisper.com';
   var fileName = first && last ? (first.toLowerCase()[0] + last.toLowerCase()).replace(/\s+/g, '') : 'signature';
 
-  // White background helper: background-image trick forces white even in dark mode
-  // Email clients override background-color but NOT background-image
-  // Using inline base64 data URI (1x1 white pixel) so it loads instantly
-  // CRITICAL: Do NOT use 'background' shorthand — it resets background-image to none!
-  var W_PX = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMBAQApDs4AAAAASUVORK5CYII=';
-  var wAll = 'color-scheme:light only;-webkit-color-scheme:light only;background-color:#FFFFFF !important;background-image:url(\'' + W_PX + '\') !important;background-repeat:repeat !important;';
+  // Theme-conditional colors
+  var bgColor = isDark ? '#32302F' : '#FFFFFF';
+  var nameColor = isDark ? '#FFFFFF' : '#32302F';
+  var titleColor = isDark ? '#8BA882' : '#4A6741';
+  var contactColor = isDark ? '#E0DCDA' : '#32302F';
+  var borderColor = isDark ? '#555555' : '#E0DCDA';
+  var barColor = '#4A6741';
+  var revColor = isDark ? '#8BA882' : '#4A6741';
+  var whisperColor = isDark ? '#E0DCDA' : '#32302F';
+  var iconSrc = SIG_ICON_B64;
+  var globeSrc = isDark ? SIG_GLOBE_WHITE_B64 : SIG_GLOBE_B64;
+  var igSrc = isDark ? SIG_IG_WHITE_B64 : SIG_IG_B64;
+  var xSrc = isDark ? SIG_X_WHITE_B64 : SIG_X_B64;
+  var bg = 'background-color:' + bgColor + ';';
 
   // Phone row
   var phoneRow = '';
   if (phone) {
-    phoneRow = '<tr><td><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:#32302F !important;text-decoration:none;">' + phone + '</a></td></tr>';
+    phoneRow = '<tr><td><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:' + contactColor + ';text-decoration:none;">' + phone + '</a></td></tr>';
   }
 
-  // Social icons — using <img> with inline base64 data URI src
-  // Anti-dark-mode: filter:none prevents email clients from color-shifting icons
+  // Social icons
   var socialIcons = '';
-  var imgDM = 'display:block;border:0;filter:none !important;-webkit-filter:none !important;';
+  var imgStyle = 'display:block;border:0;';
   if (website) {
-    socialIcons += '<td style="padding-right:10px;"><a href="' + website + '" style="text-decoration:none;display:inline-block;" title="' + website.replace(/https?:\/\//, '') + '"><img src="' + SIG_GLOBE_B64 + '" alt="Website" width="18" height="18" style="' + imgDM + '" /></a></td>';
+    socialIcons += '<td style="padding-right:10px;"><a href="' + website + '" style="text-decoration:none;display:inline-block;" title="' + website.replace(/https?:\/\//, '') + '"><img src="' + globeSrc + '" alt="Website" width="18" height="18" style="' + imgStyle + '" /></a></td>';
   }
   if (instagram) {
     var igHandle = instagram.replace(/^@/, '');
-    socialIcons += '<td style="padding-right:10px;"><a href="https://instagram.com/' + igHandle + '" style="text-decoration:none;display:inline-block;" title="@' + igHandle + '"><img src="' + SIG_IG_B64 + '" alt="Instagram" width="18" height="18" style="' + imgDM + '" /></a></td>';
+    socialIcons += '<td style="padding-right:10px;"><a href="https://instagram.com/' + igHandle + '" style="text-decoration:none;display:inline-block;" title="@' + igHandle + '"><img src="' + igSrc + '" alt="Instagram" width="18" height="18" style="' + imgStyle + '" /></a></td>';
   }
   if (xHandle) {
     var xUser = xHandle.replace(/^@/, '');
-    socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><img src="' + SIG_X_B64 + '" alt="X" width="18" height="18" style="' + imgDM + '" /></a></td>';
+    socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><img src="' + xSrc + '" alt="X" width="18" height="18" style="' + imgStyle + '" /></a></td>';
   }
 
   var socialRow = '';
@@ -7725,48 +7794,41 @@ function generateSigHTML() {
     socialRow = '<tr><td style="padding-top:6px;"><table cellpadding="0" cellspacing="0" border="0"><tr>' + socialIcons + '</tr></table></td></tr>';
   }
 
-  // Outer white background wrapper with 30px rounded corners for dark mode protection
-  var html = '<div style="color-scheme:light only;-webkit-color-scheme:light only;">' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;' + wAll + 'color-scheme:light only;border-radius:30px;overflow:hidden;border:1px solid #E0DCDA;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<tr><td style="padding:24px;' + wAll + 'border-radius:30px;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    // Inner signature table
-    '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<tr><td style="' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="' + wAll + '" bgcolor="#FFFFFF">' +
+  // Build signature HTML — clean table-based layout
+  var html = '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;' + bg + 'border-radius:30px;overflow:hidden;border:1px solid ' + borderColor + ';" bgcolor="' + bgColor + '">' +
+    '<tr><td style="padding:24px;' + bg + '" bgcolor="' + bgColor + '">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;' + bg + '" bgcolor="' + bgColor + '">' +
+    '<tr><td style="' + bg + '" bgcolor="' + bgColor + '">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="' + bg + '" bgcolor="' + bgColor + '">' +
     '<tr>' +
-    '<td width="4" style="background:#4A6741 !important;background-color:#4A6741 !important;background-image:none !important;border-radius:4px;" bgcolor="#4A6741" data-ogsb="#4A6741"></td>' +
-    '<td width="16" style="' + wAll + '" bgcolor="#FFFFFF"></td>' +
-    '<td style="vertical-align:top;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<td width="4" style="background-color:' + barColor + ';border-radius:4px;" bgcolor="' + barColor + '"></td>' +
+    '<td width="16" style="' + bg + '" bgcolor="' + bgColor + '"></td>' +
+    '<td style="vertical-align:top;' + bg + '" bgcolor="' + bgColor + '">' +
     '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
-    // Name row with icon (full 44x44 circle PNG with white bg baked in)
-    '<tr><td style="padding-bottom:14px;' + wAll + '" bgcolor="#FFFFFF">' +
+    '<tr><td style="padding-bottom:14px;' + bg + '" bgcolor="' + bgColor + '">' +
     '<table cellpadding="0" cellspacing="0" border="0"><tr>' +
-    '<td style="vertical-align:top;padding-right:14px;width:44px;' + wAll + '" bgcolor="#FFFFFF">' +
-    '<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" style="width:44px;height:44px;v-text-anchor:middle;" arcsize="50%" fillcolor="#4A6741" stroke="f"><v:textbox inset="0,0,0,0"><center><![endif]-->' +
-    '<img src="' + SIG_ICON_B64 + '" alt="RW" width="44" height="44" style="display:block;border:0;border-radius:22px;filter:none !important;-webkit-filter:none !important;" />' +
-    '<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->' +
+    '<td style="vertical-align:top;padding-right:14px;width:44px;' + bg + '" bgcolor="' + bgColor + '">' +
+    '<img src="' + iconSrc + '" alt="RW" width="44" height="44" style="display:block;border:0;border-radius:22px;" />' +
     '</td>' +
-    '<td style="vertical-align:middle;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:#32302F !important;display:block;line-height:1.2;letter-spacing:-0.3px;" data-ogsc="#32302F">' + fullName + '</span>' +
-    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:#4A6741 !important;display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;" data-ogsc="#4A6741">' + titleText + '</span>' +
+    '<td style="vertical-align:middle;' + bg + '" bgcolor="' + bgColor + '">' +
+    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:' + nameColor + ';display:block;line-height:1.2;letter-spacing:-0.3px;">' + fullName + '</span>' +
+    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:' + titleColor + ';display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;">' + titleText + '</span>' +
     '</td>' +
     '</tr></table>' +
     '</td></tr>' +
-    // Separator
-    '<tr><td style="padding-bottom:14px;' + wAll + '" bgcolor="#FFFFFF"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #E0DCDA;font-size:0;line-height:0;' + wAll + '" bgcolor="#FFFFFF" height="1">&nbsp;</td></tr></table></td></tr>' +
-    // Contact + social
-    '<tr><td style="' + wAll + '" bgcolor="#FFFFFF">' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="' + wAll + '" bgcolor="#FFFFFF"><tr>' +
-    '<td style="vertical-align:top;' + wAll + '" bgcolor="#FFFFFF">' +
-    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:#32302F !important;line-height:1.8;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<tr><td style="' + wAll + '" bgcolor="#FFFFFF"><a href="mailto:' + emailText + '" style="color:#32302F !important;text-decoration:none;" data-ogsc="#32302F">' + emailText + '</a></td></tr>' +
+    '<tr><td style="padding-bottom:14px;' + bg + '" bgcolor="' + bgColor + '"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid ' + borderColor + ';font-size:0;line-height:0;' + bg + '" bgcolor="' + bgColor + '" height="1">&nbsp;</td></tr></table></td></tr>' +
+    '<tr><td style="' + bg + '" bgcolor="' + bgColor + '">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="' + bg + '" bgcolor="' + bgColor + '"><tr>' +
+    '<td style="vertical-align:top;' + bg + '" bgcolor="' + bgColor + '">' +
+    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:' + contactColor + ';line-height:1.8;' + bg + '" bgcolor="' + bgColor + '">' +
+    '<tr><td style="' + bg + '" bgcolor="' + bgColor + '"><a href="mailto:' + emailText + '" style="color:' + contactColor + ';text-decoration:none;">' + emailText + '</a></td></tr>' +
     phoneRow +
     socialRow +
     '</table>' +
     '</td>' +
-    '<td style="vertical-align:bottom;text-align:right;' + wAll + '" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<td style="vertical-align:bottom;text-align:right;' + bg + '" bgcolor="' + bgColor + '">' +
     '<span style="font-family:\'Lora\',Georgia,serif;font-size:14px;font-weight:400;line-height:1;letter-spacing:-0.3px;">' +
-    '<span style="color:#4A6741 !important;" data-ogsc="#4A6741">Rev</span><span style="color:#32302F !important;" data-ogsc="#32302F"> Whisper</span>' +
+    '<span style="color:' + revColor + ';">Rev</span><span style="color:' + whisperColor + ';"> Whisper</span>' +
     '</span>' +
     '</td>' +
     '</tr></table>' +
@@ -7774,14 +7836,15 @@ function generateSigHTML() {
     '</table>' +
     '</td></tr></table>' +
     '</td></tr></table>' +
-    // Close outer white wrapper
-    '</td></tr></table>' +
-    '</div>';
+    '</td></tr></table>';
 
   return { html: html, fileName: fileName };
 }
 
-function generateSigPreviewHTML() {
+function generateSigPreviewHTML(theme) {
+  theme = theme || currentSigTheme || 'light';
+  var isDark = theme === 'dark';
+
   var first = document.getElementById('sig-first').value || '';
   var last = document.getElementById('sig-last').value || '';
   var title = document.getElementById('sig-title').value || '';
@@ -7795,23 +7858,32 @@ function generateSigPreviewHTML() {
   var titleText = title || 'Your Title';
   var emailText = email || 'you@revwhisper.com';
 
+  // Theme colors for preview
+  var nameColor = isDark ? '#FFFFFF' : '#32302F';
+  var titleColor = isDark ? '#8BA882' : '#4A6741';
+  var contactColor = isDark ? '#E0DCDA' : '#32302F';
+  var borderColor = isDark ? '#555555' : '#E0DCDA';
+  var svgColor = isDark ? '#FFFFFF' : '#4A6741';
+  var revColor = isDark ? '#8BA882' : '#4A6741';
+  var whisperColor = isDark ? '#E0DCDA' : '#32302F';
+
   var phoneRow = '';
   if (phone) {
-    phoneRow = '<tr><td><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:#32302F;text-decoration:none;">' + phone + '</a></td></tr>';
+    phoneRow = '<tr><td><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:' + contactColor + ';text-decoration:none;">' + phone + '</a></td></tr>';
   }
 
   // Preview uses inline SVGs for crisp rendering
   var socialIcons = '';
   if (website) {
-    socialIcons += '<td style="padding-right:10px;"><a href="' + website + '" style="text-decoration:none;display:inline-block;" title="' + website.replace(/https?:\/\//, '') + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><circle cx="12" cy="12" r="10" stroke="#4A6741" stroke-width="1.5"/><path d="M2 12h20" stroke="#4A6741" stroke-width="1.5" stroke-linecap="round"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#4A6741" stroke-width="1.5"/></svg></a></td>';
+    socialIcons += '<td style="padding-right:10px;"><a href="' + website + '" style="text-decoration:none;display:inline-block;" title="' + website.replace(/https?:\/\//, '') + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><circle cx="12" cy="12" r="10" stroke="' + svgColor + '" stroke-width="1.5"/><path d="M2 12h20" stroke="' + svgColor + '" stroke-width="1.5" stroke-linecap="round"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="' + svgColor + '" stroke-width="1.5"/></svg></a></td>';
   }
   if (instagram) {
     var igHandle = instagram.replace(/^@/, '');
-    socialIcons += '<td style="padding-right:10px;"><a href="https://instagram.com/' + igHandle + '" style="text-decoration:none;display:inline-block;" title="@' + igHandle + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#4A6741" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="#4A6741" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#4A6741"/></svg></a></td>';
+    socialIcons += '<td style="padding-right:10px;"><a href="https://instagram.com/' + igHandle + '" style="text-decoration:none;display:inline-block;" title="@' + igHandle + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="' + svgColor + '" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="' + svgColor + '" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="' + svgColor + '"/></svg></a></td>';
   }
   if (xHandle) {
     var xUser = xHandle.replace(/^@/, '');
-    socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#4A6741"/></svg></a></td>';
+    socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="display:block;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="' + svgColor + '"/></svg></a></td>';
   }
 
   var socialRow = '';
@@ -7835,24 +7907,24 @@ function generateSigPreviewHTML() {
     '</div>' +
     '</td>' +
     '<td style="vertical-align:middle;">' +
-    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:#32302F;display:block;line-height:1.2;letter-spacing:-0.3px;">' + fullName + '</span>' +
-    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:#4A6741;display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;">' + titleText + '</span>' +
+    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:' + nameColor + ';display:block;line-height:1.2;letter-spacing:-0.3px;">' + fullName + '</span>' +
+    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:' + titleColor + ';display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;">' + titleText + '</span>' +
     '</td>' +
     '</tr></table>' +
     '</td></tr>' +
-    '<tr><td style="padding-bottom:14px;"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #E0DCDA;font-size:0;line-height:0;" height="1">&nbsp;</td></tr></table></td></tr>' +
+    '<tr><td style="padding-bottom:14px;"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid ' + borderColor + ';font-size:0;line-height:0;" height="1">&nbsp;</td></tr></table></td></tr>' +
     '<tr><td>' +
     '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>' +
     '<td style="vertical-align:top;">' +
-    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:#32302F;line-height:1.8;">' +
-    '<tr><td><a href="mailto:' + emailText + '" style="color:#32302F;text-decoration:none;">' + emailText + '</a></td></tr>' +
+    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:' + contactColor + ';line-height:1.8;">' +
+    '<tr><td><a href="mailto:' + emailText + '" style="color:' + contactColor + ';text-decoration:none;">' + emailText + '</a></td></tr>' +
     phoneRow +
     socialRow +
     '</table>' +
     '</td>' +
     '<td style="vertical-align:bottom;text-align:right;">' +
     '<span style="font-family:\'Lora\',Georgia,serif;font-size:14px;font-weight:400;line-height:1;letter-spacing:-0.3px;">' +
-    '<span style="color:#4A6741;">Rev</span><span style="color:#32302F;"> Whisper</span>' +
+    '<span style="color:' + revColor + ';">Rev</span><span style="color:' + whisperColor + ';"> Whisper</span>' +
     '</span>' +
     '</td>' +
     '</tr></table>' +
@@ -7865,12 +7937,14 @@ function generateSigPreviewHTML() {
 function updateSigPreview() {
   var preview = document.getElementById('sig-live-preview');
   if (preview) {
-    preview.innerHTML = generateSigPreviewHTML();
+    preview.innerHTML = generateSigPreviewHTML(currentSigTheme);
   }
+  var frame = document.querySelector('.sig-preview-frame');
+  if (frame) frame.classList.toggle('sig-dark-preview', currentSigTheme === 'dark');
 }
 
 function copySigHTML() {
-  var result = generateSigHTML();
+  var result = generateSigHTML(currentSigTheme);
   navigator.clipboard.writeText(result.html).then(function() {
     var btns = document.querySelectorAll('.sig-btn-primary');
     var btn = btns[0];
@@ -7881,13 +7955,11 @@ function copySigHTML() {
 }
 
 function copySigRichText() {
-  var result = generateSigHTML();
-  // Wrap in full HTML document with color-scheme meta tags for dark mode prevention
-  var wrappedHTML = '<!DOCTYPE html><html><head>' +
-    '<meta name="color-scheme" content="light only">' +
-    '<meta name="supported-color-schemes" content="light only">' +
-    '<style>:root{color-scheme:light only !important;}body{background-color:#FFFFFF !important;}</style>' +
-    '</head><body style="margin:0;padding:0;background-color:#FFFFFF !important;background:#FFFFFF !important;" bgcolor="#FFFFFF">' +
+  var result = generateSigHTML(currentSigTheme);
+  var isDark = currentSigTheme === 'dark';
+  var bodyBg = isDark ? '#32302F' : '#FFFFFF';
+  var wrappedHTML = '<!DOCTYPE html><html><head></head>' +
+    '<body style="margin:0;padding:0;background-color:' + bodyBg + ';" bgcolor="' + bodyBg + '">' +
     result.html +
     '</body></html>';
   var blob = new Blob([wrappedHTML], { type: 'text/html' });
@@ -7910,7 +7982,7 @@ function downloadSigPNG() {
   if (!frame || typeof html2canvas === 'undefined') return;
   html2canvas(frame, {
     scale: 2,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: currentSigTheme === 'dark' ? '#32302F' : '#FFFFFF',
     useCORS: true,
     logging: false
   }).then(function(canvas) {
@@ -7938,13 +8010,12 @@ function downloadSigPNG() {
 }
 
 function downloadSigHTML() {
-  var result = generateSigHTML();
+  var result = generateSigHTML(currentSigTheme);
+  var isDark = currentSigTheme === 'dark';
+  var bodyBg = isDark ? '#32302F' : '#FFFFFF';
   var fullHTML = '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="UTF-8">\n' +
-    '<meta name="color-scheme" content="light only">\n' +
-    '<meta name="supported-color-schemes" content="light only">\n' +
     '<title>Email Signature - ' + (document.getElementById('sig-first').value || 'Rev Whisper') + '</title>\n' +
-    '<style>\n:root { color-scheme: light only; }\n[data-ogsc], [data-ogsb] { background-color: #FFFFFF !important; color: #32302F !important; }\n</style>\n' +
-    '</head>\n<body style="margin:0;padding:20px;background-color:#FFFFFF;">\n' + result.html + '\n</body>\n</html>';
+    '</head>\n<body style="margin:0;padding:20px;background-color:' + bodyBg + ';">\n' + result.html + '\n</body>\n</html>';
   var blob = new Blob([fullHTML], { type: 'text/html' });
   var url = URL.createObjectURL(blob);
   var a = document.createElement('a');
