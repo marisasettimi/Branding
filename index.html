@@ -7709,11 +7709,11 @@ function generateSigHTML() {
     socialRow = '<tr><td style="padding-top:6px;"><table cellpadding="0" cellspacing="0" border="0"><tr>' + socialIcons + '</tr></table></td></tr>';
   }
 
-  // Outer white background wrapper for dark mode protection
+  // Outer white background wrapper with 30px rounded corners for dark mode protection
   // Uses: bgcolor (Outlook), background+background-color (Gmail/Apple), data-ogsb (Outlook dark mode)
   var html = '<div style="color-scheme:light only;-webkit-color-scheme:light only;">' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;background:#FFFFFF !important;background-color:#FFFFFF !important;color-scheme:light only;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
-    '<tr><td style="padding:20px;background:#FFFFFF !important;background-color:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;background:#FFFFFF !important;background-color:#FFFFFF !important;color-scheme:light only;border-radius:30px;overflow:hidden;border:1px solid #E0DCDA;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
+    '<tr><td style="padding:24px;background:#FFFFFF !important;background-color:#FFFFFF !important;border-radius:30px;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     // Inner signature table
     '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;background:#FFFFFF !important;background-color:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
     '<tr><td style="background:#FFFFFF !important;background-color:#FFFFFF !important;" bgcolor="#FFFFFF" data-ogsb="#FFFFFF">' +
