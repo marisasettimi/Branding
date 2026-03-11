@@ -7754,15 +7754,17 @@ function generateSigHTML(theme) {
   var fileName = first && last ? (first.toLowerCase()[0] + last.toLowerCase()).replace(/\s+/g, '') : 'signature';
 
   // Theme-conditional colors
-  // Dark theme: no background fill — let email client dark mode handle it
+  // Dark theme: no background, dark text colors — Outlook dark mode inverts
+  // text (dark→light) but NOT transparent PNG icons, so we use light-theme
+  // text colors and white icons for the dark variant.
   var bgColor = isDark ? '' : '#FFFFFF';
-  var nameColor = isDark ? '#FFFFFF' : '#32302F';
-  var titleColor = isDark ? '#8BA882' : '#4A6741';
-  var contactColor = isDark ? '#E0DCDA' : '#32302F';
-  var borderColor = isDark ? '#555555' : '#E0DCDA';
+  var nameColor = '#32302F';
+  var titleColor = '#4A6741';
+  var contactColor = '#32302F';
+  var borderColor = '#E0DCDA';
   var barColor = '#4A6741';
-  var revColor = isDark ? '#8BA882' : '#4A6741';
-  var whisperColor = isDark ? '#E0DCDA' : '#32302F';
+  var revColor = '#4A6741';
+  var whisperColor = '#32302F';
   var iconSrc = SIG_ICON_B64;
   var globeSrc = isDark ? SIG_GLOBE_WHITE_B64 : SIG_GLOBE_B64;
   var igSrc = isDark ? SIG_IG_WHITE_B64 : SIG_IG_B64;
