@@ -7765,12 +7765,12 @@ function generateSigHTML(theme) {
   var barColor = '#4A6741';
   var revColor = '#4A6741';
   var whisperColor = '#32302F';
-  var iconSrc = SIG_ICON_B64;
-  var globeSrc = isDark ? SIG_GLOBE_WHITE_B64 : SIG_GLOBE_B64;
-  var igSrc = isDark ? SIG_IG_WHITE_B64 : SIG_IG_B64;
-  var xSrc = isDark ? SIG_X_WHITE_B64 : SIG_X_B64;
+  var iconSrc = SIG_ICON_URL;
+  var globeSrc = isDark ? SIG_GLOBE_WHITE_B64 : SIG_GLOBE_URL;
+  var igSrc = isDark ? SIG_IG_WHITE_B64 : SIG_IG_URL;
+  var xSrc = isDark ? SIG_X_WHITE_B64 : SIG_X_URL;
   var bg = bgColor ? 'background-color:' + bgColor + ';' : '';
-  var bgAttr = bgColor ? ' ' + bgAttr + '' : '';
+  var bgAttr = bgColor ? 'bgcolor="' + bgColor + '"' : '';
 
   // Phone row
   var phoneRow = '';
@@ -7950,7 +7950,7 @@ function updateSigPreview() {
 function copySigHTML() {
   var result = generateSigHTML(currentSigTheme);
   navigator.clipboard.writeText(result.html).then(function() {
-    var btns = document.querySelectorAll('.sig-btn-primary');
+    var btns = document.querySelectorAll('.sig-btn-secondary');
     var btn = btns[0];
     var original = btn.innerHTML;
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
