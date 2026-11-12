@@ -7772,12 +7772,6 @@ function generateSigHTML(theme) {
   var bg = bgColor ? 'background-color:' + bgColor + ';' : '';
   var bgAttr = bgColor ? 'bgcolor="' + bgColor + '"' : '';
 
-  // Phone row
-  var phoneRow = '';
-  if (phone) {
-    phoneRow = '<tr><td><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:' + contactColor + ';text-decoration:none;">' + phone + '</a></td></tr>';
-  }
-
   // Social icons
   var socialIcons = '';
   var imgStyle = 'display:block;border:0;';
@@ -7793,54 +7787,45 @@ function generateSigHTML(theme) {
     socialIcons += '<td><a href="https://x.com/' + xUser + '" style="text-decoration:none;display:inline-block;" title="@' + xUser + '"><img src="' + xSrc + '" alt="X" width="18" height="18" style="' + imgStyle + '" /></a></td>';
   }
 
-  var socialRow = '';
-  if (socialIcons) {
-    socialRow = '<tr><td style="padding-top:6px;"><table cellpadding="0" cellspacing="0" border="0"><tr>' + socialIcons + '</tr></table></td></tr>';
-  }
-
-  // Build signature HTML — clean table-based layout
-  var html = '<table cellpadding="0" cellspacing="0" border="0" width="460" style="max-width:460px;' + bg + 'border-radius:30px;overflow:hidden;border:1px solid ' + borderColor + ';" ' + bgAttr + '>' +
-    '<tr><td style="padding:24px;' + bg + '" ' + bgAttr + '>' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;' + bg + '" ' + bgAttr + '>' +
-    '<tr><td style="' + bg + '" ' + bgAttr + '>' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="' + bg + '" ' + bgAttr + '>' +
+  // Build signature HTML — flat, email-client-safe table layout
+  var fontStack = '\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif';
+  var serifStack = '\'Lora\',Georgia,serif';
+  var html = '<table cellpadding="0" cellspacing="0" border="0" width="420" style="max-width:420px;font-family:' + fontStack + ';" ' + bgAttr + '>' +
     '<tr>' +
-    '<td width="4" style="background-color:' + barColor + ';border-radius:4px;" bgcolor="' + barColor + '"></td>' +
-    '<td width="16" style="' + bg + '" ' + bgAttr + '></td>' +
-    '<td style="vertical-align:top;' + bg + '" ' + bgAttr + '>' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%">' +
-    '<tr><td style="padding-bottom:14px;' + bg + '" ' + bgAttr + '>' +
-    '<table cellpadding="0" cellspacing="0" border="0"><tr>' +
-    '<td style="vertical-align:top;padding-right:14px;width:44px;' + bg + '" ' + bgAttr + '>' +
+    // Green vertical bar
+    '<td width="4" style="background-color:' + barColor + ';" bgcolor="' + barColor + '">&nbsp;</td>' +
+    '<td width="16">&nbsp;</td>' +
+    // Main content column
+    '<td valign="top" style="' + bg + '" ' + bgAttr + '>' +
+    // Name + icon row
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>' +
+    '<td valign="top" width="58" style="padding-right:14px;">' +
     '<img src="' + iconSrc + '" alt="RW" width="44" height="44" style="display:block;border:0;border-radius:22px;" />' +
     '</td>' +
-    '<td style="vertical-align:middle;' + bg + '" ' + bgAttr + '>' +
-    '<span style="font-family:\'Lora\',Georgia,serif;font-size:20px;font-weight:400;color:' + nameColor + ';display:block;line-height:1.2;letter-spacing:-0.3px;">' + fullName + '</span>' +
-    '<span style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:500;color:' + titleColor + ';display:block;margin-top:3px;letter-spacing:0.04em;text-transform:uppercase;">' + titleText + '</span>' +
+    '<td valign="middle">' +
+    '<span style="font-family:' + serifStack + ';font-size:20px;font-weight:400;color:' + nameColor + ';line-height:1.2;letter-spacing:-0.3px;">' + fullName + '</span><br />' +
+    '<span style="font-family:' + fontStack + ';font-size:12px;font-weight:500;color:' + titleColor + ';letter-spacing:0.04em;text-transform:uppercase;">' + titleText + '</span>' +
     '</td>' +
     '</tr></table>' +
-    '</td></tr>' +
-    '<tr><td style="padding-bottom:14px;' + bg + '" ' + bgAttr + '><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid ' + borderColor + ';font-size:0;line-height:0;' + bg + '" ' + bgAttr + ' height="1">&nbsp;</td></tr></table></td></tr>' +
-    '<tr><td style="' + bg + '" ' + bgAttr + '>' +
-    '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="' + bg + '" ' + bgAttr + '><tr>' +
-    '<td style="vertical-align:top;' + bg + '" ' + bgAttr + '>' +
-    '<table cellpadding="0" cellspacing="0" border="0" style="font-family:\'DM Sans\',system-ui,\'Helvetica Neue\',Arial,sans-serif;font-size:12px;font-weight:300;color:' + contactColor + ';line-height:1.8;' + bg + '" ' + bgAttr + '>' +
-    '<tr><td style="' + bg + '" ' + bgAttr + '><a href="mailto:' + emailText + '" style="color:' + contactColor + ';text-decoration:none;">' + emailText + '</a></td></tr>' +
-    phoneRow +
-    socialRow +
-    '</table>' +
+    // Spacer
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="14" style="font-size:1px;line-height:1px;">&nbsp;</td></tr></table>' +
+    // Divider
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid ' + borderColor + ';font-size:1px;line-height:1px;" height="1">&nbsp;</td></tr></table>' +
+    // Spacer
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="14" style="font-size:1px;line-height:1px;">&nbsp;</td></tr></table>' +
+    // Contact + wordmark row
+    '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>' +
+    '<td valign="top" style="font-family:' + fontStack + ';font-size:12px;font-weight:300;color:' + contactColor + ';line-height:1.8;">' +
+    '<a href="mailto:' + emailText + '" style="color:' + contactColor + ';text-decoration:none;">' + emailText + '</a>' +
+    (phone ? '<br /><a href="tel:' + phone.replace(/[^+\d]/g, '') + '" style="color:' + contactColor + ';text-decoration:none;">' + phone + '</a>' : '') +
+    (socialIcons ? '<table cellpadding="0" cellspacing="0" border="0" style="padding-top:6px;"><tr>' + socialIcons + '</tr></table>' : '') +
     '</td>' +
-    '<td style="vertical-align:bottom;text-align:right;' + bg + '" ' + bgAttr + '>' +
-    '<span style="font-family:\'Lora\',Georgia,serif;font-size:14px;font-weight:400;line-height:1;letter-spacing:-0.3px;">' +
+    '<td valign="bottom" align="right" style="font-family:' + serifStack + ';font-size:14px;font-weight:400;line-height:1;letter-spacing:-0.3px;">' +
     '<span style="color:' + revColor + ';">RevWhisper</span>' +
-    '</span>' +
     '</td>' +
     '</tr></table>' +
-    '</td></tr>' +
-    '</table>' +
-    '</td></tr></table>' +
-    '</td></tr></table>' +
-    '</td></tr></table>';
+    '</td>' +
+    '</tr></table>';
 
   return { html: html, fileName: fileName };
 }
